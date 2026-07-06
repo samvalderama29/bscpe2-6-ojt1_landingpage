@@ -360,9 +360,7 @@ body {
     width: 20px;
 }
 
-.social-links a[aria-label="GitHub"] img {
-    filter: brightness(0) saturate(100%) invert(13%) sepia(0%) saturate(1%) hue-rotate(180deg) brightness(98%) contrast(92%);
-}
+
 
 /* ---------- Responsive: Tablet ---------- */
 @media (max-width: 1024px) {
