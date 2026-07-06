@@ -1,66 +1,589 @@
-/* directory page navbar */
-header {
+/* =============================================
+   STUDENT DIRECTORY — style_directory.css
+   Matches Figma designs for:
+   - Student Directory Face (6144-1324)
+   - Letter Overlay (6146-1470)
+   ============================================= */
+
+/* ---------- Reset & Base ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Google Sans Flex', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    background: transparent;
+    background: #ffffff;
+    height: 134px;
+    padding: 0 56px;
+    z-index: 100;
+    flex-shrink: 0;
 }
 
-.logo-section {
-    font-weight: bold;
-    font-size: 1.5rem;
-    color: #1a2a6c;
+.nav-links-left {
+    display: flex;
+    gap: 40px;
+    z-index: 2;
 }
 
-nav a {
-    margin-left: 30px;
+.nav-links-right {
+    z-index: 2;
+}
+
+.navbar a {
     text-decoration: none;
-    color: #333;
-    font-weight: 500;
+    font-family: 'Google Sans Flex', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: #163842;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease, opacity 0.3s ease;
 }
 
-/* directory page main */
-main {
+.navbar a:hover {
+    opacity: 0.7;
+}
+
+.navbar a.active {
+    color: #1947bd;
+}
+
+.navbar-logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.navbar-logo img {
+    max-height: 118px;
+    width: auto;
+    display: block;
+}
+
+/* ---------- Main Directory Page ---------- */
+.directory-page {
     flex: 1;
+    position: relative;
+    background: linear-gradient(to bottom, #a5b2c8, #060e1c);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 20px;
+    padding: 30px 0 60px;
+    min-height: calc(100vh - 134px);
+    overflow: hidden;
 }
 
-h1 {
-    font-size: 3.5rem;
-    color: #000;
+/* Grid perspective background overlay */
+.grid-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.15;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    transform: perspective(500px) rotateX(30deg);
+    transform-origin: center top;
+}
+
+/* ---------- Letter Filter Button ---------- */
+.letter-filter-btn {
+    position: relative;
+    align-self: flex-start;
+    margin-left: 56px;
     margin-bottom: 10px;
-}
-
-h3 {
-    font-size: 1.5rem;
-    color: #2c3e50;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    max-width: 600px;
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
-
-/* button design */
-button {
-    padding: 12px 30px;
-    background-color: #1a2a6c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
+    padding: 10px 32px;
+    background: rgba(99, 131, 156, 0.21);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 999px;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
     cursor: pointer;
-    transition: 0.3s;
+    box-shadow:
+        0px 2px 4px 0px rgba(136, 144, 194, 0.2),
+        0px 5px 15px 0px rgba(37, 44, 97, 0.15);
+    transition: background 0.3s ease, transform 0.2s ease;
+    z-index: 10;
+    white-space: nowrap;
 }
 
-button:hover {
-    background-color: #0d1a45;
+.letter-filter-btn:hover {
+    background: rgba(99, 131, 156, 0.4);
+    transform: scale(1.03);
+}
+
+/* ---------- Current Letter Indicator ---------- */
+.current-letter {
+    font-family: 'Google Sans Flex', sans-serif;
+    font-weight: 600;
+    font-size: 96px;
+    color: #1947bd;
+    text-align: center;
+    text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    z-index: 10;
+    user-select: none;
+}
+
+/* ---------- Student Cards Area ---------- */
+.cards-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 80px;
+    flex: 1;
+    z-index: 10;
+}
+
+.cards-container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.student-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 280px;
+    flex-shrink: 0;
+    animation: cardFadeIn 0.4s ease;
+}
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-image-wrapper {
+    width: 280px;
+    height: 400px;
+    background: #ffffff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow:
+        8px 8px 20px rgba(0, 0, 0, 0.3),
+        -2px -2px 10px rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-image-wrapper:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        10px 12px 28px rgba(0, 0, 0, 0.4),
+        -2px -2px 14px rgba(255, 255, 255, 0.08);
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-name {
+    margin-top: 16px;
+    font-family: 'Google Sans Code', monospace;
+    font-weight: 300;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 1.5;
+    max-width: 242px;
+    word-break: break-word;
+}
+
+/* Empty state when no students for a letter */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    animation: cardFadeIn 0.4s ease;
+}
+
+.empty-state p {
+    font-family: 'Google Sans Code', monospace;
+    font-weight: 300;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+
+/* ---------- Navigation Arrows ---------- */
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 61px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(99, 131, 156, 0.21);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 999px;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    cursor: pointer;
+    box-shadow:
+        0px 2px 4px 0px rgba(136, 144, 194, 0.2),
+        0px 5px 15px 0px rgba(37, 44, 97, 0.15);
+    transition: background 0.3s ease, transform 0.2s ease;
+    z-index: 20;
+    user-select: none;
+    line-height: 1;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+}
+
+.nav-arrow:hover {
+    background: rgba(99, 131, 156, 0.4);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.nav-arrow.left {
+    left: 10px;
+}
+
+.nav-arrow.right {
+    right: 10px;
+}
+
+.nav-arrow.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ---------- Letter Overlay ---------- */
+.letter-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.letter-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.letter-panel {
+    width: 280px;
+    background: linear-gradient(to bottom, #323a46, #1b1e22);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.letter-overlay.active .letter-panel {
+    transform: scale(1);
+}
+
+.letter-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.letter-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 0;
+    font-family: 'Google Sans Code', monospace;
+    font-weight: 300;
+    font-size: 20px;
+    color: #ffffff;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.2s ease;
+    user-select: none;
+}
+
+.letter-cell:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.letter-cell.active-letter {
+    background: rgba(25, 71, 189, 0.3);
+    color: #6fa8ff;
+}
+
+.letter-cell.disabled {
+    opacity: 0.3;
+    cursor: default;
+    pointer-events: none;
+}
+
+/* Remove bottom border from last row */
+.letter-cell:nth-last-child(-n+2) {
+    border-bottom: none;
+}
+
+/* ---------- Responsive: Tablet ---------- */
+@media (max-width: 1024px) {
+    .navbar {
+        height: 100px;
+        padding: 0 30px;
+    }
+
+    .navbar a {
+        font-size: 16px;
+    }
+
+    .navbar-logo img {
+        max-height: 80px;
+    }
+
+    .directory-page {
+        min-height: calc(100vh - 100px);
+        padding: 20px 0 40px;
+    }
+
+    .current-letter {
+        font-size: 72px;
+    }
+
+    .letter-filter-btn {
+        margin-left: 30px;
+        font-size: 16px;
+        padding: 8px 24px;
+    }
+
+    .cards-container {
+        gap: 24px;
+    }
+
+    .student-card {
+        width: 220px;
+    }
+
+    .card-image-wrapper {
+        width: 220px;
+        height: 320px;
+    }
+
+    .card-name {
+        font-size: 16px;
+    }
+
+    .nav-arrow {
+        width: 50px;
+        height: 45px;
+        font-size: 24px;
+    }
+}
+
+/* ---------- Responsive: Mobile ---------- */
+@media (max-width: 768px) {
+    .navbar {
+        height: 80px;
+        padding: 0 20px;
+    }
+
+    .nav-links-left {
+        gap: 16px;
+    }
+
+    .navbar a {
+        font-size: 12px;
+    }
+
+    .navbar-logo img {
+        max-height: 60px;
+    }
+
+    .directory-page {
+        min-height: calc(100vh - 80px);
+        padding: 16px 0 30px;
+    }
+
+    .current-letter {
+        font-size: 56px;
+        margin-bottom: 12px;
+    }
+
+    .letter-filter-btn {
+        margin-left: 20px;
+        font-size: 14px;
+        padding: 6px 20px;
+    }
+
+    .cards-section {
+        padding: 0 60px;
+    }
+
+    .cards-container {
+        gap: 16px;
+    }
+
+    .student-card {
+        width: 180px;
+    }
+
+    .card-image-wrapper {
+        width: 180px;
+        height: 260px;
+    }
+
+    .card-name {
+        font-size: 14px;
+        max-width: 180px;
+    }
+
+    .nav-arrow {
+        width: 44px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .letter-panel {
+        width: 240px;
+    }
+
+    .letter-cell {
+        font-size: 16px;
+        padding: 10px 0;
+    }
+}
+
+/* ---------- Responsive: Small Mobile ---------- */
+@media (max-width: 480px) {
+    .navbar {
+        height: 64px;
+        padding: 0 12px;
+    }
+
+    .nav-links-left {
+        gap: 8px;
+    }
+
+    .navbar a {
+        font-size: 10px;
+        letter-spacing: 0;
+    }
+
+    .navbar-logo img {
+        max-height: 44px;
+    }
+
+    .directory-page {
+        min-height: calc(100vh - 64px);
+        padding: 12px 0 24px;
+    }
+
+    .current-letter {
+        font-size: 44px;
+        margin-bottom: 8px;
+    }
+
+    .letter-filter-btn {
+        margin-left: 12px;
+        font-size: 12px;
+        padding: 5px 16px;
+    }
+
+    .cards-section {
+        padding: 0 50px;
+    }
+
+    .cards-container {
+        gap: 12px;
+    }
+
+    /* Show only 1 card on very small screens */
+    .student-card {
+        width: 200px;
+    }
+
+    .card-image-wrapper {
+        width: 200px;
+        height: 290px;
+    }
+
+    .card-name {
+        font-size: 13px;
+        max-width: 200px;
+    }
+
+    .nav-arrow {
+        width: 38px;
+        height: 36px;
+        font-size: 18px;
+    }
+
+    .nav-arrow.left {
+        left: 4px;
+    }
+
+    .nav-arrow.right {
+        right: 4px;
+    }
+
+    .letter-panel {
+        width: 220px;
+    }
+
+    .letter-cell {
+        font-size: 14px;
+        padding: 8px 0;
+    }
 }
