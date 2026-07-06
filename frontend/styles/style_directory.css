@@ -152,8 +152,8 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 100%;
-    padding: 0 100px; /* Room for arrows at the outer edges */
+    max-width: 1370px;
+    padding: 0 115px;
     flex: 1;
     z-index: 10;
 }
@@ -321,11 +321,11 @@ body {
 }
 
 .nav-arrow.left {
-    left: 24px;
+    left: 10px;
 }
 
 .nav-arrow.right {
-    right: 24px;
+    right: 10px;
 }
 
 .nav-arrow.hidden {
