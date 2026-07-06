@@ -34,10 +34,17 @@
     <!-- ========== MAIN DIRECTORY ========== -->
     <main class="directory-page" id="directory-page">
 
-        <!-- Letter filter button -->
-        <button class="letter-filter-btn" id="letter-filter-btn" type="button" aria-label="Filter students by letter">
-            NAMES: A-Z
-        </button>
+        <!-- Letter filter dropdown -->
+        <div class="filter-dropdown" id="filter-dropdown">
+            <button class="letter-filter-btn" id="letter-filter-btn" type="button" aria-label="Filter students by letter">
+                NAMES: A-Z
+            </button>
+            <div class="letter-panel" id="letter-panel">
+                <div class="letter-grid" id="letter-grid">
+                    <!-- Letter cells rendered by JS -->
+                </div>
+            </div>
+        </div>
 
         <!-- Current letter indicator -->
         <div class="current-letter" id="current-letter" aria-live="polite">A</div>
@@ -96,14 +103,7 @@
         </div>
     </footer>
 
-    <!-- ========== LETTER OVERLAY ========== -->
-    <div class="letter-overlay" id="letter-overlay" role="dialog" aria-modal="true" aria-label="Select a letter to filter students">
-        <div class="letter-panel" id="letter-panel">
-            <div class="letter-grid" id="letter-grid">
-                <!-- Letter cells rendered by JS -->
-            </div>
-        </div>
-    </div>
+
 
     <!-- Student data (hidden, used as data source) -->
     <!--

@@ -91,7 +91,7 @@ const cardsContainer = document.getElementById("cards-container");
 const arrowLeft = document.getElementById("arrow-left");
 const arrowRight = document.getElementById("arrow-right");
 const letterFilterBtn = document.getElementById("letter-filter-btn");
-const letterOverlay = document.getElementById("letter-overlay");
+const filterDropdown = document.getElementById("filter-dropdown");
 const letterGrid = document.getElementById("letter-grid");
 
 // =============================================
@@ -209,7 +209,7 @@ function buildLetterGrid() {
                 currentLetter = letter;
                 currentPage = 0;
                 render();
-                closeOverlay();
+                closeDropdown();
             });
         }
 
@@ -218,40 +218,45 @@ function buildLetterGrid() {
 }
 
 /**
- * Open the letter overlay.
+ * Open the letter dropdown.
  */
-function openOverlay() {
+function openDropdown() {
     buildLetterGrid();
-    letterOverlay.classList.add("active");
-    document.body.style.overflow = "hidden";
+    filterDropdown.classList.add("active");
 }
 
 /**
- * Close the letter overlay.
+ * Close the letter dropdown.
  */
-function closeOverlay() {
-    letterOverlay.classList.remove("active");
-    document.body.style.overflow = "";
+function closeDropdown() {
+    filterDropdown.classList.remove("active");
 }
 
 // =============================================
 // EVENT LISTENERS
 // =============================================
 
-// Filter button opens overlay
-letterFilterBtn.addEventListener("click", openOverlay);
-
-// Clicking backdrop closes overlay
-letterOverlay.addEventListener("click", (e) => {
-    if (e.target === letterOverlay) {
-        closeOverlay();
+// Toggle dropdown on button click (stop propagation to prevent immediately closing)
+letterFilterBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (filterDropdown.classList.contains("active")) {
+        closeDropdown();
+    } else {
+        openDropdown();
     }
 });
 
-// Escape key closes overlay
+// Close dropdown when clicking anywhere else outside of it
+document.addEventListener("click", (e) => {
+    if (!filterDropdown.contains(e.target)) {
+        closeDropdown();
+    }
+});
+
+// Escape key closes dropdown
 document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && letterOverlay.classList.contains("active")) {
-        closeOverlay();
+    if (e.key === "Escape" && filterDropdown.classList.contains("active")) {
+        closeDropdown();
     }
 });
 
