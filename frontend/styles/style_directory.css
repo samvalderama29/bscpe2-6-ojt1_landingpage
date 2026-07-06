@@ -98,7 +98,7 @@ body {
     align-items: center;
     padding: 10px 0 30px;
     min-height: calc(100vh - 134px);
-    overflow: hidden;
+    overflow: visible;
 }
 
 /* ---------- Letter Filter Dropdown ---------- */
@@ -165,7 +165,8 @@ body {
     justify-content: center;
     align-items: flex-start;
     flex: 1;                /* Fill space between the two arrows */
-    overflow: hidden;       /* Clip card shadow bleed at edges — matches Figma intent */
+    min-width: 0;
+    overflow: visible;
     /* No negative gap — overlap is done via margin-left on sibling cards below */
 }
 
