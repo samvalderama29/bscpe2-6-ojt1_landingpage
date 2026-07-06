@@ -7,8 +7,42 @@
    ============================================= */
 
 /* ---------- Reset & Base Resets (Safeguard) ---------- */
-.navbar, .footer, .mobile-drawer {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Google Sans Flex', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    background: 
+        url('../../assets/grid_perspective.svg') no-repeat center top / cover,
+        linear-gradient(to bottom, #a5b2c8 0%, #060e1c 100%);
+}
+
+/* ---------- Main Content Area (Blank by Default) ---------- */
+.main-content {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0 60px;
+    min-height: calc(100vh - 134px);
+    overflow: hidden;
 }
 
 /* ---------- Navbar ---------- */
@@ -353,6 +387,11 @@
     .footer-nav {
         gap: 40px;
     }
+
+    .main-content {
+        min-height: calc(100vh - 100px);
+        padding: 20px 0 40px;
+    }
 }
 
 /* ---------- Responsive: Mobile ---------- */
@@ -381,6 +420,11 @@
 
     .hamburger-btn {
         display: block;
+    }
+
+    .main-content {
+        min-height: calc(100vh - 80px);
+        padding: 16px 0 30px;
     }
 
     .footer-container {
@@ -434,5 +478,10 @@
     .footer-nav {
         flex-direction: column;
         gap: 20px;
+    }
+
+    .main-content {
+        min-height: calc(100vh - 64px);
+        padding: 12px 0 24px;
     }
 }
