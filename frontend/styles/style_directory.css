@@ -28,7 +28,7 @@ body {
     min-height: 100vh;
     position: relative;
     background: 
-        url('../../assets/grid_perspective.svg') no-repeat center top / cover,
+        url('../../assets/backgrounds/grid_perspective.svg') no-repeat center top / cover,
         linear-gradient(to bottom, #a5b2c8 0%, #060e1c 100%);
 }
 

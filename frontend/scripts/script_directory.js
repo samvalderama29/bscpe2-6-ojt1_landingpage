@@ -137,7 +137,7 @@ function renderCards() {
 
             card.innerHTML = `
                 <div class="card-image-wrapper">
-                    <img src="../assets/img_holder.jpg" alt="Photo of ${name}">
+                    <img src="../assets/placeholders/img_holder.jpg" alt="Photo of ${name}">
                 </div>
                 <p class="card-name">${name}</p>
             `;
