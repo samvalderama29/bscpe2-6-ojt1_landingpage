@@ -108,7 +108,7 @@ const closeDrawerBtn = document.getElementById("close-drawer-btn");
  * Get how many cards to show based on viewport width.
  */
 function getCardsPerPage() {
-    if (window.innerWidth <= 480) return 1;
+    if (window.innerWidth <= 576) return 1;
     if (window.innerWidth <= 768) return 2;
     return CARDS_PER_PAGE;
 }
@@ -137,7 +137,7 @@ function renderCards() {
 
             card.innerHTML = `
                 <div class="card-image-wrapper">
-                    <img src="../assets/placeholders/img_holder.jpg" alt="Photo of ${name}">
+                    <img class="student-photo" src="../assets/placeholders/img_holder.jpg" alt="Photo of ${name}">
                 </div>
                 <p class="card-name">${name}</p>
             `;
@@ -334,3 +334,19 @@ document.addEventListener("keydown", (e) => {
 // INITIAL RENDER
 // =============================================
 render();
+
+// Re-render cards on window resize to update visible count dynamically
+let resizeTimeout;
+window.addEventListener("resize", () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        const studentsForLetter = studentsByLetter[currentLetter] || [];
+        const perPage = getCardsPerPage();
+        const maxPage = Math.max(0, Math.ceil(studentsForLetter.length / perPage) - 1);
+        if (currentPage > maxPage) {
+            currentPage = maxPage;
+        }
+        renderCards();
+    }, 100);
+});
+

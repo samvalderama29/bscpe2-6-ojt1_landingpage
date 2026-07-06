@@ -96,7 +96,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px 0 60px;
+    padding: 10px 0 30px;
     min-height: calc(100vh - 134px);
     overflow: hidden;
 }
@@ -137,15 +137,14 @@ body {
     font-family: 'Google Sans Flex', sans-serif;
     font-weight: 600;
     font-size: 96px;
-    line-height: 1.5;
+    line-height: 1.0;
     color: #1947bd;
     text-align: center;
     text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
     letter-spacing: 3px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     z-index: 10;
     user-select: none;
-    mix-blend-mode: multiply;
 }
 
 /* ---------- Student Cards Area ---------- */
@@ -163,7 +162,7 @@ body {
 
 .cards-container {
     display: flex;
-    gap: 150px; /* Increased to mimic Figma layout */
+    gap: -140px; /* Overlap cards to match Figma spacing exactly */
     justify-content: center;
     align-items: flex-start;
     width: 100%;
@@ -172,9 +171,10 @@ body {
 .student-card {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 280px;
+    align-items: flex-start; /* Left-align because card face is offset within 582px box */
+    width: 582px;
     flex-shrink: 0;
+    position: relative; /* Binds absolute positioned children like card-name */
     animation: cardFadeIn 0.4s ease;
 }
 
@@ -192,44 +192,11 @@ body {
 
 .card-image-wrapper {
     position: relative;
-    width: 280px;
-    height: 400px;
-    background: url('../assets/backgrounds/frame_main_ractangle_sd.png') no-repeat center / 100% 100%;
-    padding: 10px; /* Inset photo within the card frame */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: visible; /* Allow pseudo-elements to show outside */
+    width: 582px;
+    height: 573px;
+    background: url('../../assets/backgrounds/frame_main_ractangle_sd.png') no-repeat center / 100% 100%;
+    overflow: visible;
     transition: transform 0.3s ease;
-}
-
-/* Left 3D thickness (oblique spine) */
-.card-image-wrapper::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -8px; /* Thickness of the card */
-    width: 8px;
-    height: 100%;
-    background: url('../assets/backgrounds/sideframe_rectangle_sd.png') no-repeat center / 100% 100%;
-    z-index: 1;
-}
-
-/* Shadow behind both the card and the left thickness */
-.card-image-wrapper::after {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: -8px;
-    width: calc(100% + 8px);
-    height: 100%;
-    background: transparent;
-    border-radius: 2px;
-    box-shadow:
-        -16px 20px 32px rgba(0, 0, 0, 0.45),
-        -6px 8px 14px rgba(0, 0, 0, 0.25);
-    z-index: -1;
-    transition: box-shadow 0.3s ease;
 }
 
 /* Center card appears slightly larger / more forward */
@@ -237,39 +204,32 @@ body {
     transform: scale(1.05);
 }
 
-.student-card.center-card .card-image-wrapper::after {
-    box-shadow:
-        -20px 24px 38px rgba(0, 0, 0, 0.5),
-        -8px 10px 18px rgba(0, 0, 0, 0.3);
-}
-
 .card-image-wrapper:hover {
     transform: translateY(-6px);
 }
 
-.card-image-wrapper:hover::after {
-    box-shadow:
-        -20px 26px 40px rgba(0, 0, 0, 0.5),
-        -8px 12px 20px rgba(0, 0, 0, 0.3);
-}
-
-.card-image-wrapper img {
-    width: 100%;
-    height: 100%;
+.student-photo {
+    position: absolute;
+    left: 165px;
+    top: 91px;
+    width: 270px;
+    height: 398px;
     object-fit: cover;
     display: block;
     border-radius: 2px;
 }
 
 .card-name {
-    margin-top: 16px;
+    position: absolute;
+    top: 523px; /* Positioned exactly on top of shadow area, matching Figma top-[806px] offset */
+    left: 165px;
+    width: 270px;
     font-family: 'Google Sans Code', monospace;
     font-weight: 300;
     font-size: 20px;
     color: #ffffff;
     text-align: center;
     line-height: 1.5;
-    max-width: 242px;
     word-break: break-word;
 }
 
@@ -689,20 +649,31 @@ body {
     }
 
     .cards-container {
-        gap: 80px; /* Increased to match Figma proportion */
+        gap: -100px; /* Overlapping cards scaled down */
     }
 
     .student-card {
-        width: 220px;
+        width: 407px;
+        align-items: flex-start;
     }
 
     .card-image-wrapper {
-        width: 220px;
-        height: 320px;
+        width: 407px;
+        height: 401px;
+    }
+
+    .student-photo {
+        left: 116px;
+        top: 64px;
+        width: 189px;
+        height: 279px;
     }
 
     .card-name {
         font-size: 16px;
+        width: 189px;
+        left: 116px;
+        top: 366px; /* 523 * 0.7 */
     }
 
     .nav-arrow {
@@ -770,21 +741,32 @@ body {
     }
 
     .cards-container {
-        gap: 30px; /* Increased to match Figma proportion */
+        gap: 30px; /* Single or stacked layout gap */
     }
 
     .student-card {
-        width: 180px;
+        width: 291px;
+        align-items: flex-start;
     }
 
     .card-image-wrapper {
-        width: 180px;
-        height: 260px;
+        width: 291px;
+        height: 286px;
+    }
+
+    .student-photo {
+        left: 82px;
+        top: 46px;
+        width: 135px;
+        height: 199px;
     }
 
     .card-name {
         font-size: 14px;
-        max-width: 180px;
+        width: 135px;
+        left: 82px;
+        top: 261px; /* 523 * 0.5 */
+        max-width: none;
     }
 
     .nav-arrow {
@@ -831,7 +813,7 @@ body {
 }
 
 /* ---------- Responsive: Small Mobile ---------- */
-@media (max-width: 480px) {
+@media (max-width: 576px) {
     .navbar {
         height: 64px;
         padding: 0 12px;
@@ -876,17 +858,28 @@ body {
 
     /* Show only 1 card on very small screens */
     .student-card {
-        width: 200px;
+        width: 233px;
+        align-items: flex-start;
     }
 
     .card-image-wrapper {
-        width: 200px;
-        height: 290px;
+        width: 233px;
+        height: 229px;
+    }
+
+    .student-photo {
+        left: 66px;
+        top: 36px;
+        width: 108px;
+        height: 159px;
     }
 
     .card-name {
-        font-size: 13px;
-        max-width: 200px;
+        font-size: 12px;
+        width: 108px;
+        left: 66px;
+        top: 209px; /* 523 * 0.4 */
+        max-width: none;
     }
 
     .nav-arrow {
