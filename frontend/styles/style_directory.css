@@ -149,23 +149,24 @@ body {
 
 /* ---------- Student Cards Area ---------- */
 .cards-section {
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     max-width: 1370px;
-    padding: 0 115px;
+    padding: 0 16px;
+    gap: 16px;              /* Space between arrow and card container */
     flex: 1;
     z-index: 10;
 }
 
 .cards-container {
     display: flex;
-    gap: -140px; /* Overlap cards to match Figma spacing exactly */
     justify-content: center;
     align-items: flex-start;
-    width: 100%;
+    flex: 1;                /* Fill space between the two arrows */
+    overflow: hidden;       /* Clip card shadow bleed at edges — matches Figma intent */
+    /* No negative gap — overlap is done via margin-left on sibling cards below */
 }
 
 .student-card {
@@ -176,6 +177,11 @@ body {
     flex-shrink: 0;
     position: relative; /* Binds absolute positioned children like card-name */
     animation: cardFadeIn 0.4s ease;
+}
+
+/* Overlap cards: shift each sibling card left to create the stacked 3D look */
+.student-card + .student-card {
+    margin-left: -140px;
 }
 
 @keyframes cardFadeIn {
@@ -253,9 +259,8 @@ body {
 
 /* ---------- Navigation Arrows ---------- */
 .nav-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    /* Flex sibling — NOT absolutely positioned */
+    flex-shrink: 0;
     width: 61px;
     height: 55px;
     display: flex;
@@ -264,7 +269,7 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, opacity 0.2s ease;
     z-index: 20;
     user-select: none;
     padding: 0;
@@ -278,20 +283,13 @@ body {
 }
 
 .nav-arrow:hover {
-    transform: translateY(-50%) scale(1.08);
-}
-
-.nav-arrow.left {
-    left: 10px;
-}
-
-.nav-arrow.right {
-    right: 10px;
+    transform: scale(1.08);
 }
 
 .nav-arrow.hidden {
     opacity: 0;
     pointer-events: none;
+    visibility: hidden; /* Keep space but invisible so layout doesn't shift */
 }
 
 .letter-panel {
@@ -648,38 +646,43 @@ body {
         padding: 8px 24px;
     }
 
-    .cards-container {
-        gap: -100px; /* Overlapping cards scaled down */
+    /* Scale cards down to fit 3 within ~900px container at min 820px viewport */
+    .cards-section {
+        gap: 12px;
+        padding: 0 8px;
     }
 
     .student-card {
-        width: 407px;
+        width: 300px;
         align-items: flex-start;
     }
 
+    .student-card + .student-card {
+        margin-left: -80px;
+    }
+
     .card-image-wrapper {
-        width: 407px;
-        height: 401px;
+        width: 300px;
+        height: 295px;
     }
 
     .student-photo {
-        left: 116px;
-        top: 64px;
-        width: 189px;
-        height: 279px;
+        left: 85px;
+        top: 47px;
+        width: 139px;
+        height: 205px;
     }
 
     .card-name {
-        font-size: 16px;
-        width: 189px;
-        left: 116px;
-        top: 366px; /* 523 * 0.7 */
+        font-size: 13px;
+        width: 139px;
+        left: 85px;
+        top: 269px;
     }
 
     .nav-arrow {
         width: 50px;
         height: 45px;
-        font-size: 24px;
     }
 
     .footer-container,
@@ -689,6 +692,47 @@ body {
 
     .footer-nav {
         gap: 40px;
+    }
+}
+
+/* ---------- Responsive: iPad Air (820px) ---------- */
+@media (max-width: 820px) {
+    /* At exactly 820px viewport, scale cards further so 3 still fit */
+    .cards-section {
+        gap: 10px;
+        padding: 0 6px;
+    }
+
+    .student-card {
+        width: 255px;
+    }
+
+    .student-card + .student-card {
+        margin-left: -65px;
+    }
+
+    .card-image-wrapper {
+        width: 255px;
+        height: 251px;
+    }
+
+    .student-photo {
+        left: 72px;
+        top: 40px;
+        width: 118px;
+        height: 174px;
+    }
+
+    .card-name {
+        font-size: 12px;
+        width: 118px;
+        left: 72px;
+        top: 229px;
+    }
+
+    .nav-arrow {
+        width: 46px;
+        height: 42px;
     }
 }
 
@@ -736,17 +780,20 @@ body {
         padding: 6px 20px;
     }
 
+    /* 2-card layout — positive margin, no overlap */
     .cards-section {
-        padding: 0 60px;
-    }
-
-    .cards-container {
-        gap: 30px; /* Single or stacked layout gap */
+        gap: 12px;
+        padding: 0 8px;
     }
 
     .student-card {
         width: 291px;
         align-items: flex-start;
+    }
+
+    /* Reset overlap — 2 cards sit side by side with a real gap */
+    .student-card + .student-card {
+        margin-left: 20px;
     }
 
     .card-image-wrapper {
@@ -765,14 +812,13 @@ body {
         font-size: 14px;
         width: 135px;
         left: 82px;
-        top: 261px; /* 523 * 0.5 */
+        top: 261px;
         max-width: none;
     }
 
     .nav-arrow {
         width: 44px;
         height: 40px;
-        font-size: 20px;
     }
 
     .letter-panel {
@@ -848,18 +894,20 @@ body {
         padding: 5px 16px;
     }
 
+    /* 1-card layout */
     .cards-section {
-        padding: 0 50px;
+        gap: 8px;
+        padding: 0 4px;
     }
 
-    .cards-container {
-        gap: 12px;
-    }
-
-    /* Show only 1 card on very small screens */
     .student-card {
         width: 233px;
         align-items: flex-start;
+    }
+
+    /* Single card — no sibling overlap needed */
+    .student-card + .student-card {
+        margin-left: 0;
     }
 
     .card-image-wrapper {
@@ -878,22 +926,13 @@ body {
         font-size: 12px;
         width: 108px;
         left: 66px;
-        top: 209px; /* 523 * 0.4 */
+        top: 209px;
         max-width: none;
     }
 
     .nav-arrow {
         width: 38px;
         height: 36px;
-        font-size: 18px;
-    }
-
-    .nav-arrow.left {
-        left: 4px;
-    }
-
-    .nav-arrow.right {
-        right: 4px;
     }
 
     .letter-panel {
