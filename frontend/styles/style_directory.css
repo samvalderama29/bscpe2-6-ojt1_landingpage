@@ -14,7 +14,8 @@
     padding: 0;
 }
 
-html, body {
+html,
+body {
     height: 100%;
     width: 100%;
     overflow-x: hidden;
@@ -103,14 +104,11 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.15;
     pointer-events: none;
-    background-image:
-        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-    background-size: 60px 60px;
-    transform: perspective(500px) rotateX(30deg);
-    transform-origin: center top;
+    background-image: url('../../assets/grid_perspective.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
 }
 
 /* ---------- Letter Filter Button ---------- */
@@ -146,6 +144,7 @@ body {
     font-family: 'Google Sans Flex', sans-serif;
     font-weight: 600;
     font-size: 96px;
+    line-height: 1.5;
     color: #1947bd;
     text-align: center;
     text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
@@ -153,6 +152,7 @@ body {
     margin-bottom: 20px;
     z-index: 10;
     user-select: none;
+    mix-blend-mode: multiply;
 }
 
 /* ---------- Student Cards Area ---------- */
@@ -162,15 +162,15 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 1200px;
-    padding: 0 80px;
+    max-width: 100%;
+    padding: 0 100px; /* Room for arrows at the outer edges */
     flex: 1;
     z-index: 10;
 }
 
 .cards-container {
     display: flex;
-    gap: 40px;
+    gap: 150px; /* Increased to mimic Figma layout */
     justify-content: center;
     align-items: flex-start;
     width: 100%;
@@ -190,6 +190,7 @@ body {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -197,22 +198,64 @@ body {
 }
 
 .card-image-wrapper {
+    position: relative;
     width: 280px;
     height: 400px;
     background: #ffffff;
-    border-radius: 4px;
-    overflow: hidden;
+    border-radius: 2px;
+    overflow: visible; /* Allow pseudo-elements to show outside */
+    transition: transform 0.3s ease;
+}
+
+/* Left 3D thickness (oblique spine) */
+.card-image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -8px; /* Thickness of the card */
+    width: 8px;
+    height: 100%;
+    background: #8e8e8e;
+    border-radius: 2px 0 0 2px;
+    z-index: 1;
+}
+
+/* Shadow behind both the card and the left thickness */
+.card-image-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: -8px;
+    width: calc(100% + 8px);
+    height: 100%;
+    background: transparent;
+    border-radius: 2px;
     box-shadow:
-        8px 8px 20px rgba(0, 0, 0, 0.3),
-        -2px -2px 10px rgba(255, 255, 255, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+        -16px 20px 32px rgba(0, 0, 0, 0.45),
+        -6px 8px 14px rgba(0, 0, 0, 0.25);
+    z-index: -1;
+    transition: box-shadow 0.3s ease;
+}
+
+/* Center card appears slightly larger / more forward */
+.student-card.center-card .card-image-wrapper {
+    transform: scale(1.05);
+}
+
+.student-card.center-card .card-image-wrapper::after {
+    box-shadow:
+        -20px 24px 38px rgba(0, 0, 0, 0.5),
+        -8px 10px 18px rgba(0, 0, 0, 0.3);
 }
 
 .card-image-wrapper:hover {
     transform: translateY(-6px);
+}
+
+.card-image-wrapper:hover::after {
     box-shadow:
-        10px 12px 28px rgba(0, 0, 0, 0.4),
-        -2px -2px 14px rgba(255, 255, 255, 0.08);
+        -20px 26px 40px rgba(0, 0, 0, 0.5),
+        -8px 12px 20px rgba(0, 0, 0, 0.3);
 }
 
 .card-image-wrapper img {
@@ -220,6 +263,7 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
+    border-radius: 2px;
 }
 
 .card-name {
@@ -287,11 +331,11 @@ body {
 }
 
 .nav-arrow.left {
-    left: 10px;
+    left: 24px;
 }
 
 .nav-arrow.right {
-    right: 10px;
+    right: 24px;
 }
 
 .nav-arrow.hidden {
@@ -409,7 +453,7 @@ body {
     }
 
     .cards-container {
-        gap: 24px;
+        gap: 80px; /* Increased to match Figma proportion */
     }
 
     .student-card {
@@ -472,7 +516,7 @@ body {
     }
 
     .cards-container {
-        gap: 16px;
+        gap: 30px; /* Increased to match Figma proportion */
     }
 
     .student-card {
