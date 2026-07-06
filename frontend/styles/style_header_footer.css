@@ -1,0 +1,438 @@
+/* =============================================
+   SHARED HEADER AND FOOTER — style_header_footer.css
+   Matches Figma designs for:
+   - Header & Navbar (6146-1748)
+   - Mobile Nav Drawer (6146-1748)
+   - Footer Section (6146-1748)
+   ============================================= */
+
+/* ---------- Reset & Base Resets (Safeguard) ---------- */
+.navbar, .footer, .mobile-drawer {
+    box-sizing: border-box;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    height: 134px;
+    padding: 0 56px;
+    z-index: 100;
+    flex-shrink: 0;
+}
+
+.nav-links-left {
+    display: flex;
+    gap: 40px;
+    z-index: 2;
+}
+
+.nav-links-right {
+    z-index: 2;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-family: 'Google Sans Flex', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: #163842;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.navbar a:hover {
+    opacity: 0.7;
+}
+
+.navbar a.active {
+    color: #1947bd;
+}
+
+.navbar-logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.navbar-logo img {
+    max-height: 118px;
+    width: auto;
+    display: block;
+}
+
+/* ---------- Mobile Drawer Navigation ---------- */
+.hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 101;
+    transition: opacity 0.2s ease;
+}
+
+.hamburger-btn:hover {
+    opacity: 0.7;
+}
+
+.hamburger-btn img {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.mobile-drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+.mobile-drawer-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobile-drawer {
+    position: fixed;
+    top: 0;
+    right: -280px; /* Hide offscreen */
+    width: 280px;
+    height: 100%;
+    background: #ffffff;
+    box-shadow: -10px 0px 30px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+}
+
+.mobile-drawer.active {
+    right: 0; /* Slide in */
+}
+
+.mobile-drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.drawer-logo img {
+    max-height: 48px;
+    width: auto;
+    display: block;
+}
+
+.close-drawer-btn {
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: #163842;
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px;
+    transition: color 0.2s ease;
+}
+
+.close-drawer-btn:hover {
+    color: #1947bd;
+}
+
+.mobile-drawer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.mobile-drawer-links a {
+    text-decoration: none;
+    font-family: 'Google Sans Flex', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #163842;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+}
+
+.mobile-drawer-links a:hover {
+    color: #1947bd;
+}
+
+.mobile-drawer-links a.active {
+    color: #1947bd;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(238, 238, 238, 0) 0%, #d2d7e2 20%, #d2d7e2 100%);
+    padding: 0 0 40px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+}
+
+.footer-divider {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    margin-bottom: 40px;
+}
+
+.footer-divider-line {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    display: block;
+    opacity: 0.5;
+}
+
+.footer-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 80px;
+}
+
+.footer-col h4 {
+    font-family: 'Google Sans Flex', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #5f6368;
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+    user-select: none;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    font-family: 'Google Sans Flex', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #5f6368;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.footer-col ul li a:hover {
+    opacity: 0.7;
+}
+
+.footer-partner {
+    margin-top: 16px;
+}
+
+.partner-btn {
+    position: relative;
+    padding: 10px 32px;
+    background: linear-gradient(to right, #184399 30%, #3d73e1 47%, #184399 56%);
+    border: none;
+    border-radius: 8px;
+    color: #fafafa;
+    font-family: 'Google Sans Flex', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow:
+        inset 0px -3px 0px 0px rgba(0, 0, 0, 0.2),
+        inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+        0px 4px 10px rgba(24, 67, 153, 0.2);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.partner-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+.footer-bottom {
+    width: 100%;
+    margin-top: 60px;
+}
+
+.footer-bottom-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright {
+    font-family: 'Google Sans Flex', sans-serif;
+    font-weight: 400;
+    font-size: 14.5px;
+    color: #202124;
+    user-select: none;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.social-links a {
+    display: block;
+    transition: opacity 0.2s ease;
+}
+
+.social-links a:hover {
+    opacity: 0.8;
+}
+
+.social-links img {
+    display: block;
+    object-fit: contain;
+    height: 20px;
+    width: 20px;
+}
+
+.social-links a[aria-label="GitHub"] img {
+    filter: brightness(0) saturate(100%) invert(13%) sepia(0%) saturate(1%) hue-rotate(180deg) brightness(98%) contrast(92%);
+}
+
+/* ---------- Responsive: Tablet ---------- */
+@media (max-width: 1024px) {
+    .navbar {
+        height: 100px;
+        padding: 0 30px;
+    }
+
+    .navbar a {
+        font-size: 16px;
+    }
+
+    .navbar-logo img {
+        max-height: 80px;
+    }
+
+    .footer-container,
+    .footer-bottom-container {
+        padding: 0 30px;
+    }
+
+    .footer-nav {
+        gap: 40px;
+    }
+}
+
+/* ---------- Responsive: Mobile ---------- */
+@media (max-width: 768px) {
+    .navbar {
+        height: 80px;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-links-left,
+    .nav-links-right {
+        display: none !important;
+    }
+
+    .navbar-logo {
+        position: static;
+        transform: none;
+    }
+
+    .navbar-logo img {
+        max-height: 50px;
+    }
+
+    .hamburger-btn {
+        display: block;
+    }
+
+    .footer-container {
+        padding: 0 20px;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .footer-nav {
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-partner {
+        margin-top: 0;
+    }
+
+    .footer-bottom-container {
+        padding: 0 20px;
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+
+    .footer-bottom {
+        margin-top: 40px;
+    }
+}
+
+/* ---------- Responsive: Small Mobile ---------- */
+@media (max-width: 480px) {
+    .navbar {
+        height: 64px;
+        padding: 0 12px;
+    }
+
+    .nav-links-left {
+        gap: 8px;
+    }
+
+    .navbar a {
+        font-size: 10px;
+        letter-spacing: 0;
+    }
+
+    .navbar-logo img {
+        max-height: 44px;
+    }
+
+    .footer-nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
