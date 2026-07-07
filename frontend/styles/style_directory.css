@@ -27,7 +27,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     position: relative;
-    background: 
+    background:
         url('../../assets/backgrounds/grid_perspective.svg') no-repeat center top / cover,
         linear-gradient(to bottom, #a5b2c8 0%, #060e1c 100%);
 }
@@ -92,12 +92,15 @@ body {
 .directory-page {
     flex: 1;
     position: relative;
-    background: transparent; /* Transparent to show body's grid & gradient background */
+    background: transparent;
+    /* Transparent to show body's grid & gradient background */
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 0 10px; /* Reduced bottom padding */
-    min-height: calc(100vh - 134px - 100px); /* Peek in 100px of footer */
+    padding: 10px 0 10px;
+    /* Reduced bottom padding */
+    min-height: calc(100vh - 134px - 100px);
+    /* Peek in 100px of footer */
     overflow: visible;
 }
 
@@ -107,7 +110,8 @@ body {
     align-self: flex-start;
     margin-left: 56px;
     margin-bottom: 10px;
-    z-index: 1000; /* Float above everything */
+    z-index: 1000;
+    /* Float above everything */
 }
 
 .letter-filter-btn {
@@ -136,13 +140,15 @@ body {
 .current-letter {
     font-family: 'Google Sans Flex', sans-serif;
     font-weight: 600;
-    font-size: 72px; /* Reduced from 96px to save vertical space */
+    font-size: 72px;
+    /* Reduced from 96px to save vertical space */
     line-height: 1.0;
     color: #1947bd;
     text-align: center;
     text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
     letter-spacing: 3px;
-    margin-bottom: 5px; /* Reduced from 10px to save vertical space */
+    margin-bottom: 5px;
+    /* Reduced from 10px to save vertical space */
     z-index: 10;
     user-select: none;
 }
@@ -155,17 +161,20 @@ body {
     width: 100%;
     max-width: 1370px;
     padding: 0 16px;
-    gap: 16px;              /* Space between arrow and card container */
+    gap: 16px;
+    /* Space between arrow and card container */
     flex: 1;
     z-index: 10;
-    margin-top: -100px;      /* Shift cards up vertically */
+    margin-top: -100px;
+    /* Shift cards up vertically */
 }
 
 .cards-container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    flex: 1;                /* Fill space between the two arrows */
+    flex: 1;
+    /* Fill space between the two arrows */
     min-width: 0;
     overflow: visible;
     /* No negative gap — overlap is done via margin-left on sibling cards below */
@@ -174,15 +183,17 @@ body {
 .student-card {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Left-align because card face is offset within 582px box */
+    align-items: flex-start;
+    /* Left-align because card face is offset within 582px box */
     width: 582px;
     flex-shrink: 0;
-    position: relative; /* Binds absolute positioned children like card-name */
+    position: relative;
+    /* Binds absolute positioned children like card-name */
     animation: cardFadeIn 0.4s ease;
 }
 
 /* Overlap cards: shift each sibling card left to create the stacked 3D look */
-.student-card + .student-card {
+.student-card+.student-card {
     margin-left: -140px;
 }
 
@@ -278,10 +289,12 @@ body {
     justify-content: center;
     font-family: 'Google Sans Code', monospace;
     font-weight: 300;
-    font-size: 18px; /* Slightly reduced from 20px to fit long names */
+    font-size: 18px;
+    /* Slightly reduced from 20px to fit long names */
     color: #ffffff;
     text-align: center;
-    line-height: 1.2; /* Tightened line-height to fit multi-line names */
+    line-height: 1.2;
+    /* Tightened line-height to fit multi-line names */
     word-break: break-word;
 }
 
@@ -335,7 +348,8 @@ body {
 .nav-arrow.hidden {
     opacity: 0;
     pointer-events: none;
-    visibility: hidden; /* Keep space but invisible so layout doesn't shift */
+    visibility: hidden;
+    /* Keep space but invisible so layout doesn't shift */
 }
 
 .letter-panel {
@@ -409,7 +423,8 @@ body {
     z-index: 10;
     display: flex;
     flex-direction: column;
-    margin-top: auto; /* Push to bottom if viewport is tall */
+    margin-top: auto;
+    /* Push to bottom if viewport is tall */
 }
 
 .footer-divider {
@@ -594,7 +609,8 @@ body {
 .mobile-drawer {
     position: fixed;
     top: 0;
-    right: -280px; /* Hide offscreen */
+    right: -280px;
+    /* Hide offscreen */
     width: 280px;
     height: 100%;
     background: #ffffff;
@@ -607,7 +623,8 @@ body {
 }
 
 .mobile-drawer.active {
-    right: 0; /* Slide in */
+    right: 0;
+    /* Slide in */
 }
 
 .mobile-drawer-header {
@@ -703,7 +720,7 @@ body {
         align-items: flex-start;
     }
 
-    .student-card + .student-card {
+    .student-card+.student-card {
         margin-left: -80px;
     }
 
@@ -750,6 +767,7 @@ body {
 
 /* ---------- Responsive: iPad Air (820px) ---------- */
 @media (max-width: 820px) {
+
     /* At exactly 820px viewport, scale cards further so 3 still fit */
     .cards-section {
         gap: 10px;
@@ -760,7 +778,7 @@ body {
         width: 255px;
     }
 
-    .student-card + .student-card {
+    .student-card+.student-card {
         margin-left: -65px;
     }
 
@@ -803,7 +821,8 @@ body {
 
     .nav-links-left,
     .nav-links-right {
-        display: none !important; /* Hide desktop nav menu links */
+        display: none !important;
+        /* Hide desktop nav menu links */
     }
 
     .navbar-logo {
@@ -816,7 +835,8 @@ body {
     }
 
     .hamburger-btn {
-        display: block; /* Show hamburger menu icon */
+        display: block;
+        /* Show hamburger menu icon */
     }
 
     .directory-page {
@@ -847,7 +867,7 @@ body {
     }
 
     /* Reset overlap — 2 cards sit side by side with a real gap */
-    .student-card + .student-card {
+    .student-card+.student-card {
         margin-left: 20px;
     }
 
@@ -963,7 +983,7 @@ body {
     }
 
     /* Single card — no sibling overlap needed */
-    .student-card + .student-card {
+    .student-card+.student-card {
         margin-left: 0;
     }
 
