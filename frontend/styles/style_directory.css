@@ -96,8 +96,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 0 30px;
-    min-height: calc(100vh - 134px);
+    padding: 10px 0 10px; /* Reduced bottom padding */
+    min-height: calc(100vh - 134px - 100px); /* Peek in 100px of footer */
     overflow: visible;
 }
 
@@ -136,13 +136,13 @@ body {
 .current-letter {
     font-family: 'Google Sans Flex', sans-serif;
     font-weight: 600;
-    font-size: 96px;
+    font-size: 72px; /* Reduced from 96px to save vertical space */
     line-height: 1.0;
     color: #1947bd;
     text-align: center;
     text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
     letter-spacing: 3px;
-    margin-bottom: 10px;
+    margin-bottom: 5px; /* Reduced from 10px to save vertical space */
     z-index: 10;
     user-select: none;
 }
@@ -158,6 +158,7 @@ body {
     gap: 16px;              /* Space between arrow and card container */
     flex: 1;
     z-index: 10;
+    margin-top: -100px;      /* Shift cards up vertically */
 }
 
 .cards-container {
@@ -268,15 +269,19 @@ body {
 
 .card-name {
     position: absolute;
-    top: 523px; /* Positioned exactly on top of shadow area, matching Figma top-[806px] offset */
+    top: 495px;
+    bottom: 12px;
     left: 165px;
     width: 270px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: 'Google Sans Code', monospace;
     font-weight: 300;
-    font-size: 20px;
+    font-size: 18px; /* Slightly reduced from 20px to fit long names */
     color: #ffffff;
     text-align: center;
-    line-height: 1.5;
+    line-height: 1.2; /* Tightened line-height to fit multi-line names */
     word-break: break-word;
 }
 
@@ -721,10 +726,11 @@ body {
     }
 
     .card-name {
-        font-size: 13px;
+        font-size: 12px;
         width: 139px;
         left: 85px;
-        top: 269px;
+        top: 252px;
+        bottom: 5px;
     }
 
     .nav-arrow {
@@ -772,10 +778,11 @@ body {
     }
 
     .card-name {
-        font-size: 12px;
+        font-size: 11px;
         width: 118px;
         left: 72px;
-        top: 229px;
+        top: 214px;
+        bottom: 4px;
     }
 
     .nav-arrow {
@@ -858,10 +865,11 @@ body {
     }
 
     .card-name {
-        font-size: 14px;
+        font-size: 12px;
         width: 135px;
         left: 82px;
-        top: 261px;
+        top: 245px;
+        bottom: 5px;
         max-width: none;
     }
 
@@ -978,10 +986,11 @@ body {
     }
 
     .card-name {
-        font-size: 12px;
+        font-size: 10px;
         width: 108px;
         left: 66px;
-        top: 209px;
+        top: 195px;
+        bottom: 4px;
         max-width: none;
     }
 
