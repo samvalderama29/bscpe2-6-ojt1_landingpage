@@ -101,19 +101,6 @@ body {
     overflow: hidden;
 }
 
-.top-blur-transition {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    background: linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0.4) 40%, transparent 100%);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    z-index: 24;
-    pointer-events: none;
-}
-
 /* ---------- Letter Filter Dropdown ---------- */
 .filter-dropdown {
     position: relative;
@@ -538,7 +525,7 @@ body {
 /* ---------- Footer ---------- */
 .footer {
     width: 100%;
-    background: linear-gradient(to bottom, #060e1c, #03070f);
+    background: #d2d7e2;
     padding: 0 0 40px;
     z-index: 10;
     display: flex;
@@ -560,8 +547,7 @@ body {
     max-width: 1200px;
     height: auto;
     display: block;
-    opacity: 0.15;
-    filter: invert(1);
+    opacity: 0.5;
 }
 
 .footer-container {
@@ -583,7 +569,7 @@ body {
     font-family: 'Google Sans Flex', sans-serif;
     font-weight: 700;
     font-size: 16px;
-    color: #ffffff;
+    color: #5f6368;
     margin-bottom: 16px;
     letter-spacing: 0.5px;
     user-select: none;
@@ -607,7 +593,7 @@ body {
     font-family: 'Google Sans Flex', sans-serif;
     font-weight: 700;
     font-size: 16px;
-    color: #ffffff;
+    color: #5f6368;
     letter-spacing: 0.5px;
     user-select: none;
     margin: 0;
@@ -617,7 +603,7 @@ body {
     font-family: 'Google Sans Flex', sans-serif;
     font-weight: 400;
     font-size: 14px;
-    color: #cbd5e1;
+    color: #5f6368;
     line-height: 1.5;
     max-width: 280px;
     margin: 0;
@@ -637,13 +623,13 @@ body {
     font-family: 'Google Sans Flex', sans-serif;
     font-weight: 400;
     font-size: 16px;
-    color: #cbd5e1;
+    color: #5f6368;
     text-decoration: none;
-    transition: color 0.2s ease, opacity 0.2s ease;
+    transition: opacity 0.2s ease;
 }
 
 .footer-col ul li a:hover {
-    color: #6fa8ff;
+    opacity: 0.7;
 }
 
 .footer-partner {
@@ -694,7 +680,7 @@ body {
     font-family: 'Google Sans Flex', sans-serif;
     font-weight: 400;
     font-size: 14.5px;
-    color: #94a3b8;
+    color: #202124;
     user-select: none;
 }
 
@@ -706,6 +692,11 @@ body {
 
 .social-links a {
     display: block;
+    transition: opacity 0.2s ease;
+}
+
+.social-links a:hover {
+    opacity: 0.8;
 }
 
 .social-links img {
@@ -713,12 +704,6 @@ body {
     object-fit: contain;
     height: 20px;
     width: 20px;
-    opacity: 0.75;
-    transition: opacity 0.2s ease;
-}
-
-.social-links a:hover img {
-    opacity: 1;
 }
 
 
