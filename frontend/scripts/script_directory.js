@@ -1,6 +1,7 @@
 /*
  * Student Directory — script_directory.js
- * Handles student data, card rendering, pagination, and letter overlay.
+ * Handles student data, card rendering, carousel navigation, letter filter,
+ * touch/swipe gestures, and mobile nav drawer.
  */
 
 // =============================================
@@ -265,7 +266,7 @@ const students = [
 ];
 
 // =============================================
-// GROUP STUDENTS BY FIRST LETTER OF LAST NAME
+// GROUP STUDENTS BY FIRST LETTER OF LAST NAME (For Letter Overlay)
 // =============================================
 const studentsByLetter = {};
 
@@ -284,9 +285,8 @@ const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 // =============================================
 // STATE
 // =============================================
-let currentLetter = "A";
-let currentPage = 0;
-const CARDS_PER_PAGE = 3;
+let currentIndex = 0; // Index of the centered student in the global students array
+let isAnimating = false; // Prevent rapid clicks during transition
 
 // =============================================
 // DOM REFERENCES
@@ -306,98 +306,218 @@ const mobileDrawerOverlay = document.getElementById("mobile-drawer-overlay");
 const closeDrawerBtn = document.getElementById("close-drawer-btn");
 
 // =============================================
+// HELPERS
+// =============================================
+function wrapIndex(index, length) {
+    if (length <= 0) return 0;
+    return ((index % length) + length) % length;
+}
+
+function getCurrentLetter() {
+    const student = students[currentIndex];
+    return student ? student.name.charAt(0).toUpperCase() : "A";
+}
+
+// =============================================
+// RENDERING
+// =============================================
+
+// =============================================
 // RENDERING
 // =============================================
 
 /**
- * Get how many cards to show based on viewport width.
+ * Create a single student card DOM element.
  */
-function getCardsPerPage() {
-    if (window.innerWidth <= 576) return 1;
-    if (window.innerWidth <= 768) return 2;
-    return CARDS_PER_PAGE;
+function createCardElement(student) {
+    const isObject = typeof student === "object" && student !== null;
+    const name = isObject ? student.name : student;
+    const photo = (isObject && student.photo) ? student.photo : "../assets/placeholders/img_holder.jpg";
+    const portfolio = (isObject && student.portfolio) ? student.portfolio : "";
+
+    const card = document.createElement("div");
+    card.className = "student-card card-hidden";
+
+    card.innerHTML = `
+        <div class="card-image-wrapper">
+            <img class="student-photo" src="${photo}" alt="Photo of ${name}">
+            ${portfolio && portfolio !== "#" ? `
+                <a href="${portfolio}" target="_blank" class="portfolio-overlay" aria-label="View portfolio of ${name}">
+                    <span class="portfolio-text">VIEW PORTFOLIO</span>
+                </a>
+            ` : ""}
+        </div>
+        <p class="card-name">${name}</p>
+    `;
+
+    return card;
 }
 
 /**
- * Render student cards for the current letter and page.
+ * Initialize all student cards in the DOM container once.
  */
-function renderCards() {
-    const studentsForLetter = studentsByLetter[currentLetter] || [];
-    const perPage = getCardsPerPage();
-    const startIndex = currentPage * perPage;
-    const visibleStudents = studentsForLetter.slice(startIndex, startIndex + perPage);
-
+function initCarousel() {
     cardsContainer.innerHTML = "";
+    students.forEach((student, index) => {
+        const card = createCardElement(student);
+        card.setAttribute("data-index", index);
+        cardsContainer.appendChild(card);
+    });
+    updateCardClasses();
+}
 
-    if (studentsForLetter.length === 0) {
-        const emptyDiv = document.createElement("div");
-        emptyDiv.className = "empty-state";
-        emptyDiv.innerHTML = `<p>No students with last name starting with "${currentLetter}"</p>`;
-        cardsContainer.appendChild(emptyDiv);
-    } else {
-        visibleStudents.forEach((student, index) => {
-            const isObject = typeof student === "object" && student !== null;
-            const name = isObject ? student.name : student;
-            const photo = (isObject && student.photo) ? student.photo : "../assets/placeholders/img_holder.jpg";
-            const portfolio = (isObject && student.portfolio) ? student.portfolio : "";
+/**
+ * Update the CSS classes of all cards in the DOM to transition them.
+ */
+function updateCardClasses() {
+    const total = students.length;
+    const cards = cardsContainer.querySelectorAll(".student-card");
 
-            const card = document.createElement("div");
-            card.className = "student-card";
-            card.style.animationDelay = `${index * 0.1}s`;
-
-            card.innerHTML = `
-                <div class="card-image-wrapper">
-                    <img class="student-photo" src="${photo}" alt="Photo of ${name}">
-                    ${portfolio && portfolio !== "#" ? `
-                        <a href="${portfolio}" target="_blank" class="portfolio-overlay" aria-label="View portfolio of ${name}">
-                            <span class="portfolio-text">VIEW PORTFOLIO</span>
-                        </a>
-                    ` : ""}
-                </div>
-                <p class="card-name">${name}</p>
-            `;
-
-            cardsContainer.appendChild(card);
-        });
+    if (total === 0) {
+        cardsContainer.innerHTML = `<div class="empty-state"><p>No students available</p></div>`;
+        arrowLeft.classList.add("hidden");
+        arrowRight.classList.add("hidden");
+        return;
     }
 
-    updateArrows();
+    if (total <= 1) {
+        arrowLeft.classList.add("hidden");
+        arrowRight.classList.add("hidden");
+    } else {
+        arrowLeft.classList.remove("hidden");
+        arrowRight.classList.remove("hidden");
+    }
+
+    const centerIdx = wrapIndex(currentIndex, total);
+    const leftIdx = wrapIndex(currentIndex - 1, total);
+    const rightIdx = wrapIndex(currentIndex + 1, total);
+    const farLeftIdx = wrapIndex(currentIndex - 2, total);
+    const farRightIdx = wrapIndex(currentIndex + 2, total);
+    const exitLeftIdx = wrapIndex(currentIndex - 3, total);
+    const exitRightIdx = wrapIndex(currentIndex + 3, total);
+
+    cards.forEach((card, idx) => {
+        card.className = "student-card"; // Reset position classes
+
+        if (idx === centerIdx) {
+            card.classList.add("card-center");
+        } else if (idx === leftIdx) {
+            card.classList.add("card-left");
+        } else if (idx === rightIdx) {
+            card.classList.add("card-right");
+        } else if (idx === farLeftIdx) {
+            card.classList.add("card-far-left");
+        } else if (idx === farRightIdx) {
+            card.classList.add("card-far-right");
+        } else if (idx === exitLeftIdx) {
+            card.classList.add("card-exit-left");
+        } else if (idx === exitRightIdx) {
+            card.classList.add("card-exit-right");
+        } else {
+            card.classList.add("card-hidden");
+        }
+    });
+
+    renderLetterIndicator();
+}
+
+/**
+ * Jump to a specific student index instantly without transition animations.
+ */
+function jumpTo(index) {
+    cardsContainer.classList.add("no-transition");
+    currentIndex = index;
+    updateCardClasses();
+    // Force browser reflow to apply changes instantly
+    void cardsContainer.offsetWidth;
+    cardsContainer.classList.remove("no-transition");
+}
+
+/**
+ * Scroll to a target student index programmatically using a rapid visual scrolling animation.
+ * Jumps closer if target is far, then scrolls the remaining 5 steps for smooth performance.
+ */
+function animatedScrollTo(targetIndex) {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    const total = students.length;
+    let diff = targetIndex - currentIndex;
+
+    // Shortest path calculation (wrap-around)
+    diff = ((diff % total) + total) % total;
+    if (diff > total / 2) {
+        diff -= total;
+    }
+
+    if (diff === 0) {
+        isAnimating = false;
+        return;
+    }
+
+    const direction = diff > 0 ? 1 : -1;
+    let steps = Math.abs(diff);
+
+    // Limit visual scroll steps to keep the response time under 500ms
+    if (steps > 5) {
+        const jumpTarget = wrapIndex(targetIndex - (direction * 5), total);
+        cardsContainer.classList.add("no-transition");
+        currentIndex = jumpTarget;
+        updateCardClasses();
+        void cardsContainer.offsetWidth;
+        cardsContainer.classList.remove("no-transition");
+        steps = 5;
+    }
+
+    cardsContainer.classList.add("fast-transition");
+
+    let currentStep = 0;
+    function performStep() {
+        if (currentStep < steps) {
+            currentIndex = wrapIndex(currentIndex + direction, total);
+            updateCardClasses();
+            currentStep++;
+            setTimeout(performStep, 100); // 100ms per step
+        } else {
+            setTimeout(() => {
+                cardsContainer.classList.remove("fast-transition");
+                isAnimating = false;
+            }, 100);
+        }
+    }
+
+    performStep();
+}
+
+/**
+ * Navigate the carousel by a given direction (-1 = left, +1 = right).
+ * Uses smooth CSS transitions.
+ */
+function navigateCarousel(direction) {
+    const total = students.length;
+    if (total <= 1 || isAnimating) return;
+
+    isAnimating = true;
+    currentIndex = wrapIndex(currentIndex + direction, total);
+    updateCardClasses();
+
+    setTimeout(() => {
+        isAnimating = false;
+    }, 550); // Matches CSS transition duration
 }
 
 /**
  * Update the large letter indicator.
  */
 function renderLetterIndicator() {
-    currentLetterEl.textContent = currentLetter;
+    currentLetterEl.textContent = getCurrentLetter();
 }
 
 /**
- * Show/hide navigation arrows based on pagination bounds.
- */
-function updateArrows() {
-    const studentsForLetter = studentsByLetter[currentLetter] || [];
-    const perPage = getCardsPerPage();
-    const totalPages = Math.ceil(studentsForLetter.length / perPage);
-
-    if (currentPage <= 0) {
-        arrowLeft.classList.add("hidden");
-    } else {
-        arrowLeft.classList.remove("hidden");
-    }
-
-    if (currentPage >= totalPages - 1 || studentsForLetter.length === 0) {
-        arrowRight.classList.add("hidden");
-    } else {
-        arrowRight.classList.remove("hidden");
-    }
-}
-
-/**
- * Full re-render: letter indicator + cards.
+ * Full re-render wrapper.
  */
 function render() {
-    renderLetterIndicator();
-    renderCards();
+    updateCardClasses();
 }
 
 // =============================================
@@ -409,6 +529,7 @@ function render() {
  */
 function buildLetterGrid() {
     letterGrid.innerHTML = "";
+    const activeLetter = getCurrentLetter();
 
     ALPHABET.forEach(letter => {
         const cell = document.createElement("div");
@@ -421,16 +542,18 @@ function buildLetterGrid() {
             cell.classList.add("disabled");
         }
 
-        if (letter === currentLetter) {
+        if (letter === activeLetter) {
             cell.classList.add("active-letter");
         }
 
         if (hasStudents) {
             cell.addEventListener("click", () => {
-                currentLetter = letter;
-                currentPage = 0;
-                render();
-                closeDropdown();
+                // Find first student index matching this letter
+                const firstIdx = students.findIndex(s => s.name.charAt(0).toUpperCase() === letter);
+                if (firstIdx !== -1) {
+                    animatedScrollTo(firstIdx);
+                    closeDropdown();
+                }
             });
         }
 
@@ -481,38 +604,93 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
-// Arrow navigation
+// Arrow navigation — carousel style
 arrowLeft.addEventListener("click", () => {
-    if (currentPage > 0) {
-        currentPage--;
-        renderCards();
-    }
+    navigateCarousel(-1);
 });
 
+// Right arrow navigation
 arrowRight.addEventListener("click", () => {
-    const studentsForLetter = studentsByLetter[currentLetter] || [];
-    const perPage = getCardsPerPage();
-    const totalPages = Math.ceil(studentsForLetter.length / perPage);
+    navigateCarousel(1);
+});
 
-    if (currentPage < totalPages - 1) {
-        currentPage++;
-        renderCards();
+// Keyboard arrow navigation
+document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") {
+        navigateCarousel(-1);
+    } else if (e.key === "ArrowRight") {
+        navigateCarousel(1);
     }
 });
 
-// Responsive: re-render on resize (debounced)
+// =============================================
+// TOUCH / SWIPE SUPPORT
+// =============================================
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+const SWIPE_THRESHOLD = 50; // Minimum distance in px to register as a swipe
+const SWIPE_VERTICAL_LIMIT = 100; // Max vertical movement to still count as horizontal swipe
+
+const cardsSection = document.getElementById("cards-section");
+
+cardsSection.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+}, { passive: true });
+
+cardsSection.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    touchEndY = e.changedTouches[0].screenY;
+    handleSwipe();
+}, { passive: true });
+
+function handleSwipe() {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = Math.abs(touchEndY - touchStartY);
+
+    // Only register horizontal swipes (not vertical scrolling)
+    if (Math.abs(deltaX) > SWIPE_THRESHOLD && deltaY < SWIPE_VERTICAL_LIMIT) {
+        if (deltaX < 0) {
+            // Swiped left → navigate right (next)
+            navigateCarousel(1);
+        } else {
+            // Swiped right → navigate left (prev)
+            navigateCarousel(-1);
+        }
+    }
+}
+
+// =============================================
+// CLICK ON SIDE CARDS TO NAVIGATE
+// =============================================
+cardsContainer.addEventListener("click", (e) => {
+    const clickedCard = e.target.closest(".student-card");
+    if (!clickedCard || isAnimating) return;
+
+    // Don't navigate if clicking portfolio link
+    if (e.target.closest(".portfolio-overlay")) return;
+
+    if (clickedCard.classList.contains("card-left")) {
+        navigateCarousel(-1);
+    } else if (clickedCard.classList.contains("card-right")) {
+        navigateCarousel(1);
+    } else if (clickedCard.classList.contains("card-far-left")) {
+        navigateCarousel(-2);
+    } else if (clickedCard.classList.contains("card-far-right")) {
+        navigateCarousel(2);
+    }
+});
+
+// =============================================
+// RESPONSIVE: Re-render on resize (debounced)
+// =============================================
 let resizeTimer;
 window.addEventListener("resize", () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
-        // Reset page if current page would be out of bounds at new size
-        const studentsForLetter = studentsByLetter[currentLetter] || [];
-        const perPage = getCardsPerPage();
-        const totalPages = Math.ceil(studentsForLetter.length / perPage);
-        if (currentPage >= totalPages) {
-            currentPage = Math.max(0, totalPages - 1);
-        }
-        renderCards();
+        updateCardClasses();
     }, 150);
 });
 
@@ -548,20 +726,4 @@ document.addEventListener("keydown", (e) => {
 // =============================================
 // INITIAL RENDER
 // =============================================
-render();
-
-// Re-render cards on window resize to update visible count dynamically
-let resizeTimeout;
-window.addEventListener("resize", () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-        const studentsForLetter = studentsByLetter[currentLetter] || [];
-        const perPage = getCardsPerPage();
-        const maxPage = Math.max(0, Math.ceil(studentsForLetter.length / perPage) - 1);
-        if (currentPage > maxPage) {
-            currentPage = maxPage;
-        }
-        renderCards();
-    }, 100);
-});
-
+initCarousel();
