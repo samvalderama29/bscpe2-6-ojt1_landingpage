@@ -583,9 +583,10 @@ body {
 }
 
 .footer-logo {
-    height: 28px;
+    height: 36px;
     width: auto;
     object-fit: contain;
+    margin-left: -6px;
 }
 
 .footer-brand-title {
