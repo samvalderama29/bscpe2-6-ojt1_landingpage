@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Directory - BSCpE 2-6 | Saistematic</title>
-    <meta name="description" content="Student Directory for BSCpE 2-6 Saistematic — browse all students alphabetically.">
-
+    <title>Base Template | Saistematic</title>
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght,MONO@0,300..800,1;1,300..800,1&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Montserrat:wght@600&display=swap" rel="stylesheet">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles/style_directory.css">
+    <link rel="stylesheet" href="style_header_footer.css">
 </head>
 <body>
 
-    <!-- ========== NAVBAR ========== -->
+    <!-- ========== NAVBAR (HEADER) ========== -->
     <header class="navbar" id="navbar">
         <nav class="nav-links-left" id="nav-left">
             <a href="index.html">HOME</a>
@@ -35,36 +34,9 @@
         </button>
     </header>
 
-    <!-- ========== MAIN DIRECTORY ========== -->
-    <main class="directory-page" id="directory-page">
-
-        <!-- Letter filter dropdown -->
-        <div class="filter-dropdown" id="filter-dropdown">
-            <button class="letter-filter-btn" id="letter-filter-btn" type="button" aria-label="Filter students by letter">
-                NAMES: A-Z
-            </button>
-            <div class="letter-panel" id="letter-panel">
-                <div class="letter-grid" id="letter-grid">
-                    <!-- Letter cells rendered by JS -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Current letter indicator -->
-        <div class="current-letter" id="current-letter" aria-live="polite">A</div>
-
-        <!-- Student cards with navigation arrows -->
-        <section class="cards-section" id="cards-section" aria-label="Student cards">
-            <button class="nav-arrow left hidden" id="arrow-left" type="button" aria-label="Previous students">
-                <img src="../assets/icons/left_button.png" alt="Prev">
-            </button>
-            <div class="cards-container" id="cards-container">
-                <!-- Student cards rendered by JS -->
-            </div>
-            <button class="nav-arrow right hidden" id="arrow-right" type="button" aria-label="Next students">
-                <img src="../assets/icons/right_button.png" alt="Next">
-            </button>
-        </section>
+    <!-- ========== MAIN CONTENT (BLANK) ========== -->
+    <main class="main-content" id="main-content">
+        <!-- Add page-specific content here -->
     </main>
 
     <!-- ========== FOOTER ========== -->
@@ -131,6 +103,7 @@
         </nav>
     </div>
 
-    <script src="scripts/script_directory.js"></script>
+    <!-- Scripts -->
+    <script src="script_header_footer.js"></script>
 </body>
 </html>
