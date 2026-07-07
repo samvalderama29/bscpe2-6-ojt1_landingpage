@@ -1,4 +1,4 @@
-/**
+/*
  * Student Directory — script_directory.js
  * Handles student data, card rendering, pagination, and letter overlay.
  */
@@ -7,57 +7,261 @@
 // STUDENT DATA
 // =============================================
 const students = [
-    "ADLAWAN, Justin Cholo Pamida",
-    "AGUIRRE, Marielle Mae Baran",
-    "AGUSTIN, Ace Francis Valeriano",
-    "BACLEA-AN, Gelai Cuesta",
-    "BARRAMEDA, Dwayne Cañete",
-    "BAYLAN, Alexander Nykko Gomez",
-    "BIAS, Max Austine Baligasa",
-    "CARTAGENA, Aaron",
-    "CAS, Ma. Kristina Limosnero",
-    "CLARO, Kirby Christian Coronel",
-    "COMIA, Mark Lester Bordador",
-    "CONCEPCION, Jacey Erin Dael",
-    "CORA, Jian Christian Miguel",
-    "DE DIOS, Daren James Acosta",
-    "DE JUAN, Angela Marie Gatdula",
-    "DE LARA, Althea Mariell Calderon",
-    "DELA CRUZ, Marwilson Tan",
-    "DELA CRUZ, Precious Nicole Javines",
-    "DOMALAON, John Deniel Cruz",
-    "ESCANILLA, Joanna Ashley Arevalo",
-    "FERNANDO, Fernando Luis Ramos",
-    "GELI, Jasper Matthieu Nocete",
-    "ILANO, Victoria Yuki Mori",
-    "KADOI, Amalia Sefrioto",
-    "LARGA, Jann Earl Matthew Sombilon",
-    "LAYSON, Adrian Capuno",
-    "MAAÑO, Vince Anthony Nacario",
-    "MENDEZ, Mark Joseph Reyes",
-    "NINOLLA, John Lenon Inosanto",
-    "NONOD, Abegail Estorninos",
-    "OBATAY, Gabriel Josh Alba",
-    "OCAMPO, Jacin Kurt Salvador",
-    "PAZ, Gabriel John Mikhael Hernandez",
-    "PEDRIGAL, Francisco Moreno",
-    "PINEDA, Princess Mikee Oliva",
-    "PIQUERO, Paula Bianca Antig",
-    "PON-AN, Carlos Alberto Isidoro",
-    "RIVERA, Chloie Nicole Laureles",
-    "ROGADO, Gerald Tan",
-    "ROMERO, Karl Tristan Fernandez",
-    "SALINAS, Nykesha Dela Cruz",
-    "SANARES, Jaden Salac",
-    "SOGUILON, Kelvin Vicente",
-    "SOLOMON, Justin Royse Liquigan",
-    "TALAMOR, Shella Mandar",
-    "TAN, Kinn Iago Racaza",
-    "TANYAG, Jasmin Lorchano",
-    "TUBOG, Kyrie Eleison Quiliope",
-    "VALDERAMA, Samantha Angel Eda",
-    "VASQUEZ, John Carlo Rances",
-    "VILLARITO, Aira Elbanbuena"
+    {
+        name: "ADLAWAN, Justin Cholo Pamida",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com/justin-cholo-adlawan"
+    },
+    {
+        name: "AGUIRRE, Marielle Mae Baran",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "AGUSTIN, Ace Francis Valeriano",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "BACLEA-AN, Gelai Cuesta",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "BARRAMEDA, Dwayne Cañete",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "BAYLAN, Alexander Nykko Gomez",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "BIAS, Max Austine Baligasa",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "CARTAGENA, Aaron",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "CAS, Ma. Kristina Limosnero",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "CLARO, Kirby Christian Coronel",
+        photo: "../assets/profile_pictures/claro_kirby_christian_c.jpg",
+        portfolio: "https://github.com/kirby-claro"
+    },
+    {
+        name: "COMIA, Mark Lester Bordador",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "CONCEPCION, Jacey Erin Dael",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "CORA, Jian Christian Miguel",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "DE DIOS, Daren James Acosta",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "DE JUAN, Angela Marie Gatdula",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "DE LARA, Althea Mariell Calderon",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "DELA CRUZ, Marwilson Tan",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "DELA CRUZ, Precious Nicole Javines",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "DOMALAON, John Deniel Cruz",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "ESCANILLA, Joanna Ashley Arevalo",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "FERNANDO, Fernando Luis Ramos",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "GELI, Jasper Matthieu Nocete",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "ILANO, Victoria Yuki Mori",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "KADOI, Amalia Sefrioto",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "LARGA, Jann Earl Matthew Sombilon",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "LAYSON, Adrian Capuno",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "MAAÑO, Vince Anthony Nacario",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "MENDEZ, Mark Joseph Reyes",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "NINOLLA, John Lenon Inosanto",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "NONOD, Abegail Estorninos",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "OBATAY, Gabriel Josh Alba",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "OCAMPO, Jacin Kurt Salvador",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "PAZ, Gabriel John Mikhael Hernandez",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "PEDRIGAL, Francisco Moreno",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "PINEDA, Princess Mikee Oliva",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "PIQUERO, Paula Bianca Antig",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "PON-AN, Carlos Alberto Isidoro",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "RIVERA, Chloie Nicole Laureles",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "ROGADO, Gerald Tan",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "ROMERO, Karl Tristan Fernandez",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "SALINAS, Nykesha Dela Cruz",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "SANARES, Jaden Salac",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "SOGUILON, Kelvin Vicente",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "SOLOMON, Justin Royse Liquigan",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "TALAMOR, Shella Mandar",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "TAN, Kinn Iago Racaza",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "TANYAG, Jasmin Lorchano",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "TUBOG, Kyrie Eleison Quiliope",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "VALDERAMA, Samantha Angel Eda",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "VASQUEZ, John Carlo Rances",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    },
+    {
+        name: "VILLARITO, Aira Elbanbuena",
+        photo: "../assets/placeholders/img_holder.jpg",
+        portfolio: "https://github.com"
+    }
 ];
 
 // =============================================
@@ -65,12 +269,13 @@ const students = [
 // =============================================
 const studentsByLetter = {};
 
-students.forEach(name => {
+students.forEach(student => {
+    const name = typeof student === "string" ? student : student.name;
     const firstLetter = name.charAt(0).toUpperCase();
     if (!studentsByLetter[firstLetter]) {
         studentsByLetter[firstLetter] = [];
     }
-    studentsByLetter[firstLetter].push(name);
+    studentsByLetter[firstLetter].push(student);
 });
 
 // Full alphabet for overlay
@@ -130,14 +335,24 @@ function renderCards() {
         emptyDiv.innerHTML = `<p>No students with last name starting with "${currentLetter}"</p>`;
         cardsContainer.appendChild(emptyDiv);
     } else {
-        visibleStudents.forEach((name, index) => {
+        visibleStudents.forEach((student, index) => {
+            const isObject = typeof student === "object" && student !== null;
+            const name = isObject ? student.name : student;
+            const photo = (isObject && student.photo) ? student.photo : "../assets/placeholders/img_holder.jpg";
+            const portfolio = (isObject && student.portfolio) ? student.portfolio : "";
+
             const card = document.createElement("div");
             card.className = "student-card";
             card.style.animationDelay = `${index * 0.1}s`;
 
             card.innerHTML = `
                 <div class="card-image-wrapper">
-                    <img class="student-photo" src="../assets/placeholders/img_holder.jpg" alt="Photo of ${name}">
+                    <img class="student-photo" src="${photo}" alt="Photo of ${name}">
+                    ${portfolio && portfolio !== "#" ? `
+                        <a href="${portfolio}" target="_blank" class="portfolio-overlay" aria-label="View portfolio of ${name}">
+                            <span class="portfolio-text">VIEW PORTFOLIO</span>
+                        </a>
+                    ` : ""}
                 </div>
                 <p class="card-name">${name}</p>
             `;

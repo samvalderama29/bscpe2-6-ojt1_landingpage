@@ -215,15 +215,55 @@ body {
     transform: translateY(-6px);
 }
 
-.student-photo {
+.student-photo,
+.portfolio-overlay {
     position: absolute;
     left: 165px;
     top: 91px;
     width: 270px;
     height: 398px;
+    border-radius: 2px;
+}
+
+.student-photo {
     object-fit: cover;
     display: block;
-    border-radius: 2px;
+}
+
+.portfolio-overlay {
+    background: rgba(25, 71, 189, 0.85);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.portfolio-overlay:hover,
+.card-image-wrapper:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-text {
+    color: #ffffff;
+    font-family: 'Google Sans Flex', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.portfolio-overlay:hover .portfolio-text {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
 }
 
 .card-name {
@@ -667,11 +707,17 @@ body {
         height: 295px;
     }
 
-    .student-photo {
+    .student-photo,
+    .portfolio-overlay {
         left: 85px;
         top: 47px;
         width: 139px;
         height: 205px;
+    }
+
+    .portfolio-text {
+        font-size: 10px;
+        padding: 4px 8px;
     }
 
     .card-name {
@@ -717,7 +763,8 @@ body {
         height: 251px;
     }
 
-    .student-photo {
+    .student-photo,
+    .portfolio-overlay {
         left: 72px;
         top: 40px;
         width: 118px;
@@ -802,7 +849,8 @@ body {
         height: 286px;
     }
 
-    .student-photo {
+    .student-photo,
+    .portfolio-overlay {
         left: 82px;
         top: 46px;
         width: 135px;
@@ -916,11 +964,17 @@ body {
         height: 229px;
     }
 
-    .student-photo {
+    .student-photo,
+    .portfolio-overlay {
         left: 66px;
         top: 36px;
         width: 108px;
         height: 159px;
+    }
+
+    .portfolio-text {
+        font-size: 9px;
+        padding: 4px 6px;
     }
 
     .card-name {
