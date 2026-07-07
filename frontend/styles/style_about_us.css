@@ -1,20 +1,29 @@
-/* global reset */
-* {
+/* ---- GLOBAL RESENT IN BASE ---- */
+*,
+*::before, 
+*::after{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* general body design */
+html,
 body {
-    font-family: 'Segoi UI', sans-serif;
-    background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    font-family: 'Google Sans Flex', sans-serif;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
 }
 
-/* for header design */
+body {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 100vh;
+    background: #ffffff;
+}
+
+/* ---- FOR NAVBAR ---- */
 header {
     display: flex;
     justify-content: space-between;
