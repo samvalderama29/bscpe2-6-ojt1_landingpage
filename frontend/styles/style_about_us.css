@@ -194,3 +194,52 @@ body {
     font-weight: 600;
 }
 
+/* ---- FOOTER ---- */
+.footer {
+    background: #eef2f7;
+    width: 100%;
+    padding: 40px 56px;
+}
+
+/* ---- MOBILE LAYOUT RESPONSIVENESS ---- */
+@media (max-width: 992px) {
+    .navbar{
+        height: 80px;
+        padding: 0 24px;
+    }
+
+    .nav-links-left,
+    .nav-links-right {
+        display: none;
+    }
+
+    .navbar-logo {
+        position: static;
+        transform: none;
+    }
+
+    .navbar-logo img {
+        max-height: 50px;
+    }
+
+    .hamburger-btm {
+        display: block;
+    }
+
+    .aboutus-projectvision h1,
+    .contributors h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 15px;
+    }
+
+    .aboutus-projectvision h1,
+    .contributors h1 {
+        font-size: 1.6rem;
+    }
+}
