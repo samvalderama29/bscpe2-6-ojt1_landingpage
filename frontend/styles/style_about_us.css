@@ -79,7 +79,7 @@ body {
     display: block;
 }
 
-/* Itago ang hamburger button sa desktop view */
+/* ---- HAMBURGER ICON MOBILE RESPONSIVENESS ---- */
 .hamburger-btn {
     display: none;
     background: none;
@@ -93,7 +93,7 @@ body {
     height: 32px;
 }
 
-/* ---- MAIN ABOUT US CONTENT ---- */
+/* ---- MAIN CONTENT ---- */
 .aboutus-page {
     flex: 1;
     position: relative;
@@ -155,7 +155,7 @@ body {
     opacity: 0.9;
 }
 
-/* ---- CONTRIBUTORS GRID SYSTEM ---- */
+/* ---- CONTRIBUTORS GRID ---- */
 .contributors {
     width: 100%;
     max-width: 1200px;
@@ -176,10 +176,10 @@ body {
 .team-section h2 {
     font-size: 1.5rem;
     margin-bottom: 25px;
-    color: #1947bd; /* O kung anong blue accent ang gamit niyo */
+    color: #1947bd; 
 }
 
-/* Dynamic Grid: Awtomatikong mag-aadjust kahit 2, 3, o 4 ang miyembro */
+/* ---- DYNAMIC GRID FOR MEMBER CONTAINERS ---- */
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -188,7 +188,7 @@ body {
     justify-items: center;
 }
 
-/* Estilo para sa mga placeholder card ng miyembro */
+
 .member-card {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -206,7 +206,7 @@ body {
 
 .member-photo img {
     width: 100%;
-    aspect-ratio: 3 / 4; /* Mukhang portfolio aspect ratio batay sa wireframe niyo */
+    aspect-ratio: 3 / 4; 
     object-fit: cover;
     background: #cccccc;
     border-radius: 4px;
@@ -225,14 +225,9 @@ body {
     width: 100%;
 }
 
-/* Pwede mong idagdag ang detalye ng iyong footer styling dito... */
-
-
-/* =============================================
-   3. MOBILE RESPONSIVE MEDIA QUERIES (The Fix!)
-   ============================================= */
+/* ---- FOR MEDIA RESPONSIVENESS ---- */
 @media (max-width: 992px) {
-    /* Kapag lumiit ang screen, tanggalin ang pagkaka-absolute ng navbar logo */
+    
     .navbar {
         height: 80px;
         padding: 0 24px;
@@ -240,7 +235,7 @@ body {
 
     .nav-links-left,
     .nav-links-right {
-        display: none; /* Itago ang default navigation; gagamitin ang Mobile Drawer niyo */
+        display: none; 
     }
 
     .navbar-logo {
@@ -249,14 +244,13 @@ body {
     }
 
     .navbar-logo img {
-        max-height: 50px; /* Paliitin ang logo para sa mobile space */
+        max-height: 50px; 
     }
 
     .hamburger-btn {
-        display: block; /* Ipakita ang hamburger menu button */
+        display: block;
     }
-    
-    /* I-adjust ang mga font sizes para sa tablet/mobile */
+
     .aboutus-projectvision h1,
     .contributors h1 {
         font-size: 2rem;
@@ -265,7 +259,7 @@ body {
 
 @media (max-width: 576px) {
     .team-grid {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Mas maliit na card layout sa phones */
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
         gap: 15px;
     }
     
