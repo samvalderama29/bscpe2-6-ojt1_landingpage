@@ -32,15 +32,48 @@ body {
 
 /* ---------- Navbar ---------- */
 .navbar {
-    position: relative;
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #ffffff;
+    background: transparent;
     height: 134px;
     padding: 0 56px;
     z-index: 100;
     flex-shrink: 0;
+}
+
+/* Frosted glass background for the navbar itself */
+.navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: -2;
+}
+
+/* Fading transition blur at the bottom edge */
+.navbar::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0) 100%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    pointer-events: none;
+    z-index: -1;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
 .nav-links-left {
@@ -841,6 +874,11 @@ body {
         padding: 0 30px;
     }
 
+    .navbar::after {
+        height: 50px;
+        bottom: -50px;
+    }
+
     .navbar a {
         font-size: 16px;
     }
@@ -996,6 +1034,11 @@ body {
         align-items: center;
     }
 
+    .navbar::after {
+        height: 40px;
+        bottom: -40px;
+    }
+
     .nav-links-left,
     .nav-links-right {
         display: none !important;
@@ -1132,6 +1175,11 @@ body {
     .navbar {
         height: 64px;
         padding: 0 12px;
+    }
+
+    .navbar::after {
+        height: 30px;
+        bottom: -30px;
     }
 
     .nav-links-left {
