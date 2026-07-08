@@ -107,15 +107,35 @@ body {
     min-height: calc(100vh - 134px);
 }
 
+.project-vision-container {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    gap: 60px;
+    margin: 40px auto 60px auto;
+    padding: 0 20px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.aboutus-saislogo {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
+
 .aboutus-saislogo img {
+    width: 807px;
     max-width: 100%;
     height: auto;
-    max-height: 250px;
+    max-height: 240px;
     margin-bottom: 30px;
 }
 
 .aboutus-projectvision {
-    text-align: center;
+    flex: 1;
+    text-align: left;
     max-width: 800px;
     color: #ffffff;
     margin-bottom: 60px;
@@ -128,8 +148,10 @@ body {
 }
 
 .aboutus-projectvision p {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     line-height: 1.6;
+    max-width: 550px;
+    color: #000000;
     opacity: 0.9;
 }
 
