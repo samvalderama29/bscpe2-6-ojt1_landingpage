@@ -32,7 +32,8 @@ body {
 
 /* ---------- Navbar ---------- */
 .navbar {
-    position: relative;
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -41,6 +42,22 @@ body {
     padding: 0 56px;
     z-index: 100;
     flex-shrink: 0;
+}
+
+/* --- Top gradient vignette (Navbar Transition) --- */
+.top-vignette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    z-index: 26;
+    pointer-events: none;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 45%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 45%, rgba(0, 0, 0, 0) 100%);
 }
 
 .nav-links-left {
@@ -188,8 +205,10 @@ body {
     transition:
         transform 0.55s cubic-bezier(0.4, 0, 0.2, 1),
         opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+        filter 0.55s cubic-bezier(0.4, 0, 0.2, 1),
         z-index 0s linear 0s;
-    will-change: transform, opacity;
+    will-change: transform, opacity, filter;
+    filter: blur(12px); /* Default blurred state */
 }
 
 .no-transition .student-card {
@@ -200,6 +219,7 @@ body {
     transition:
         transform 0.12s linear,
         opacity 0.12s linear,
+        filter 0.12s linear,
         z-index 0s linear 0s !important;
 }
 
@@ -211,6 +231,7 @@ body {
     opacity: 1;
     z-index: 30;
     pointer-events: auto;
+    filter: blur(0px);
 }
 
 /* Left card: shifted left, scaled down, recedes */
@@ -219,6 +240,7 @@ body {
     opacity: 0.75;
     z-index: 20;
     pointer-events: auto;
+    filter: blur(3px);
 }
 
 /* Right card: mirror of left */
@@ -227,6 +249,7 @@ body {
     opacity: 0.75;
     z-index: 20;
     pointer-events: auto;
+    filter: blur(3px);
 }
 
 /* Far left card: outer left card in 5-card carousel */
@@ -235,6 +258,7 @@ body {
     opacity: 0.45;
     z-index: 10;
     pointer-events: auto;
+    filter: blur(8px);
 }
 
 /* Far right card: outer right card in 5-card carousel */
@@ -243,6 +267,7 @@ body {
     opacity: 0.45;
     z-index: 10;
     pointer-events: auto;
+    filter: blur(8px);
 }
 
 /* Cards sliding out to far left (exit animation) */
@@ -251,6 +276,7 @@ body {
     opacity: 0;
     z-index: 5;
     pointer-events: none;
+    filter: blur(12px);
 }
 
 /* Cards sliding out to far right (exit animation) */
@@ -259,6 +285,7 @@ body {
     opacity: 0;
     z-index: 5;
     pointer-events: none;
+    filter: blur(12px);
 }
 
 /* Hidden/off-screen cards */
@@ -267,6 +294,7 @@ body {
     opacity: 0;
     z-index: 0;
     pointer-events: none;
+    filter: blur(12px);
 }
 
 /* Initial entrance animation */
@@ -298,7 +326,7 @@ body {
 .directory-page::before {
     left: 0;
     width: 450px;
-    background: linear-gradient(to right, rgba(6, 14, 28, 0.95) 0%, rgba(6, 14, 28, 0.4) 50%, transparent 100%);
+    background: linear-gradient(to bottom, #a5b2c8 0%, #060e1c 100%);
     -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 45%, rgba(0, 0, 0, 0) 100%);
     mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 45%, rgba(0, 0, 0, 0) 100%);
 }
@@ -306,7 +334,7 @@ body {
 .directory-page::after {
     right: 0;
     width: 450px;
-    background: linear-gradient(to left, rgba(6, 14, 28, 0.95) 0%, rgba(6, 14, 28, 0.4) 50%, transparent 100%);
+    background: linear-gradient(to bottom, #a5b2c8 0%, #060e1c 100%);
     -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 45%, rgba(0, 0, 0, 0) 100%);
     mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 45%, rgba(0, 0, 0, 0) 100%);
 }
@@ -525,7 +553,7 @@ body {
 /* ---------- Footer ---------- */
 .footer {
     width: 100%;
-    background: #d2d7e2;
+    background: linear-gradient(to bottom, #060e1c, #03070f);
     padding: 0 0 40px;
     z-index: 10;
     display: flex;
@@ -547,7 +575,7 @@ body {
     max-width: 1200px;
     height: auto;
     display: block;
-    opacity: 0.5;
+    opacity: 0.15;
 }
 
 .footer-container {
@@ -569,7 +597,7 @@ body {
     font-family: 'Google Sans Flex', sans-serif;
     font-weight: 700;
     font-size: 16px;
-    color: #5f6368;
+    color: #ffffff;
     margin-bottom: 16px;
     letter-spacing: 0.5px;
     user-select: none;
@@ -593,7 +621,7 @@ body {
     font-family: 'Google Sans Flex', sans-serif;
     font-weight: 700;
     font-size: 16px;
-    color: #5f6368;
+    color: #ffffff;
     letter-spacing: 0.5px;
     user-select: none;
     margin: 0;
@@ -603,7 +631,7 @@ body {
     font-family: 'Google Sans Flex', sans-serif;
     font-weight: 400;
     font-size: 14px;
-    color: #5f6368;
+    color: #cbd5e1;
     line-height: 1.5;
     max-width: 280px;
     margin: 0;
@@ -623,13 +651,13 @@ body {
     font-family: 'Google Sans Flex', sans-serif;
     font-weight: 400;
     font-size: 16px;
-    color: #5f6368;
+    color: #cbd5e1;
     text-decoration: none;
-    transition: opacity 0.2s ease;
+    transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 .footer-col ul li a:hover {
-    opacity: 0.7;
+    color: #6fa8ff;
 }
 
 .footer-partner {
@@ -680,7 +708,7 @@ body {
     font-family: 'Google Sans Flex', sans-serif;
     font-weight: 400;
     font-size: 14.5px;
-    color: #202124;
+    color: #94a3b8;
     user-select: none;
 }
 
@@ -692,11 +720,6 @@ body {
 
 .social-links a {
     display: block;
-    transition: opacity 0.2s ease;
-}
-
-.social-links a:hover {
-    opacity: 0.8;
 }
 
 .social-links img {
@@ -704,6 +727,12 @@ body {
     object-fit: contain;
     height: 20px;
     width: 20px;
+    opacity: 0.75;
+    transition: opacity 0.2s ease;
+}
+
+.social-links a:hover img {
+    opacity: 1;
 }
 
 
@@ -827,6 +856,10 @@ body {
     .navbar {
         height: 100px;
         padding: 0 30px;
+    }
+
+    .top-vignette {
+        height: 80px;
     }
 
     .navbar a {
@@ -984,6 +1017,10 @@ body {
         align-items: center;
     }
 
+    .top-vignette {
+        height: 60px;
+    }
+
     .nav-links-left,
     .nav-links-right {
         display: none !important;
@@ -1120,6 +1157,10 @@ body {
     .navbar {
         height: 64px;
         padding: 0 12px;
+    }
+
+    .top-vignette {
+        height: 50px;
     }
 
     .nav-links-left {
