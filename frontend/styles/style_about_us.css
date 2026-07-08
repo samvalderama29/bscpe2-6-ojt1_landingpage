@@ -132,3 +132,32 @@ body {
     line-height: 1.6;
     opacity: 0.9;
 }
+
+/* ---- FOR CONTRIBUTORS LIST ---- */
+.contributors {
+    color: #ffffff;
+    width: 100%;
+    max-width: 12000px;
+    text-align: center;
+}
+
+.contributors h1 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.team-section {
+    margin-bottom: 50px;
+}
+
+.team-section h2 {
+    color: #506EA0;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+}
+
+/* ---- DYNAMIC GRIDS FOR CONTRIBUTORS ---- */
+.team-grid {
+
+}
