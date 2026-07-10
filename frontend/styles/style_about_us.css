@@ -336,6 +336,78 @@ body {
     margin-top: 16px;
 }
 
+/* ---- PARTNER WITH US BUTTON AND OTHER IMAGES IN FOOTER ---- */
+.partner-btn {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 32px;
+    background: linear-gradient(to right, #184399 30%, #3d73e1 47%, #184399 56%);
+    border: none;
+    border-radius: 8px;
+    color: #fafafa;
+    font-family: 'Google Sans Flex', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow:
+        inset 0px -3px 0px 0px rgba(0, 0, 0, 0.2),
+        inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+        0px 4px 10px rgba(24, 67, 153, 0.2);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.partner-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+.footer-bottom {
+    width: 100%;
+    margin-top: 60px;
+}
+
+.footer-bottom-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright {
+    font-family: 'Google Sans Flex', sans-serif;
+    font-weight: 400;
+    font-size: 14.5px;
+    color: #94a3b8;
+    user-select: none;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.social-links a {
+    display: block;
+}
+
+.social-links img {
+    display: block;
+    object-fit: contain;
+    height: 20px;
+    width: 20px;
+    opacity: 0.75;
+    transition: opacity 0.2s ease;
+}
+
+.social-links a:hover img {
+    opacity: 1;
+}
+
 /* ---- FOR MEDIA RESPONSIVENESS ---- */
 @media (max-width: 992px) {
     
@@ -367,6 +439,7 @@ body {
         font-size: 2rem;
     }
 }
+
 
 @media (max-width: 576px) {
     .team-grid {
