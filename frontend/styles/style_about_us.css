@@ -34,6 +34,9 @@ body {
     padding: 0 56px;
     z-index: 100;
     flex-shrink: 0;
+    border-bottom: 1px solid rgba(59, 59, 59, 0.2);
+    box-shadow: 0 1px 5px rgb(172, 196, 236)
+    ;
 }
 
 .nav-links-left {
