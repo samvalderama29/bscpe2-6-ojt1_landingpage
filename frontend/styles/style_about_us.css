@@ -193,7 +193,7 @@ body {
 .contributors {
     width: 100%;
     max-width: 1200px;
-    color: #ffffff;
+    color: #184399;
     text-align: center;
 }
 
@@ -204,7 +204,7 @@ body {
 .team-section h2 {
     font-size: 1.5rem;
     margin-bottom: 25px;
-    color: #1947bd; 
+    color: #0026FF; 
 }
 
 /* ---- DYNAMIC GRID FOR MEMBER CONTAINERS ---- */
