@@ -136,13 +136,38 @@ body {
 }
 
 /* ---- JOINT CODE FOR LINEAR GRADIENT OF TEXT ---- */
-.aboutus-projectvision h1,
+.aboutus-projectvision h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+
+    background: linear-gradient(to right, #0B357D, #518bf1 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.15))
+}
+
 .contributors h1 {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 15px;
 
-    background: linear-gradient(to right, #518bf1, #0B357D);
+    background: linear-gradient(to right, #6da0f8, #082b68);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.15))
+}
+
+.team-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+
+    background: linear-gradient(to right, #0066FF, #211E66);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
