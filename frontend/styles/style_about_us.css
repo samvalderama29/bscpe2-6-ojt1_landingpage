@@ -224,9 +224,116 @@ body {
 
 /* ---- FOOTER ---- */
 .footer {
-    background: #eef2f7;
-    padding: 40px 56px;
     width: 100%;
+    background: linear-gradient(to bottom, #060e1c, #03070f);
+    padding: 0 0 40px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    /* Push to bottom if viewport is tall */
+}
+
+.footer-divider {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    margin-bottom: 40px;
+}
+
+.footer-divider-line {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    display: block;
+    opacity: 0.15;
+}
+
+.footer-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 80px;
+}
+
+.footer-col h4 {
+    font-family: 'Google Sans Flex', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+    user-select: none;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.footer-logo {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+    margin-left: -6px;
+}
+
+.footer-brand-title {
+    font-family: 'Google Sans Flex', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    user-select: none;
+    margin: 0;
+}
+
+.footer-desc {
+    font-family: 'Google Sans Flex', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #cbd5e1;
+    line-height: 1.5;
+    max-width: 280px;
+    margin: 0;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    font-family: 'Google Sans Flex', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #6fa8ff;
+}
+
+.footer-partner {
+    margin-top: 16px;
 }
 
 /* ---- FOR MEDIA RESPONSIVENESS ---- */
