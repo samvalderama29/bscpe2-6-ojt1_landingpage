@@ -216,7 +216,7 @@ body {
 }
 
 .member-card:hover {
-    transform: translateY(-50px);
+    transform: translateY(-20px);
 }
 
 .member-photo img {
