@@ -659,3 +659,58 @@ body {
         flex-wrap: wrap;
     }
 }
+
+/* ---- DEVICE: SMALL MOBILE ---- */
+@media (max-width: 576px) {
+    body {
+        padding-top: 80px;
+    }
+    
+    .navbar {
+        height: 80px;
+        padding: 0 20px;
+    }
+
+    .navbar-logo img {
+        max-height: 50px;
+    }
+
+    .aboutus-projectvision h1, 
+    .contributors h1, 
+    .team-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2,1fr);
+        gap: 12px;
+    }
+
+    .member-card {
+        padding: 10px;
+    }
+
+    .member-name {
+        font-size:  0.85rem;
+    }
+
+    .footer-nav {
+        display: grid;
+        grid-template-columns:  1fr 1fr;
+        gap:  30px;
+    }
+
+    .footer-container {
+        padding: 0 20px;
+    }
+
+    .footer-bottom-container {
+        padding: 0 20px;
+    }
+
+    .partner-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+}
