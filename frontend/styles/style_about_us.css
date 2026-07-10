@@ -210,7 +210,7 @@ body {
 /* ---- DYNAMIC GRID FOR MEMBER CONTAINERS ---- */
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, 260px);
     gap: 30px;
     justify-content: center;
     justify-items: center;
@@ -363,9 +363,9 @@ body {
 /* ---- PARTNER WITH US BUTTON AND OTHER IMAGES IN FOOTER ---- */
 .partner-btn {
     position: relative;
-    display: inline-block;
+    display: inline-flex;
     text-decoration: none;
-    padding: 10px 32px;
+    padding: 12px 32px;
     background: linear-gradient(to right, #184399 30%, #3d73e1 47%, #184399 56%);
     border: none;
     border-radius: 8px;
@@ -374,6 +374,8 @@ body {
     font-weight: 500;
     font-size: 16px;
     cursor: pointer;
+    white-space: nowrap;
+    min-width: max-content;
     box-shadow:
         inset 0px -3px 0px 0px rgba(0, 0, 0, 0.2),
         inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
