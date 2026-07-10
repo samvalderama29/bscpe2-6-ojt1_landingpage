@@ -22,14 +22,15 @@ body {
     position: relative;
     min-height: 100vh;
     background: #ffffff;
+    padding-top: 134px;
 }
 
 /* ---- FOR NAVBAR ---- */
 .navbar {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100;
+    width: 100%;
     
     display: flex;
     justify-content: space-between;
@@ -39,7 +40,8 @@ body {
     z-index: 9999;
     flex-shrink: 0;
 
-    background: #ffffff;;
+    background: #ffffff;
+    backdrop-filter: blur(50px);
 
     border-bottom: 1px solid rgba(59, 59, 59, 0.2);
     box-shadow: 0 1px 5px rgb(172, 196, 236)
