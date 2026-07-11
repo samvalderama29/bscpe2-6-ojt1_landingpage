@@ -10,47 +10,47 @@
 const students = [
     {
         name: "ADLAWAN, Justin Cholo Pamida",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/ADLAWAN, Justin Cholo P.jpg",
         portfolio: "https://secchoo.github.io/OJT-Portfolio/"
     },
     {
         name: "AGUIRRE, Marielle Mae Baran",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/AGUIRRE, Marielle Mae B.jpg",
         portfolio: "https://marielleaguirre-ojtportfolio.vercel.app/"
     },
     {
         name: "AGUSTIN, Ace Francis Valeriano",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/AGUSTIN, Ace Francis V.png",
         portfolio: "https://aceagustin-ojtdocumentation.vercel.app/"
     },
     {
         name: "BACLEA-AN, Gelai Cuesta",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/BACLEA-AN_Gelai C - Gelai Baclea-an.png",
         portfolio: "https://ojt-portfolio-gelai.vercel.app/"
     },
     {
         name: "BARRAMEDA, Dwayne Cañete",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/BARRAMEDA, Dwayne.JPG",
         portfolio: "https://ojt-portfolio-tau.vercel.app/"
     },
     {
         name: "BAYLAN, Alexander Nykko Gomez",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/BAYLAN, Alexander Nykko G.png",
         portfolio: "https://alexandernykkobaylan-ojt-portfolio.vercel.app/"
     },
     {
         name: "BIAS, Max Austine Baligasa",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/BIAS, Max Austine B - Max Austine Bias.jpg",
         portfolio: "https://maxbias-ojt-portfolio.vercel.app/"
     },
     {
         name: "CARTAGENA, Aaron",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/CARTAGENA, Aaron  - Aaron Cartagena.png",
         portfolio: "https://cartagena-portfolio.vercel.app/"
     },
     {
         name: "CAS, Ma. Kristina Limosnero",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/CAS, Ma. Kristina L - Ma. Kristina Cas.png",
         portfolio: "https://github.com" // wala pa kay ma. kristina
     },
     {
@@ -60,107 +60,107 @@ const students = [
     },
     {
         name: "COMIA, Mark Lester Bordador",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/COMIA, Mark Lester B - ExtincT -X.png",
         portfolio: "https://ojt-portfolio-website-weld.vercel.app/"
     },
     {
         name: "CONCEPCION, Jacey Erin Dael",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/CONCEPCION, Jacey Erin D - Jacey Concepcion.jpg",
         portfolio: "https://jaceyconcepcion-ojtportfolio.vercel.app/"
     },
     {
         name: "CORA, Jian Christian Miguel",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/CORA, Jian Christian M - Jian Christian Cora.jpg",
         portfolio: "https://ojt-requirements-tracker.vercel.app/"
     },
     {
         name: "DE DIOS, Daren James Acosta",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/De Dios, Daren James A - Daren James De Dios.png",
         portfolio: "https://dediosojtportfolio.vercel.app/"
     },
     {
         name: "DE JUAN, Angela Marie Gatdula",
-        photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://ojt-portfolio-gelamries-projects.vercel.app/"
+        photo: "../assets/profile_pictures/DE JUAN, Angela Marie G - Angela Marie G. De Juan.jpg",
+        portfolio: "https://gelamrie-ojt-portfolio-snowy.vercel.app/"
     },
     {
         name: "DE LARA, Althea Mariell Calderon",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/DE LARA, Althea.jpg",
         portfolio: "https://ojtwebiste.vercel.app/"
     },
     {
         name: "DELA CRUZ, Marwilson Tan",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/DELA CRUZ, Marwilson T - Marwilson Dela Cruz.png",
         portfolio: "https://ojt-portfolio-nine.vercel.app/"
     },
     {
         name: "DELA CRUZ, Precious Nicole Javines",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/DELA CRUZ, Precious Nicole J.jpg",
         portfolio: "https://preciousnicole-ojt-portfolio-precious10.vercel.app/"
     },
     {
         name: "DOMALAON, John Deniel Cruz",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/DOMALAON_John Deniel C - John Deniel C. Domalaon.png",
         portfolio: "https://profile-ojt.vercel.app/"
     },
     {
         name: "ESCANILLA, Joanna Ashley Arevalo",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/ESCANILLA, Joanna Ashley A.JPG",
         portfolio: "https://ojt-portfolio-git-main-ashley-escanilla.vercel.app/"
     },
     {
         name: "FERNANDO, Fernando Luis Ramos",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/FERNANDO, Fernando Luis.jpg",
         portfolio: "https://ojt-gold.vercel.app/#about"
     },
     {
         name: "GELI, Jasper Matthieu Nocete",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/GELI, Jasper Mathieu N - Jasper Mathieu Geli.jpg",
         portfolio: "https://jaspermathieugeli-ojt1-documents.vercel.app/"
     },
     {
         name: "ILANO, Victoria Yuki Mori",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/ILANO, Victoria Yuki M.png",
         portfolio: "https://ilano-ojt-portfolio.vercel.app/"
     },
     {
         name: "KADOI, Amalia Sefrioto",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/KADOI, Amalia S.png",
         portfolio: "https://ojt-portfolio-website-yagw.vercel.app/"
     },
     {
         name: "LARGA, Jann Earl Matthew Sombilon",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/LARGA, Jann Earl Matthew S.png",
         portfolio: "https://rb.gy/e0eh5s"
     },
     {
         name: "LAYSON, Adrian Capuno",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/LAYSON, Adrian C - Layson Adrian C..png",
         portfolio: "https://adrian-layson.github.io/ojt-portfolio/"
     },
     {
         name: "MAAÑO, Vince Anthony Nacario",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/MAAÑO, Vince Anthony N - Vince Maaño.jpg",
         portfolio: "https://github.com" //wala pa kay vince
     },
     {
         name: "MENDEZ, Mark Joseph Reyes",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/Mendez, Mark Joseph R - Mark Joseph Mendez.png",
         portfolio: "https://mendez-portfolio-one.vercel.app/"
     },
     {
         name: "NINOLLA, John Lenon Inosanto",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/NINOLLA, John Lenon I - John Lenon Ninolla.jpg",
         portfolio: "https://ninolla-internship-portfolio-website.vercel.app/"
     },
     {
         name: "NONOD, Abegail Estorninos",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/Nonod, Abegail E. - Abegail Nonod.png",
         portfolio: "https://github.com" // wala pa kay abegail
     },
     {
         name: "OBATAY, Gabriel Josh Alba",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/OBATAY, GABRIEL JOSH A. - Gabriel Josh A. Obatay.png",
         portfolio: "https://ojt-portfolio-joshobatay.vercel.app/"
     },
     {
@@ -175,72 +175,72 @@ const students = [
     },
     {
         name: "PEDRIGAL, Francisco Moreno",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/Pedrigal, Francisco III M - Francisco Pedrigal III.jpg",
         portfolio: "https://ojt-portfolio-fabong.vercel.app/"
     },
     {
         name: "PINEDA, Princess Mikee Oliva",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/Pineda, Mikee O - Mikee Pineda.jpg",
         portfolio: "https://mikee-pineda-ojtportfolio.vercel.app/"
     },
     {
         name: "PIQUERO, Paula Bianca Antig",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/PIQUERO, Paula Bianca A - Paula Bianca Piquero.jpg",
         portfolio: "https://ojtportfolio-snowy.vercel.app/"
     },
     {
         name: "PON-AN, Carlos Alberto Isidoro",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/PON-AN_Carlos Alberto I - Carlos Alberto Pon-an.png",
         portfolio: "https://ponan-portfolio.vercel.app/"
     },
     {
         name: "RIVERA, Chloie Nicole Laureles",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/RIVERA, Chloie Nicole L - Chloie Nicole Rivera.jpg",
         portfolio: "https://chloienicolerivera-ojt-portfolio.lovable.app/"
     },
     {
         name: "ROGADO, Gerald Tan",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/ROGADO, Gerald T. - Gerald Rogado.jpg",
         portfolio: "https://gerald-rogado-portfolio.vercel.app/"
     },
     {
         name: "ROMERO, Karl Tristan Fernandez",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/ROMERO, Karl Tristan F.png",
         portfolio: "https://karl-romero-portfolio-initial.vercel.app/"
     },
     {
         name: "SALINAS, Nykesha Dela Cruz",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/SALINAS, Nykesha D - Nykesha Salinas.jpg",
         portfolio: "https://nykeshasalinas-ojt1portfolio.vercel.app/"
     },
     {
         name: "SANARES, Jaden Salac",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/SANARES, Jaden S - Jaden Sanares.jpg",
         portfolio: "https://jadensanares-ojtdocumentation.vercel.app/"
     },
     {
         name: "SOGUILON, Kelvin Vicente",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/SOGUILON, Kelvin V.png",
         portfolio: "https://kelvinsoguilon.github.io/ojt_portfolio/#"
     },
     {
         name: "SOLOMON, Justin Royse Liquigan",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/SOLOMON, Justin Royse L.png",
         portfolio: "https://justinroyselsolomon-ojt-portfolio.vercel.app/"
     },
     {
         name: "TALAMOR, Shella Mandar",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/TALAMOR_Shella Mae M - Shella Talamor.png",
         portfolio: "https://website-portfolio-git-main-talamor-shellas-projects.vercel.app/"
     },
     {
         name: "TAN, Kinn Iago Racaza",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/TAN, Kinn Iago R - Kinn Tan.png",
         portfolio: "https://spoo.me/Kinn-OJT"
     },
     {
         name: "TANYAG, Jasmin Lorchano",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/TANYAG, Jasmin L - Jasmin Tanyag.jpg",
         portfolio: "https://tanyag-jasmin-ojt-portfolio.vercel.app/"
     },
     {
@@ -250,7 +250,7 @@ const students = [
     },
     {
         name: "VALDERAMA, Samantha Angel Eda",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/VALDERAMA, Samantha Angel E.jpg",
         portfolio: "https://personal-website-git-200a25-samantha-angel-valderamas-projects.vercel.app/"
     },
     {
@@ -260,7 +260,7 @@ const students = [
     },
     {
         name: "VILLARITO, Aira Elbanbuena",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/VILLARITO, Aira E - Aira Villarito.jpg",
         portfolio: "https://ojtportfoliovillaritoaira.vercel.app/"
     }
 ];
