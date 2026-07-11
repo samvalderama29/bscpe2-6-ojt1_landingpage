@@ -11,257 +11,257 @@ const students = [
     {
         name: "ADLAWAN, Justin Cholo Pamida",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com/justin-cholo-adlawan"
+        portfolio: "https://secchoo.github.io/OJT-Portfolio/"
     },
     {
         name: "AGUIRRE, Marielle Mae Baran",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://marielleaguirre-ojtportfolio.vercel.app/"
     },
     {
         name: "AGUSTIN, Ace Francis Valeriano",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://aceagustin-ojtdocumentation.vercel.app/"
     },
     {
         name: "BACLEA-AN, Gelai Cuesta",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://ojt-portfolio-gelai.vercel.app/"
     },
     {
         name: "BARRAMEDA, Dwayne Cañete",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://ojt-portfolio-tau.vercel.app/"
     },
     {
         name: "BAYLAN, Alexander Nykko Gomez",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://alexandernykkobaylan-ojt-portfolio.vercel.app/"
     },
     {
         name: "BIAS, Max Austine Baligasa",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://maxbias-ojt-portfolio.vercel.app/"
     },
     {
         name: "CARTAGENA, Aaron",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://cartagena-portfolio.vercel.app/"
     },
     {
         name: "CAS, Ma. Kristina Limosnero",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://github.com" // wala pa kay ma. kristina
     },
     {
         name: "CLARO, Kirby Christian Coronel",
         photo: "../assets/profile_pictures/claro_kirby_christian_c.jpg",
-        portfolio: "https://github.com/kirby-claro"
+        portfolio: "https://kirbyclaro.github.io/ojt_portfolio/"
     },
     {
         name: "COMIA, Mark Lester Bordador",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://ojt-portfolio-website-weld.vercel.app/"
     },
     {
         name: "CONCEPCION, Jacey Erin Dael",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://jaceyconcepcion-ojtportfolio.vercel.app/"
     },
     {
         name: "CORA, Jian Christian Miguel",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://ojt-requirements-tracker.vercel.app/"
     },
     {
         name: "DE DIOS, Daren James Acosta",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://dediosojtportfolio.vercel.app/"
     },
     {
         name: "DE JUAN, Angela Marie Gatdula",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://ojt-portfolio-gelamries-projects.vercel.app/"
     },
     {
         name: "DE LARA, Althea Mariell Calderon",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://ojtwebiste.vercel.app/"
     },
     {
         name: "DELA CRUZ, Marwilson Tan",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://ojt-portfolio-nine.vercel.app/"
     },
     {
         name: "DELA CRUZ, Precious Nicole Javines",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://preciousnicole-ojt-portfolio-precious10.vercel.app/"
     },
     {
         name: "DOMALAON, John Deniel Cruz",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://profile-ojt.vercel.app/"
     },
     {
         name: "ESCANILLA, Joanna Ashley Arevalo",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://ojt-portfolio-git-main-ashley-escanilla.vercel.app/"
     },
     {
         name: "FERNANDO, Fernando Luis Ramos",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://ojt-gold.vercel.app/#about"
     },
     {
         name: "GELI, Jasper Matthieu Nocete",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://jaspermathieugeli-ojt1-documents.vercel.app/"
     },
     {
         name: "ILANO, Victoria Yuki Mori",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://ilano-ojt-portfolio.vercel.app/"
     },
     {
         name: "KADOI, Amalia Sefrioto",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://ojt-portfolio-website-yagw.vercel.app/"
     },
     {
         name: "LARGA, Jann Earl Matthew Sombilon",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://rb.gy/e0eh5s"
     },
     {
         name: "LAYSON, Adrian Capuno",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://adrian-layson.github.io/ojt-portfolio/"
     },
     {
         name: "MAAÑO, Vince Anthony Nacario",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://github.com" //wala pa kay vince
     },
     {
         name: "MENDEZ, Mark Joseph Reyes",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://mendez-portfolio-one.vercel.app/"
     },
     {
         name: "NINOLLA, John Lenon Inosanto",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://ninolla-internship-portfolio-website.vercel.app/"
     },
     {
         name: "NONOD, Abegail Estorninos",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://github.com" // wala pa kay abegail
     },
     {
         name: "OBATAY, Gabriel Josh Alba",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://ojt-portfolio-joshobatay.vercel.app/"
     },
     {
         name: "OCAMPO, Jacin Kurt Salvador",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://ojt-portfolio-with-digital-ledger.vercel.app"
     },
     {
         name: "PAZ, Gabriel John Mikhael Hernandez",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://pazgabrielojtportfolio-bdkcq25mv-fema.vercel.app/"
     },
     {
         name: "PEDRIGAL, Francisco Moreno",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://ojt-portfolio-fabong.vercel.app/"
     },
     {
         name: "PINEDA, Princess Mikee Oliva",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://mikee-pineda-ojtportfolio.vercel.app/"
     },
     {
         name: "PIQUERO, Paula Bianca Antig",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://ojtportfolio-snowy.vercel.app/"
     },
     {
         name: "PON-AN, Carlos Alberto Isidoro",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://ponan-portfolio.vercel.app/"
     },
     {
         name: "RIVERA, Chloie Nicole Laureles",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://chloienicolerivera-ojt-portfolio.lovable.app/"
     },
     {
         name: "ROGADO, Gerald Tan",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://gerald-rogado-portfolio.vercel.app/"
     },
     {
         name: "ROMERO, Karl Tristan Fernandez",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://karl-romero-portfolio-initial.vercel.app/"
     },
     {
         name: "SALINAS, Nykesha Dela Cruz",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://nykeshasalinas-ojt1portfolio.vercel.app/"
     },
     {
         name: "SANARES, Jaden Salac",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://jadensanares-ojtdocumentation.vercel.app/"
     },
     {
         name: "SOGUILON, Kelvin Vicente",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://kelvinsoguilon.github.io/ojt_portfolio/#"
     },
     {
         name: "SOLOMON, Justin Royse Liquigan",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://justinroyselsolomon-ojt-portfolio.vercel.app/"
     },
     {
         name: "TALAMOR, Shella Mandar",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://website-portfolio-git-main-talamor-shellas-projects.vercel.app/"
     },
     {
         name: "TAN, Kinn Iago Racaza",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://spoo.me/Kinn-OJT"
     },
     {
         name: "TANYAG, Jasmin Lorchano",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://tanyag-jasmin-ojt-portfolio.vercel.app/"
     },
     {
         name: "TUBOG, Kyrie Eleison Quiliope",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://tubog-ojt-portfolio.vercel.app/"
     },
     {
         name: "VALDERAMA, Samantha Angel Eda",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://personal-website-git-200a25-samantha-angel-valderamas-projects.vercel.app/"
     },
     {
         name: "VASQUEZ, John Carlo Rances",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://github.com" // wala pa kay JC
     },
     {
         name: "VILLARITO, Aira Elbanbuena",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com"
+        portfolio: "https://ojtportfoliovillaritoaira.vercel.app/"
     }
 ];
 
