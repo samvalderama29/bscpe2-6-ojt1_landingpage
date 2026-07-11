@@ -183,7 +183,7 @@ body {
     position: relative;
     width: 100%;
     max-width: 1000px;
-    height: 700px;
+    height: 750px;
     perspective: 1200px;
     overflow: visible;
 }
@@ -193,7 +193,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: clamp(280px, 38vw, 582px);
+    width: clamp(320px, 42vw, 620px);
     flex-shrink: 0;
     position: absolute;
     top: 0;
@@ -899,7 +899,7 @@ body {
 
     /* Carousel: cards scale via clamp, hide far cards */
     .cards-container {
-        height: 500px;
+        height: 550px;
     }
 
     .student-card.card-far-left,
@@ -940,7 +940,7 @@ body {
 @media (max-width: 820px) {
 
     .cards-container {
-        height: 450px;
+        height: 500px;
     }
 
     .nav-arrow {
@@ -1005,33 +1005,40 @@ body {
         padding: 6px 20px;
     }
 
-    /* 3-card carousel on mobile — keep side cards visible */
+    /* 3-card carousel on mobile — cards fill more horizontal space */
     .cards-section {
         margin-top: -20px;
         flex: 0 1 auto;
+        padding: 0 8px;
     }
 
     .cards-container {
-        height: 320px;
+        height: 420px;
     }
 
     .student-card {
-        width: clamp(180px, 42vw, 280px);
+        width: clamp(240px, 60vw, 360px);
     }
 
     .student-card.card-center {
-        transform: translateX(-50%) scale(1);
+        transform: translateX(-50%) scale(1.02);
     }
 
     .student-card.card-left {
-        transform: translateX(calc(-50% - clamp(80px, 20vw, 160px))) scale(0.78) rotateY(4deg);
-        opacity: 0.6;
+        transform: translateX(calc(-50% - clamp(90px, 25vw, 180px))) scale(0.72) rotateY(4deg);
+        opacity: 0.55;
+    }
+
+    .card-left .card-image-wrapper {
         filter: blur(3px);
     }
 
     .student-card.card-right {
-        transform: translateX(calc(-50% + clamp(80px, 20vw, 160px))) scale(0.78) rotateY(-4deg);
-        opacity: 0.6;
+        transform: translateX(calc(-50% + clamp(90px, 25vw, 180px))) scale(0.72) rotateY(-4deg);
+        opacity: 0.55;
+    }
+
+    .card-right .card-image-wrapper {
         filter: blur(3px);
     }
 
@@ -1042,9 +1049,9 @@ body {
     }
 
     .card-name {
-        font-size: clamp(7px, 1.8vw, 12px);
-        top: 87%;
-        line-height: 1.1;
+        font-size: clamp(8px, 2.4vw, 14px);
+        top: 86%;
+        line-height: 1.15;
     }
 
     .nav-arrow {
@@ -1143,40 +1150,47 @@ body {
         padding: 5px 16px;
     }
 
-    /* 3-card carousel — smaller cards, tighter spacing */
+    /* 3-card carousel — cards fill screen width on small phones */
     .cards-section {
         margin-top: -10px;
         flex: 0 1 auto;
+        padding: 0 4px;
     }
 
     .cards-container {
-        height: 260px;
+        height: 380px;
     }
 
     .student-card {
-        width: clamp(140px, 38vw, 220px);
+        width: clamp(200px, 70vw, 340px);
     }
 
     .student-card.card-center {
-        transform: translateX(-50%) scale(1);
+        transform: translateX(-50%) scale(1.02);
     }
 
     .student-card.card-left {
-        transform: translateX(calc(-50% - clamp(60px, 18vw, 130px))) scale(0.75) rotateY(4deg);
-        opacity: 0.55;
+        transform: translateX(calc(-50% - clamp(70px, 22vw, 150px))) scale(0.68) rotateY(4deg);
+        opacity: 0.5;
+    }
+
+    .card-left .card-image-wrapper {
         filter: blur(3px);
     }
 
     .student-card.card-right {
-        transform: translateX(calc(-50% + clamp(60px, 18vw, 130px))) scale(0.75) rotateY(-4deg);
-        opacity: 0.55;
+        transform: translateX(calc(-50% + clamp(70px, 22vw, 150px))) scale(0.68) rotateY(-4deg);
+        opacity: 0.5;
+    }
+
+    .card-right .card-image-wrapper {
         filter: blur(3px);
     }
 
     .card-name {
-        font-size: clamp(6px, 1.6vw, 10px);
-        top: 88%;
-        line-height: 1.05;
+        font-size: clamp(7px, 2.8vw, 12px);
+        top: 87%;
+        line-height: 1.1;
     }
 
     .portfolio-text {
