@@ -978,8 +978,8 @@ body {
     }
 
     .directory-page {
-        min-height: calc(100vh - 80px);
-        padding: 16px 0 30px;
+        min-height: auto;
+        padding: 16px 0 20px;
     }
 
     .directory-page::before,
@@ -1001,11 +1001,12 @@ body {
 
     /* 3-card carousel on mobile — keep side cards visible */
     .cards-section {
-        margin-top: -30px;
+        margin-top: -20px;
+        flex: 0 1 auto;
     }
 
     .cards-container {
-        height: 380px;
+        height: 320px;
     }
 
     .student-card {
@@ -1109,8 +1110,8 @@ body {
     }
 
     .directory-page {
-        min-height: calc(100vh - 64px);
-        padding: 12px 0 24px;
+        min-height: auto;
+        padding: 10px 0 16px;
     }
 
     .directory-page::before,
@@ -1132,11 +1133,12 @@ body {
 
     /* 3-card carousel — smaller cards, tighter spacing */
     .cards-section {
-        margin-top: -20px;
+        margin-top: -10px;
+        flex: 0 1 auto;
     }
 
     .cards-container {
-        height: 320px;
+        height: 260px;
     }
 
     .student-card {
