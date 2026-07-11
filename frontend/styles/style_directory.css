@@ -204,11 +204,8 @@ body {
     transition:
         transform 0.55s cubic-bezier(0.4, 0, 0.2, 1),
         opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1),
-        filter 0.55s cubic-bezier(0.4, 0, 0.2, 1),
         z-index 0s linear 0s;
-    will-change: transform, opacity, filter;
-    filter: blur(12px);
-    /* Default blurred state */
+    will-change: transform, opacity;
 }
 
 .no-transition .student-card {
@@ -219,8 +216,13 @@ body {
     transition:
         transform 0.12s linear,
         opacity 0.12s linear,
-        filter 0.12s linear,
         z-index 0s linear 0s !important;
+}
+
+.fast-transition .card-image-wrapper {
+    transition:
+        transform 0.3s ease,
+        filter 0.12s linear !important;
 }
 
 /* --- Carousel position classes (viewport-relative offsets) --- */
@@ -231,7 +233,6 @@ body {
     opacity: 1;
     z-index: 30;
     pointer-events: auto;
-    filter: blur(0px);
 }
 
 /* Left card: shifted left, scaled down, recedes */
@@ -240,7 +241,6 @@ body {
     opacity: 0.75;
     z-index: 20;
     pointer-events: auto;
-    filter: blur(3px);
 }
 
 /* Right card: mirror of left */
@@ -249,7 +249,6 @@ body {
     opacity: 0.75;
     z-index: 20;
     pointer-events: auto;
-    filter: blur(3px);
 }
 
 /* Far left card: outer left card in 5-card carousel */
@@ -258,7 +257,6 @@ body {
     opacity: 0.45;
     z-index: 10;
     pointer-events: auto;
-    filter: blur(8px);
 }
 
 /* Far right card: outer right card in 5-card carousel */
@@ -267,7 +265,6 @@ body {
     opacity: 0.45;
     z-index: 10;
     pointer-events: auto;
-    filter: blur(8px);
 }
 
 /* Cards sliding out to far left (exit animation) */
@@ -276,7 +273,6 @@ body {
     opacity: 0;
     z-index: 5;
     pointer-events: none;
-    filter: blur(12px);
 }
 
 /* Cards sliding out to far right (exit animation) */
@@ -285,7 +281,6 @@ body {
     opacity: 0;
     z-index: 5;
     pointer-events: none;
-    filter: blur(12px);
 }
 
 /* Hidden/off-screen cards */
@@ -294,7 +289,6 @@ body {
     opacity: 0;
     z-index: 0;
     pointer-events: none;
-    filter: blur(12px);
 }
 
 /* Initial entrance animation */
@@ -345,8 +339,20 @@ body {
     aspect-ratio: 582 / 573;
     background: url('../../assets/backgrounds/frame_main_ractangle_sd.png') no-repeat center / 100% 100%;
     overflow: visible;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, filter 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: filter;
+    filter: blur(12px); /* Default blurred state */
 }
+
+/* Blur only the image wrapper, keeping card-name text crisp */
+.card-center .card-image-wrapper { filter: blur(0px); }
+.card-left .card-image-wrapper { filter: blur(3px); }
+.card-right .card-image-wrapper { filter: blur(3px); }
+.card-far-left .card-image-wrapper { filter: blur(8px); }
+.card-far-right .card-image-wrapper { filter: blur(8px); }
+.card-exit-left .card-image-wrapper { filter: blur(12px); }
+.card-exit-right .card-image-wrapper { filter: blur(12px); }
+.card-hidden .card-image-wrapper { filter: blur(12px); }
 
 .card-image-wrapper:hover {
     transform: translateY(-6px);
