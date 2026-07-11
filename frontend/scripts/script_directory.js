@@ -156,7 +156,7 @@ const students = [
     {
         name: "NONOD, Abegail Estorninos",
         photo: "../assets/profile_pictures/Nonod, Abegail E. - Abegail Nonod.png",
-        portfolio: "https://github.com" // wala pa kay abegail
+        portfolio: "https://abegail-nonod-ojt1-portfolio.vercel.app/" // 
     },
     {
         name: "OBATAY, Gabriel Josh Alba",
@@ -256,7 +256,7 @@ const students = [
     {
         name: "VASQUEZ, John Carlo Rances",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://github.com" // wala pa kay JC
+        portfolio: "https://johncarlovasquez-ojt-portfolio.vercel.app/" // 
     },
     {
         name: "VILLARITO, Aira Elbanbuena",
