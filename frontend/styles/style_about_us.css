@@ -8,7 +8,6 @@
 }
 
 html {
-    height: 100%;
     overflow-x: hidden;
 }
 body {
@@ -23,7 +22,7 @@ body {
     padding-top: 134px;
 
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: visible;
 }
 
 
@@ -96,10 +95,8 @@ body {
 /* ---- MAIN CONTENT ---- */
 .aboutus-page {
     flex: 1;
-    overflow: visible;
     position: relative;
-    overflow-x: hidden;
-
+    
     background: 
         url('../../assets/backgrounds/grid_perspective.svg') no-repeat center top / cover,
         linear-gradient(to bottom, #ffffff 0%, #6781ac 100%);
