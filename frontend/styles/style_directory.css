@@ -124,8 +124,8 @@ body {
     align-self: center;
     margin-left: 0;
     margin-bottom: 10px;
-    z-index: 10000;
-    /* Float above everything */
+    z-index: 90;
+    /* Float above content, below navbar and mobile drawer */
 }
 
 .letter-filter-btn {
@@ -406,8 +406,8 @@ body {
 
 .card-name {
     position: absolute;
-    top: 495px;
-    bottom: 12px;
+    top: 490px;
+    bottom: 8px;
     left: 50%;
     transform: translateX(-50%);
     width: 270px;
@@ -419,7 +419,7 @@ body {
     font-size: 18px;
     color: #ffffff;
     text-align: center;
-    line-height: 1.5;
+    line-height: 1.2;
     word-break: break-word;
 }
 
@@ -501,7 +501,7 @@ body {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 10000;
+    z-index: 90;
 }
 
 .filter-dropdown.active .letter-panel {
@@ -936,8 +936,9 @@ body {
     .card-name {
         font-size: 13px;
         width: 176px;
-        top: 320px;
-        bottom: 5px;
+        top: 316px;
+        bottom: 4px;
+        line-height: 1.2;
     }
 
     .nav-arrow {
@@ -998,8 +999,9 @@ body {
     .card-name {
         font-size: 12px;
         width: 153px;
-        top: 277px;
-        bottom: 4px;
+        top: 274px;
+        bottom: 3px;
+        line-height: 1.2;
     }
 
     .nav-arrow {
@@ -1097,10 +1099,11 @@ body {
     }
 
     .card-name {
-        font-size: 13px;
+        font-size: 12px;
         width: 148px;
-        top: 269px;
-        bottom: 5px;
+        top: 264px;
+        bottom: 3px;
+        line-height: 1.2;
     }
 
     .nav-arrow {
@@ -1231,10 +1234,11 @@ body {
     }
 
     .card-name {
-        font-size: 11px;
+        font-size: 10px;
         width: 120px;
-        top: 218px;
-        bottom: 4px;
+        top: 214px;
+        bottom: 2px;
+        line-height: 1.2;
     }
 
     .nav-arrow {

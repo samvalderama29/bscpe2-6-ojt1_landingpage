@@ -419,6 +419,25 @@ function updateCardClasses() {
     });
 
     renderLetterIndicator();
+    adjustCardNameFontSizes();
+}
+
+/**
+ * Automatically adjust font sizes of student names if they overflow their containers.
+ */
+function adjustCardNameFontSizes() {
+    const names = document.querySelectorAll(".card-name");
+    names.forEach(nameEl => {
+        nameEl.style.fontSize = ""; // Reset to CSS default
+        let fontSize = parseFloat(window.getComputedStyle(nameEl).fontSize);
+        let attempts = 0;
+        // Decrease font size iteratively if the text overflows the container
+        while (nameEl.scrollHeight > nameEl.clientHeight && fontSize > 8 && attempts < 20) {
+            fontSize -= 0.5;
+            nameEl.style.fontSize = fontSize + "px";
+            attempts++;
+        }
+    });
 }
 
 /**
