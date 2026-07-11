@@ -14,10 +14,7 @@
     padding: 0;
 }
 
-html,
-body {
-    height: 100%;
-    width: 100%;
+html {
     overflow-x: hidden;
     font-family: 'Google Sans Flex', sans-serif;
 }
@@ -28,6 +25,7 @@ body {
     min-height: 100vh;
     position: relative;
     background: #ffffff;
+    overflow-x: hidden;
 }
 
 /* ---------- Navbar ---------- */
@@ -114,8 +112,8 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 10px 0 10px;
-    min-height: calc(100vh - 134px - 100px);
-    overflow: hidden;
+    min-height: calc(100vh - 134px);
+    overflow: visible;
 }
 
 /* ---------- Letter Filter Dropdown ---------- */
@@ -190,11 +188,12 @@ body {
     overflow: visible;
 }
 
+/* Use clamp() for card width: scales with viewport, capped at design size */
 .student-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 582px;
+    width: clamp(280px, 38vw, 582px);
     flex-shrink: 0;
     position: absolute;
     top: 0;
@@ -224,7 +223,7 @@ body {
         z-index 0s linear 0s !important;
 }
 
-/* --- Carousel position classes --- */
+/* --- Carousel position classes (viewport-relative offsets) --- */
 
 /* Center card: full size, top z-index */
 .student-card.card-center {
@@ -237,7 +236,7 @@ body {
 
 /* Left card: shifted left, scaled down, recedes */
 .student-card.card-left {
-    transform: translateX(calc(-50% - 250px)) scale(0.82) rotateY(4deg);
+    transform: translateX(calc(-50% - clamp(100px, 17vw, 250px))) scale(0.82) rotateY(4deg);
     opacity: 0.75;
     z-index: 20;
     pointer-events: auto;
@@ -246,7 +245,7 @@ body {
 
 /* Right card: mirror of left */
 .student-card.card-right {
-    transform: translateX(calc(-50% + 250px)) scale(0.82) rotateY(-4deg);
+    transform: translateX(calc(-50% + clamp(100px, 17vw, 250px))) scale(0.82) rotateY(-4deg);
     opacity: 0.75;
     z-index: 20;
     pointer-events: auto;
@@ -255,7 +254,7 @@ body {
 
 /* Far left card: outer left card in 5-card carousel */
 .student-card.card-far-left {
-    transform: translateX(calc(-50% - 460px)) scale(0.64) rotateY(8deg);
+    transform: translateX(calc(-50% - clamp(200px, 30vw, 460px))) scale(0.64) rotateY(8deg);
     opacity: 0.45;
     z-index: 10;
     pointer-events: auto;
@@ -264,7 +263,7 @@ body {
 
 /* Far right card: outer right card in 5-card carousel */
 .student-card.card-far-right {
-    transform: translateX(calc(-50% + 460px)) scale(0.64) rotateY(-8deg);
+    transform: translateX(calc(-50% + clamp(200px, 30vw, 460px))) scale(0.64) rotateY(-8deg);
     opacity: 0.45;
     z-index: 10;
     pointer-events: auto;
@@ -273,7 +272,7 @@ body {
 
 /* Cards sliding out to far left (exit animation) */
 .student-card.card-exit-left {
-    transform: translateX(calc(-50% - 680px)) scale(0.5) rotateY(12deg);
+    transform: translateX(calc(-50% - clamp(300px, 45vw, 680px))) scale(0.5) rotateY(12deg);
     opacity: 0;
     z-index: 5;
     pointer-events: none;
@@ -282,7 +281,7 @@ body {
 
 /* Cards sliding out to far right (exit animation) */
 .student-card.card-exit-right {
-    transform: translateX(calc(-50% + 680px)) scale(0.5) rotateY(-12deg);
+    transform: translateX(calc(-50% + clamp(300px, 45vw, 680px))) scale(0.5) rotateY(-12deg);
     opacity: 0;
     z-index: 5;
     pointer-events: none;
@@ -342,8 +341,8 @@ body {
 
 .card-image-wrapper {
     position: relative;
-    width: 582px;
-    height: 573px;
+    width: 100%;
+    aspect-ratio: 582 / 573;
     background: url('../../assets/backgrounds/frame_main_ractangle_sd.png') no-repeat center / 100% 100%;
     overflow: visible;
     transition: transform 0.3s ease;
@@ -356,10 +355,10 @@ body {
 .student-photo,
 .portfolio-overlay {
     position: absolute;
-    left: 165px;
-    top: 91px;
-    width: 270px;
-    height: 398px;
+    left: 28.35%;
+    top: 15.88%;
+    width: 46.39%;
+    height: 69.46%;
     border-radius: 2px;
 }
 
@@ -406,17 +405,17 @@ body {
 
 .card-name {
     position: absolute;
-    top: 490px;
-    bottom: 8px;
+    top: 85.5%;
+    bottom: 1.4%;
     left: 50%;
     transform: translateX(-50%);
-    width: 270px;
+    width: 46.39%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Google Sans Code', monospace;
     font-weight: 300;
-    font-size: 18px;
+    font-size: clamp(10px, 1.2vw, 18px);
     color: #ffffff;
     text-align: center;
     line-height: 1.2;
@@ -892,21 +891,9 @@ body {
         padding: 8px 24px;
     }
 
-    /* Carousel: scale down cards */
+    /* Carousel: cards scale via clamp, hide far cards */
     .cards-container {
         height: 500px;
-    }
-
-    .student-card {
-        width: 380px;
-    }
-
-    .student-card.card-left {
-        transform: translateX(calc(-50% - 150px)) scale(0.8) rotateY(4deg);
-    }
-
-    .student-card.card-right {
-        transform: translateX(calc(-50% + 150px)) scale(0.8) rotateY(-4deg);
     }
 
     .student-card.card-far-left,
@@ -915,30 +902,9 @@ body {
         pointer-events: none;
     }
 
-    .card-image-wrapper {
-        width: 380px;
-        height: 374px;
-    }
-
-    .student-photo,
-    .portfolio-overlay {
-        left: 107px;
-        top: 60px;
-        width: 176px;
-        height: 260px;
-    }
-
     .portfolio-text {
         font-size: 10px;
         padding: 4px 8px;
-    }
-
-    .card-name {
-        font-size: 13px;
-        width: 176px;
-        top: 316px;
-        bottom: 4px;
-        line-height: 1.2;
     }
 
     .nav-arrow {
@@ -969,39 +935,6 @@ body {
 
     .cards-container {
         height: 450px;
-    }
-
-    .student-card {
-        width: 330px;
-    }
-
-    .student-card.card-left {
-        transform: translateX(calc(-50% - 130px)) scale(0.78) rotateY(4deg);
-    }
-
-    .student-card.card-right {
-        transform: translateX(calc(-50% + 130px)) scale(0.78) rotateY(-4deg);
-    }
-
-    .card-image-wrapper {
-        width: 330px;
-        height: 325px;
-    }
-
-    .student-photo,
-    .portfolio-overlay {
-        left: 93px;
-        top: 52px;
-        width: 153px;
-        height: 225px;
-    }
-
-    .card-name {
-        font-size: 12px;
-        width: 153px;
-        top: 274px;
-        bottom: 3px;
-        line-height: 1.2;
     }
 
     .nav-arrow {
@@ -1052,7 +985,7 @@ body {
     .directory-page::before,
     .directory-page::after {
         top: 0;
-        width: 150px;
+        width: 100px;
     }
 
     .current-letter {
@@ -1066,57 +999,52 @@ body {
         padding: 6px 20px;
     }
 
-    /* Single card carousel on mobile — hide side cards */
+    /* 3-card carousel on mobile — keep side cards visible */
+    .cards-section {
+        margin-top: -30px;
+    }
+
     .cards-container {
-        height: 420px;
+        height: 380px;
     }
 
     .student-card {
-        width: 320px;
-    }
-
-    .student-card.card-left,
-    .student-card.card-right {
-        opacity: 0;
-        pointer-events: none;
+        width: clamp(180px, 42vw, 280px);
     }
 
     .student-card.card-center {
         transform: translateX(-50%) scale(1);
     }
 
-    .card-image-wrapper {
-        width: 320px;
-        height: 315px;
+    .student-card.card-left {
+        transform: translateX(calc(-50% - clamp(80px, 20vw, 160px))) scale(0.78) rotateY(4deg);
+        opacity: 0.6;
+        filter: blur(3px);
     }
 
-    .student-photo,
-    .portfolio-overlay {
-        left: 90px;
-        top: 50px;
-        width: 148px;
-        height: 219px;
+    .student-card.card-right {
+        transform: translateX(calc(-50% + clamp(80px, 20vw, 160px))) scale(0.78) rotateY(-4deg);
+        opacity: 0.6;
+        filter: blur(3px);
     }
 
-    .card-name {
-        font-size: 12px;
-        width: 148px;
-        top: 264px;
-        bottom: 3px;
-        line-height: 1.2;
+    .student-card.card-far-left,
+    .student-card.card-far-right {
+        opacity: 0;
+        pointer-events: none;
     }
 
     .nav-arrow {
-        width: 44px;
-        height: 40px;
+        width: 40px;
+        height: 36px;
     }
 
     .nav-arrow.left {
-        left: 12px;
+        left: 4px;
     }
 
     .nav-arrow.right {
-        right: 12px;
+        right: 4px;
     }
 
     .letter-panel {
@@ -1188,7 +1116,7 @@ body {
     .directory-page::before,
     .directory-page::after {
         top: 0;
-        width: 100px;
+        width: 60px;
     }
 
     .current-letter {
@@ -1202,56 +1130,51 @@ body {
         padding: 5px 16px;
     }
 
-    /* Single card — smaller */
+    /* 3-card carousel — smaller cards, tighter spacing */
+    .cards-section {
+        margin-top: -20px;
+    }
+
     .cards-container {
-        height: 360px;
+        height: 320px;
     }
 
     .student-card {
-        width: 260px;
+        width: clamp(140px, 38vw, 220px);
     }
 
     .student-card.card-center {
         transform: translateX(-50%) scale(1);
     }
 
-    .card-image-wrapper {
-        width: 260px;
-        height: 256px;
+    .student-card.card-left {
+        transform: translateX(calc(-50% - clamp(60px, 18vw, 130px))) scale(0.75) rotateY(4deg);
+        opacity: 0.55;
+        filter: blur(3px);
     }
 
-    .student-photo,
-    .portfolio-overlay {
-        left: 73px;
-        top: 41px;
-        width: 120px;
-        height: 177px;
+    .student-card.card-right {
+        transform: translateX(calc(-50% + clamp(60px, 18vw, 130px))) scale(0.75) rotateY(-4deg);
+        opacity: 0.55;
+        filter: blur(3px);
     }
 
     .portfolio-text {
-        font-size: 9px;
-        padding: 4px 6px;
-    }
-
-    .card-name {
-        font-size: 10px;
-        width: 120px;
-        top: 214px;
-        bottom: 2px;
-        line-height: 1.2;
+        font-size: 8px;
+        padding: 3px 5px;
     }
 
     .nav-arrow {
-        width: 38px;
-        height: 36px;
+        width: 32px;
+        height: 30px;
     }
 
     .nav-arrow.left {
-        left: 6px;
+        left: 2px;
     }
 
     .nav-arrow.right {
-        right: 6px;
+        right: 2px;
     }
 
     .letter-panel {
