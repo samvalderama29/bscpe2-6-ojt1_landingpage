@@ -7,23 +7,27 @@
     box-sizing: border-box;
 }
 
-html,
+html {
+    height: 100%;
+    overflow: hidden;
+}
 body {
     font-family: 'Google Sans Flex', sans-serif;
-    min-height: 100%;
+    margin: 0;
+    padding: 0;
     width: 100%;
-    overflow-x: hidden;
-    overflow-y: visible;
-}
-
-body {
+    height: 100%;
     display: flex;
     flex-direction: column;
     position: relative;
-    min-height: 100vh;
     background: #ffffff;
     padding-top: 134px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
+
 
 /* ---- FOR NAVBAR ---- */
 .navbar {
@@ -93,43 +97,72 @@ body {
 
 /* ---- MAIN CONTENT ---- */
 .aboutus-page {
-    flex: 1;
-    overflow: visible;
+    flex: 1 0 auto;
     position: relative;
+
     background: 
         url('../../assets/backgrounds/grid_perspective.svg') no-repeat center top / cover,
         linear-gradient(to bottom, #ffffff 0%, #6781ac 100%);
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 60px 20px; /* Dinagdagan ang padding para sa hininga ng layout */
+    padding: 60px 20px; 
     min-height: calc(100vh - 134px);
+    overflow: hidden;
 }
 
 .project-vision-container {
+    position: relative;
+    z-index: 5;
     display: flex;
-    width: 100%;
-    max-width: 1100px;
-    gap: 60px;
-    margin: 40px auto 60px auto;
+    width: 95%;
+    max-width: 1600px;
+    gap: 5px;
+    margin: 80px auto;
     padding: 0 20px;
     align-items: center;
     justify-content: center;
 
 }
 
+.crown-decor {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 1;
+    filter: brightness(1.5);
+}
+
+.top-crown {
+    top: -5%;
+    left: -50%;
+    width: 150%;
+    max-width: 2200px;
+    transform: rotate(-10deg);
+}
+
+.bottom-crown {
+    bottom: -700px;
+    right: -50%;
+    width: 180%;
+    max-width: 2500px;
+    transform: rotate(20deg);
+}
+
 .aboutus-saislogo {
     display: flex;
-    flex: 1;
+    flex: 1.5;
     justify-content: flex-end;
 }
 
 .aboutus-saislogo img {
-    width: 807px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 1500px;
     height: auto;
-    max-height: 240px;
+    max-height: 500px;
     margin-bottom: 30px;
+    object-fit: contain;
 }
 
 .aboutus-projectvision {
@@ -137,22 +170,22 @@ body {
     text-align: left;
     max-width: 800px;
     color: #ffffff;
-    margin-bottom: 60px;
 }
 
 .aboutus-projectvision p {
-    font-size: 1.05rem;
-    line-height: 1.6;
-    max-width: 550px;
+    font-size: 1.25rem;
+    line-height: 1.7;
+    max-width: 650px;
     color: #000000;
     opacity: 0.9;
 }
 
 /* ---- JOINT CODE FOR LINEAR GRADIENT OF TEXT ---- */
 .aboutus-projectvision h1 {
-    font-size: 2.5rem;
+    font-size: 5.5rem;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    line-height: 1.1;
 
     background: linear-gradient(to right, #0B357D, #518bf1 50%);
     background-clip: text;
@@ -191,6 +224,8 @@ body {
 
 /* ---- CONTRIBUTORS GRID ---- */
 .contributors {
+    position: relative;
+    z-index: 5;
     width: 100%;
     max-width: 1200px;
     color: #184399;
@@ -218,13 +253,15 @@ body {
 
 
 .member-card {
+    position: relative;
+    z-index: 10;
     background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.8);
     border-radius: 8px;
     padding: 20px;
     width: 100%;
     max-width: 260px;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     transition: transform 0.3s ease;
 }
 
