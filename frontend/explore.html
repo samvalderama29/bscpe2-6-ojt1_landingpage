@@ -21,58 +21,72 @@
 <body>
 
     <!-- ========== NAVBAR ========== -->
-    <header class="navbar" id="navbar">
-        <nav class="nav-links-left" id="nav-left">
-            <a href="directory.html" class="active">STUDENT DIRECTORY</a>
-            <a href="explore.html">EXPLORE</a>
-            <a href="about_us.html">ABOUT</a>
-        </nav>
-        <div class="navbar-logo">
-            <img src="../assets/logos/logo_ver_1_header.png" alt="Saistematic BSCpE 2-6 Logo">
-        </div>
-        <nav class="nav-links-right" id="nav-right">
+    <header class="navbar">
+        <div class="nav-links-left">
             <a href="index.html">HOME</a>
-        </nav>
-        <!-- Mobile hamburger menu button -->
-        <button class="hamburger-btn" id="hamburger-btn" type="button" aria-label="Toggle navigation menu">
-            <img src="../assets/icons/hamburger_menu.svg" alt="Menu Icon">
-        </button>
+            <a href="directory.html">STUDENT DIRECTORY</a>
+            <a href="about_us.html">ABOUT</a>
+        </div>
+
+        <div class="navbar-logo">
+            <img src="../../assets/logos/logo_ver_2_title.png" alt="Sistematic Logo">
+        </div>
+
+        <div class="nav-links-right">
+            <a href="explore.html" class="active">EXPLORE</a>
+        </div>
     </header>
 
-    <main>
+<main>
+        <div class="cosmic-ring-container">
+            <div class="cosmic-ring"></div>
+            <div class="star-spark top-right"></div>
+            <div class="star-spark bottom-center"></div>
+        </div>
+
         <section class="hero-section">
             <h1>Navigating something?</h1>
             
             <div class="search-container">
                 <input type="text" placeholder="">
-                <button type="button">SEARCH</button>
+                <button type="search-btn">SEARCH</button>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>Saistematic</h3>
-                <p>Lorem Ipsum</p>
-            </div>
+    <footer class="footer">
+        
+        <div class="footer-divider">
+            <hr class="footer-divider-line">
+        </div>
 
-            <div class="footer-column">
-                <h3>Platform</h3>
-                <ul>
-                    <li><a href="directory.html">Student Directory</a></li>
-                    <li><a href="about_us.html">About</a></li>
-                </ul>
-            </div>
-
+        <div class="footer-container">
             <div class="footer-col">
-                <h3>Resources</h3>
-                <ul>
-                    <li><a href="https://github.com/samvalderama29/bscpe2-6-ojt1_landingpage" target="_blank">Documentation</a></li>
-                </ul>
+                <div class="footer-brand">
+                    <img src="../../assets/logos/logo_ver_2_title.png" alt="Saistematic Logo" class="footer-logo">
+                    <h4 class="footer-brand-title">Saistematic</h4>
+                </div>
+                <p class="footer-desc">A collaborative platform for showcasing student OJT portfolios of PUP BSCpE 2-6 (Batch 2025-2026).</p>
             </div>
 
-            <div class="footer-action">
+            <div class="footer-nav">
+                <div class="footer-col">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="directory.html">Student Directory</a></li>
+                        <li><a href="about_us.html">About</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://github.com/samvalderama29/bscpe2-6-ojt1_landingpage" target="_blank">Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-col footer-partner">
                 <a href="https://www.facebook.com/saistematic" class="partner-btn" target="_blank" rel="noopener noreferrer">Partner with Us</a>
             </div>
         </div>

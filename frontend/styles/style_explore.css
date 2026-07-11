@@ -34,18 +34,17 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100%; 
+    box-sizing: border-box; 
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: #ffffff;
     height: 134px;
     padding: 0 56px;
     z-index: 9999;
     flex-shrink: 0;
-    background: #ffffff;
-    backdrop-filter: blur(50px);
-    border-bottom: 1px solid rgba(59, 59, 59, 0.2);
-    box-shadow: 0 1px 5px rgb(172, 196, 236);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .nav-links-left {
@@ -60,6 +59,21 @@ body {
 
 .navbar a {
     text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+    color: #163842;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.navbar a:hover {
+    opacity: 0.7;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-family: 'Google Sans Flex', sans-serif;
     font-weight: 600;
     font-size: 20px;
     color: #163842;
@@ -123,46 +137,113 @@ main {
     position: relative;
 }
 
-.hero-section {
-    text-align: center;
+.cosmic-ring-container {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 800px;
-    z-index: 5;
+    height: 100%;
+    pointer-events: none; 
+    z-index: 1;           
+    overflow: hidden;         
 }
+
+.cosmic-ring {
+    position: absolute;
+    width: 100%;         
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+    .cosmic-ring::before {
+    content: "";
+    position: absolute;
+    
+    width: 85%; 
+    height: 72vw;
+    top: -34%;
+    left: 0%;   
+    
+    background: url('../../assets/backgrounds/star_background.png') no-repeat center center / contain;
+    transform-origin: center center;
+    opacity: 1; 
+}
+
+.cosmic-ring::after {
+    content: "";
+    position: absolute;
+    width: 65vw;
+    height: 70vw;
+    bottom: -10vw;
+    right: -10vw;
+    
+    background: url('../../assets/backgrounds/star_whole.png') no-repeat center center / contain;
+    transform: rotate(-185deg);
+    transform-origin: center center;
+    opacity: 0.2; 
+    mix-blend-mode: screen;
+    pointer-events: none;
+}
+
+.hero-section {
+    display: flex;
+    flex-direction: column;   
+    align-items: center;      
+    justify-content: center;  
+    text-align: center;       
+    
+    width: 100%;
+    min-height: 80vh;         
+    position: relative;
+    z-index: 10;             
+}   
+
 
 .hero-section h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: #163842;
-    margin-bottom: 35px;
-    letter-spacing: -0.5px;
-    /* Subtle drop shadow to make the text pop against the gradient background */
-    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));
+    width: max-content;
+    max-width: 100%; 
+    margin: -350px auto 150px auto;
+  
+    font-family: 'Google Sans Flex', sans-serif;
+    font-weight: 600; 
+    font-size: 96px; 
+    line-height: 150%; 
+    letter-spacing: 0px;
+    text-align: center;
+    white-space: nowrap;
+    color: #39537E; 
+    filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.25));
 }
 
-/* Search bar container setup */
+
+
+/*Pill shape for Search Bar Input (TEXT ENTRY AREA)*/
 .search-container {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
+    display: inline-flex;       
     align-items: center;
     width: 100%;
-    max-width: 650px;
-    margin: 0 auto;
+    max-width: 780px;           
+    gap: 40px;                 
+    background: transparent;    
+    box-shadow: none;    
+    border: none;    
+    border-radius: 0;   
 }
 
-/* Pill shape for Search Bar Input */
+/*Pill shape for Search Bar Input*/
 .search-container input[type="text"] {
     flex: 1;
     width: 100%;
-    padding: 16px 28px;
-    border-radius: 50px;
+    padding: 20px 32px;         
+    border-radius: 50px;        
     border: 1px solid rgba(22, 56, 66, 0.2);
-    background-color: rgba(255, 255, 255, 0.95);
-    font-size: 1.1rem;
+    background-color: rgba(255, 255, 255, 0.95); 
+    font-size: 1.25rem;
     outline: none;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
+    color: #1a3053;
 }
 
 .search-container input[type="text"]:focus {
@@ -170,24 +251,36 @@ main {
     box-shadow: 0 4px 20px rgba(25, 71, 189, 0.15);
 }
 
-/* Button override for the Search button to match the rounded pill shape*/
+/*Search button*/
 .search-container button {
-    padding: 16px 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 16px 44px;
     background: linear-gradient(to right, #184399 30%, #3d73e1 47%, #184399 56%);
     border: none;
-    border-radius: 50px; 
+
+    border-radius: 12px; 
+    
     color: #fafafa;
-    font-weight: 600;
-    font-size: 1rem;
+    font-weight: 500;
+    font-size: 18px;
     cursor: pointer;
     white-space: nowrap;
-    box-shadow: 0 4px 10px rgba(24, 67, 153, 0.2);
+    text-transform: uppercase;
+    
+    
+    box-shadow:
+        inset 0px -3px 0px 0px rgba(0, 0, 0, 0.2),
+        inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+        0px 4px 10px rgba(24, 67, 153, 0.2);
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .search-container button:hover {
     transform: translateY(-2px);
-    opacity: 0.95;
+    filter: brightness(1.08);
 }
 
 /* ==========================================================================
@@ -247,6 +340,13 @@ main {
     align-items: center;
     gap: 8px;
     margin-bottom: 16px;
+}
+
+.footer-logo {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+    margin-left: -6px;
 }
 
 .footer-brand-title {
