@@ -9,7 +9,7 @@
 // =============================================
 const students = [
     {
-        name: "ADLAWAN, Justin Cholo Pamida",
+        name: "ADLAWAN, Justin Cholo Pomida",
         photo: "../assets/profile_pictures/ADLAWAN, Justin Cholo P.jpg",
         portfolio: "https://secchoo.github.io/OJT-Portfolio/"
     },
@@ -55,7 +55,7 @@ const students = [
     },
     {
         name: "CLARO, Kirby Christian Coronel",
-        photo: "../assets/profile_pictures/claro_kirby_christian_c.jpg",
+        photo: "../assets/profile_pictures/Claro, Kirby Christian C - Claro Kirby Christian.jpg",
         portfolio: "https://kirbyclaro.github.io/ojt_portfolio/"
     },
     {
@@ -114,7 +114,7 @@ const students = [
         portfolio: "https://ojt-gold.vercel.app/#about"
     },
     {
-        name: "GELI, Jasper Matthieu Nocete",
+        name: "GELI, Jasper Mathieu Nocete",
         photo: "../assets/profile_pictures/GELI, Jasper Mathieu N - Jasper Mathieu Geli.jpg",
         portfolio: "https://jaspermathieugeli-ojt1-documents.vercel.app/"
     },
@@ -141,7 +141,7 @@ const students = [
     {
         name: "MAAÑO, Vince Anthony Nacario",
         photo: "../assets/profile_pictures/MAAÑO, Vince Anthony N - Vince Maaño.jpg",
-        portfolio: "https://github.com" //wala pa kay vince
+        portfolio: "https://n3ith4n.github.io/Maa-o-Portfolio/" 
     },
     {
         name: "MENDEZ, Mark Joseph Reyes",
@@ -156,7 +156,7 @@ const students = [
     {
         name: "NONOD, Abegail Estorninos",
         photo: "../assets/profile_pictures/Nonod, Abegail E. - Abegail Nonod.png",
-        portfolio: "https://abegail-nonod-ojt1-portfolio.vercel.app/" // 
+        portfolio: "https://abegail-nonod-ojt1-portfolio.vercel.app/" 
     },
     {
         name: "OBATAY, Gabriel Josh Alba",
@@ -256,7 +256,7 @@ const students = [
     {
         name: "VASQUEZ, John Carlo Rances",
         photo: "../assets/placeholders/img_holder.jpg",
-        portfolio: "https://johncarlovasquez-ojt-portfolio.vercel.app/" // 
+        portfolio: "https://johncarlovasquez-ojt-portfolio.vercel.app/" 
     },
     {
         name: "VILLARITO, Aira Elbanbuena",
