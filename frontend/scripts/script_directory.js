@@ -151,7 +151,7 @@ const students = [
     {
         name: "NINOLLA, John Lenon Inosanto",
         photo: "../assets/profile_pictures/NINOLLA, John Lenon I - John Lenon Ninolla.jpg",
-        portfolio: "https://ninolla-internship-portfolio-website.vercel.app/"
+        portfolio: "https://internship-submission-portal.vercel.app/"
     },
     {
         name: "NONOD, Abegail Estorninos",
