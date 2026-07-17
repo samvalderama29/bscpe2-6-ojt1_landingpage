@@ -206,7 +206,7 @@ const students = [
     {
         name: "ROMERO, Karl Tristan Fernandez",
         photo: "../assets/profile_pictures/ROMERO, Karl Tristan F.png",
-        portfolio: "https://karl-romero-portfolio-initial.vercel.app/"
+        portfolio: "https://romero-karl-ojt-portfolio.vercel.app/"
     },
     {
         name: "SALINAS, Nykesha Dela Cruz",
@@ -245,7 +245,7 @@ const students = [
     },
     {
         name: "TUBOG, Kyrie Eleison Quiliope",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/TUBOG, Kyrie Eleison.jpg",
         portfolio: "https://tubog-ojt-portfolio.vercel.app/"
     },
     {
