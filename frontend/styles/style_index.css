@@ -422,21 +422,33 @@ h2 {
 /* Carousel Layout */
 .cd-carousel-container {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     gap: 15px;
     margin-bottom: 40px;
     width: 100%;
+    padding-top: 40px;
 }
 
 /* Card Styling */
 .cd-card {
-    background-color: #f8f9fa;
     border-radius: 4px;
     box-shadow: 10px 15px 25px rgba(0, 0, 0, 0.3);
     position: relative;
     transition: all 0.4s ease;
     cursor: pointer;
+    overflow: hidden;
+}
+
+/* Skeleton/letter image inside cards */
+.cd-card-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+    pointer-events: none;
+    user-select: none;
 }
 
 /* Letters above side cards */
@@ -450,22 +462,33 @@ h2 {
     color: #1b3a6b;
     font-size: 1.2rem;
     white-space: nowrap;
+    z-index: 2;
 }
 
 /* Specific Card Sizes */
 .cd-side-card {
     width: 35px;
+    min-width: 35px;
+    max-width: 35px;
     height: 280px;
+    min-height: 280px;
+    max-height: 280px;
+    flex-shrink: 0;
     z-index: 1;
 }
 
 .cd-active-card {
-    width: 260px;
-    height: 350px;
+    width: 380px;
+    height: 440px;
     z-index: 10;
     margin: 0 20px;
-    background-color: #ffffff;
-    box-shadow: 15px 20px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: none; /* Let the book image's built-in shadow act as the shadow */
+}
+
+/* Active card shows letter book cover — contain to show full cover */
+.cd-active-card .cd-card-img {
+    object-fit: contain;
+    object-position: bottom center;
 }
 
 /* Controls */
