@@ -73,15 +73,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 img.src = src;
                 img.alt = isCenter ? `Book cover ${letter}` : `Book spine ${letter}`;
                 card.style.backgroundColor = 'transparent';
-            } else if (letter === 'Class' && isCenter) {
-                const src = `../assets/letters/26.png`;
+            } else if (letter === 'Class') {
+                const src = isCenter 
+                    ? `../assets/letters/26.png` 
+                    : `../assets/skeletons/26.png`;
+                
                 if (!img) {
                     img = document.createElement('img');
                     img.className = 'cd-card-img';
                     card.appendChild(img);
                 }
                 img.src = src;
-                img.alt = `Book cover Class Intro`;
+                img.alt = isCenter ? `Book cover Class Intro` : `Book spine Class Intro`;
                 card.style.backgroundColor = 'transparent';
             } else {
                 if (img) img.remove();
