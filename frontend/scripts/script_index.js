@@ -42,44 +42,86 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.querySelector('.cd-prev-btn');
     const nextBtn = document.querySelector('.cd-next-btn');
     const sideCards = document.querySelectorAll('.cd-side-card');
+    const activeCard = document.querySelector('.cd-active-card');
     const container = document.querySelector('.cd-carousel-container');
     
-    // Ensure the elements exist on the page before running logic
-    if (prevBtn && nextBtn && sideCards.length > 0 && container) {
+    if (prevBtn && nextBtn && sideCards.length > 0 && container && activeCard) {
         
-        // Full A-Z array with 'Class' included at the end
         const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
         letters.push('Class'); 
         
-        // Starting position (22 = 'W', so the left side shows V, W, X, Y, Z)
-        let currentIndex = 22; 
+        // Starting position (21 = 'V', so the left side shows V, W, X, Y, Z and center shows Class)
+        let currentIndex = 21; 
+
+        /**
+         * Set or update the image inside a card.
+         * Side cards use skeleton spines, active card uses letter book covers.
+         */
+        function setCardImage(card, letter, isCenter) {
+            let img = card.querySelector('.cd-card-img');
+            
+            if (letter && letter.length === 1 && letter >= 'A' && letter <= 'Z') {
+                const src = isCenter 
+                    ? `../assets/letters/${letter}.png` 
+                    : `../assets/skeletons/${letter}.png`;
+                
+                if (!img) {
+                    img = document.createElement('img');
+                    img.className = 'cd-card-img';
+                    card.appendChild(img);
+                }
+                img.src = src;
+                img.alt = isCenter ? `Book cover ${letter}` : `Book spine ${letter}`;
+                card.style.backgroundColor = 'transparent';
+            } else if (letter === 'Class') {
+                const src = isCenter 
+                    ? `../assets/letters/26.png` 
+                    : `../assets/skeletons/26.png`;
+                
+                if (!img) {
+                    img = document.createElement('img');
+                    img.className = 'cd-card-img';
+                    card.appendChild(img);
+                }
+                img.src = src;
+                img.alt = isCenter ? `Book cover Class Intro` : `Book spine Class Intro`;
+                card.style.backgroundColor = 'transparent';
+            } else {
+                if (img) img.remove();
+                card.style.backgroundColor = isCenter ? '#ffffff' : '#f8f9fa';
+            }
+        }
 
         function updateCards() {
-            // Find how many cards are placed BEFORE the center active card in your HTML
             const allCards = Array.from(container.children);
             const activeCardIndex = allCards.findIndex(card => card.classList.contains('cd-active-card'));
-            
-            // Total letters we need to display (all side cards + 1 center card)
             const totalVisible = sideCards.length + 1; 
 
-            // Create an array of the currently visible letters
             let displayLetters = [];
             for (let i = 0; i < totalVisible; i++) {
                 let letterIndex = (currentIndex + i) % letters.length;
                 displayLetters.push(letters[letterIndex]);
             }
 
-            // Loop through your side cards and assign the correct letter
+            const centerLetter = displayLetters[activeCardIndex];
+
+            // Update side cards with skeleton spines
             sideCards.forEach((card, i) => {
+                let letter;
                 if(i < activeCardIndex) {
-                    card.setAttribute('data-letter', displayLetters[i]);
+                    letter = displayLetters[i];
                 } else {
-                    card.setAttribute('data-letter', displayLetters[i + 1]); 
+                    letter = displayLetters[i + 1]; 
                 }
+                card.setAttribute('data-letter', letter);
+                setCardImage(card, letter, false);
             });
+
+            // Update center card with letter book cover
+            activeCard.setAttribute('data-letter', centerLetter);
+            setCardImage(activeCard, centerLetter, true);
         }
 
-        // Initialize the letters on page load
         updateCards();
 
         nextBtn.addEventListener('click', () => {
