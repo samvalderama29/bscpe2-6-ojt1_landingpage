@@ -145,7 +145,7 @@ const students = [
     },
     {
         name: "MENDEZ, Mark Joseph Reyes",
-        photo: "../assets/profile_pictures/Mendez, Mark Joseph R - Mark Joseph Mendez.png",
+        photo: "../assets/profile_pictures/MENDEZ, Jose.png",
         portfolio: "https://mendez-portfolio-one.vercel.app/"
     },
     {
@@ -165,17 +165,17 @@ const students = [
     },
     {
         name: "OCAMPO, Jacin Kurt Salvador",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/Ocampo, Kurt.jpg",
         portfolio: "https://ojt-portfolio-with-digital-ledger.vercel.app"
     },
     {
         name: "PAZ, Gabriel John Mikhael Hernandez",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/PAZ, Gabriel.png",
         portfolio: "https://pazgabrielojtportfolio-bdkcq25mv-fema.vercel.app/"
     },
     {
         name: "PEDRIGAL, Francisco Moreno",
-        photo: "../assets/profile_pictures/Pedrigal, Francisco III M - Francisco Pedrigal III.jpg",
+        photo: "../assets/profile_pictures/PEDRIGAL, Francisco.png",
         portfolio: "https://ojt-portfolio-fabong.vercel.app/"
     },
     {
@@ -255,7 +255,7 @@ const students = [
     },
     {
         name: "VASQUEZ, John Carlo Rances",
-        photo: "../assets/placeholders/img_holder.jpg",
+        photo: "../assets/profile_pictures/VASQUEZ, John Carlo.png",
         portfolio: "https://johncarlovasquez-ojt-portfolio.vercel.app/" 
     },
     {
