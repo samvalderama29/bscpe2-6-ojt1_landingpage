@@ -44,14 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const sideCards = document.querySelectorAll('.cd-side-card');
     const activeCard = document.querySelector('.cd-active-card');
     const container = document.querySelector('.cd-carousel-container');
-    
+
     if (prevBtn && nextBtn && sideCards.length > 0 && container && activeCard) {
-        
+
         const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-        letters.push('Class'); 
-        
+        letters.push('Class');
+
         // Starting position (21 = 'V', so the left side shows V, W, X, Y, Z and center shows Class)
-        let currentIndex = 21; 
+        let currentIndex = 21;
 
         /**
          * Set or update the image inside a card.
@@ -59,12 +59,12 @@ document.addEventListener('DOMContentLoaded', () => {
          */
         function setCardImage(card, letter, isCenter) {
             let img = card.querySelector('.cd-card-img');
-            
+
             if (letter && letter.length === 1 && letter >= 'A' && letter <= 'Z') {
-                const src = isCenter 
-                    ? `../assets/letters/${letter}.png` 
-                    : `../assets/skeletons/${letter}.png`;
-                
+                const src = isCenter
+                    ? `../assets/letters/${letter}.svg`
+                    : `../assets/skeletons/${letter}.svg`;
+
                 if (!img) {
                     img = document.createElement('img');
                     img.className = 'cd-card-img';
@@ -74,10 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 img.alt = isCenter ? `Book cover ${letter}` : `Book spine ${letter}`;
                 card.style.backgroundColor = 'transparent';
             } else if (letter === 'Class') {
-                const src = isCenter 
-                    ? `../assets/letters/26.png` 
-                    : `../assets/skeletons/26.png`;
-                
+                const src = isCenter
+                    ? `../assets/letters/26.svg`
+                    : `../assets/skeletons/26.svg`;
+
                 if (!img) {
                     img = document.createElement('img');
                     img.className = 'cd-card-img';
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function updateCards() {
             const allCards = Array.from(container.children);
             const activeCardIndex = allCards.findIndex(card => card.classList.contains('cd-active-card'));
-            const totalVisible = sideCards.length + 1; 
+            const totalVisible = sideCards.length + 1;
 
             let displayLetters = [];
             for (let i = 0; i < totalVisible; i++) {
@@ -108,10 +108,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // Update side cards with skeleton spines
             sideCards.forEach((card, i) => {
                 let letter;
-                if(i < activeCardIndex) {
+                if (i < activeCardIndex) {
                     letter = displayLetters[i];
                 } else {
-                    letter = displayLetters[i + 1]; 
+                    letter = displayLetters[i + 1];
                 }
                 card.setAttribute('data-letter', letter);
                 setCardImage(card, letter, false);
