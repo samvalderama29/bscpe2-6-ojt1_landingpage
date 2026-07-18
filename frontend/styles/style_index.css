@@ -386,7 +386,10 @@ h2 {
 /* CLASS DIRECTORY STYLES                   */
 /* ========================================== */
 .cd-section {
-    min-height: 100vh;
+    height: calc(100vh - 134px);
+    min-height: calc(100vh - 134px);
+    scroll-margin-top: 134px;
+    box-sizing: border-box;
     background: transparent;
     background-size: cover;
     background-position: center;
@@ -394,7 +397,7 @@ h2 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 60px 20px;
+    padding: 10px 20px;
     overflow: hidden;
     position: relative;
 }
@@ -402,16 +405,16 @@ h2 {
 /* Typography */
 .cd-header-content {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 12px;
 }
 
 .cd-title {
-    font-size: clamp(3rem, 5vw, 6rem);
+    font-size: clamp(2rem, 3.5vw, 3.5rem);
     font-weight: 900;
     color: #0b1a4a;
-    margin-top: 50px;
-    margin-bottom: 0px;
-    line-height: 1;
+    margin-top: 5px;
+    margin-bottom: 4px;
+    line-height: 1.1;
     position: relative;
     z-index: 1;
     letter-spacing: 2px;
@@ -420,12 +423,12 @@ h2 {
 
 .cd-description {
     max-width: 900px;
-    margin-top: 10px;
-    margin-bottom: 32;
+    margin-top: 5px;
+    margin-bottom: 0px;
     position: relative;
     color: #ffffff;
-    font-size: 1.2rem;
-    line-height: 1.5;
+    font-size: 1.05rem;
+    line-height: 1.4;
     font-weight: 700;
     text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5)
 }
@@ -435,10 +438,10 @@ h2 {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    gap: 40px;
-    margin-bottom: 40px;
+    gap: 48px;
+    margin-bottom: 15px;
     width: 100%;
-    padding-top: 40px;
+    padding-top: 10px;
 }
 
 /* Card Styling */
@@ -462,39 +465,29 @@ h2 {
     user-select: none;
 }
 
-/* Letters above side cards */
-.cd-side-card::before {
-    content: attr(data-letter);
-    position: absolute;
-    top: -35px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-weight: bold;
-    color: #1b3a6b;
-    font-size: 1.2rem;
-    white-space: nowrap;
-    z-index: 2;
-}
-
 /* Specific Card Sizes */
 .cd-side-card {
-    width: 60px;
-    min-width: 60px;
-    max-width: 60px;
-    height: 500px;
-    min-height: 500px;
-    max-height: 500px;
+    width: 55px;
+    min-width: 55px;
+    max-width: 55px;
+    height: 480px;
+    min-height: 480px;
+    max-height: 480px;
     flex-shrink: 0;
     z-index: 1;
-    overflow: hidden;
+    overflow: visible;
+    box-shadow: none;
+    filter: drop-shadow(5px 10px 8px rgba(0, 0, 0, 0.3));
 }
 
 .cd-active-card {
-    width: 380px;
-    height: 540px;
+    width: 360px;
+    height: 520px;
     z-index: 10;
-    margin: 0 20px;
+    margin: 0 36px;
     box-shadow: none;
+    flex-shrink: 0;
+    transform: translateY(16px);
     /* Let the book image's built-in shadow act as the shadow */
 }
 
