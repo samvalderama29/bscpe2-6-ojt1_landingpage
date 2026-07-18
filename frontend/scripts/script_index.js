@@ -61,8 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
             let img = card.querySelector('.cd-card-img');
 
             if (letter && letter.length === 1 && letter >= 'A' && letter <= 'Z') {
+                const ext = isCenter ? 'svg' : 'png';
                 const src = isCenter
-                    ? `../assets/letters/${letter}.png`
+                    ? `../assets/letters/${letter}.${ext}`
                     : `../assets/skeletons/${letter}.png`;
 
                 if (!img) {
@@ -74,8 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 img.alt = isCenter ? `Book cover ${letter}` : `Book spine ${letter}`;
                 card.style.backgroundColor = 'transparent';
             } else if (letter === 'Class') {
+                const ext = isCenter ? 'svg' : 'png';
                 const src = isCenter
-                    ? `../assets/letters/26.png`
+                    ? `../assets/letters/26.${ext}`
                     : `../assets/skeletons/26.png`;
 
                 if (!img) {
