@@ -50,8 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
         letters.push('Class');
 
-        // Starting position (21 = 'V', so the left side shows V, W, X, Y, Z and center shows Class)
-        let currentIndex = 21;
+        // Starting position (18 = 'S', so the left side shows S, T, U, V, W, X, Y, Z and center shows Class)
+        let currentIndex = 18;
 
         /**
          * Set or update the image inside a card.
