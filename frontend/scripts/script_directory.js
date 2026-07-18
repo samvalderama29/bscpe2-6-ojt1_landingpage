@@ -141,7 +141,7 @@ const students = [
     {
         name: "MAAÑO, Vince Anthony Nacario",
         photo: "../assets/profile_pictures/MAAÑO, Vince Anthony N - Vince Maaño.jpg",
-        portfolio: "https://n3ith4n.github.io/Maa-o-Portfolio/" 
+        portfolio: "https://n3ith4n.github.io/Maa-o-Portfolio/"
     },
     {
         name: "MENDEZ, Mark Joseph Reyes",
@@ -156,7 +156,7 @@ const students = [
     {
         name: "NONOD, Abegail Estorninos",
         photo: "../assets/profile_pictures/Nonod, Abegail E. - Abegail Nonod.png",
-        portfolio: "https://abegail-nonod-ojt1-portfolio.vercel.app/" 
+        portfolio: "https://abegail-nonod-ojt1-portfolio.vercel.app/"
     },
     {
         name: "OBATAY, Gabriel Josh Alba",
@@ -256,7 +256,7 @@ const students = [
     {
         name: "VASQUEZ, John Carlo Rances",
         photo: "../assets/profile_pictures/VASQUEZ, John Carlo.png",
-        portfolio: "https://johncarlovasquez-ojt-portfolio.vercel.app/" 
+        portfolio: "https://johncarlovasquez-ojt-portfolio.vercel.app/"
     },
     {
         name: "VILLARITO, Aira Elbanbuena",
