@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class List | BS CpE 2-6</title>
+    <link rel="stylesheet" href="style_class_list.css">
+</head>
+<body>
+
+    <!-- ========== NAVBAR ========== -->
+    <header class="navbar" id="navbar">
+        <nav class="nav-links-left" id="nav-left">
+            <a href="index.html">HOME</a>
+            <a href="about_us.html">ABOUT</a>
+            <a href="explore.html">EXPLORE</a>
+        </nav>
+        <div class="navbar-logo">
+            <img src="../../assets/logos/logo_ver_1_header.png" alt="Saistematic BSCpE 2-6 Logo">
+        </div>
+        <nav class="nav-links-right" id="nav-right">
+            <a href="directory.html" class="active">STUDENT DIRECTORY</a>
+        </nav>
+        <!-- Mobile hamburger menu button -->
+        <button class="hamburger-btn" id="hamburger-btn" type="button" aria-label="Toggle navigation menu">
+            <img src="../../assets/icons/hamburger_menu.svg" alt="Menu Icon">
+        </button>
+    </header>
+
+
+    <!-- 2. ITO ANG GITNA (Dito natin papapasukin ang Class List gamit ang JS) -->
+    <main class="main-content">
+        <div class="directory-title">
+            <h1>BS CpE 2-6 Class List</h1>
+        </div>
+        
+        <!-- Dito iinbento at i-einject ng JavaScript ang listahan ng mga estudyante -->
+        <div id="student-list-container" class="student-grid"></div>
+    </main>
+
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="footer-divider">
+            <img src="../../assets/d0e1f145e3799ed75ba378bd1198998d700de6f5.svg" alt="" class="footer-divider-line">
+        </div>
+        <div class="footer-container">
+            <div class="footer-nav">
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <img src="../assets/logos/logo_ver_2_title.png" alt="Saistematic Logo" class="footer-logo">
+                        <h4 class="footer-brand-title">Saistematic</h4>
+                    </div>
+                    <p class="footer-desc">
+                        A collaborative platform for showcasing student OJT portfolios of PUP BSCpE 2-6 (Batch 2025-2026).
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="directory.html">Student Directory</a></li>
+                        <li><a href="about_us.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://github.com/samvalderama29/bscpe2-6-ojt1_landingpage" target="_blank" rel="noopener noreferrer">Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-partner">
+                <a href="https://www.facebook.com/saistematic" class="partner-btn" target="_blank" rel="noopener noreferrer">Partner with Us</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <p class="copyright">Copyright © 2026 PUP BSCpE 2-6 | All Rights Reserved.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/saistematic" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><img src="../assets/icons/facebook_icon.png" alt="Facebook"></a>
+                    <a href="https://github.com/samvalderama29/bscpe2-6-ojt1_landingpage" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><img src="../assets/icons/github_icon.png" alt="GitHub"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== MOBILE NAV DRAWER ========== -->
+    <div class="mobile-drawer-overlay" id="mobile-drawer-overlay" aria-hidden="true"></div>
+    <div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+        <div class="mobile-drawer-header">
+            <div class="drawer-logo">
+                <img src="../../assets/logos/logo_ver_1_header.png" alt="Saistematic Logo">
+            </div>
+            <button class="close-drawer-btn" id="close-drawer-btn" type="button" aria-label="Close menu">&times;</button>
+        </div>
+        <nav class="mobile-drawer-links">
+            <a href="index.html">HOME</a>
+            <a href="about_us.html">ABOUT</a>
+            <a href="explore.html">EXPLORE</a>
+            <a href="directory.html" class="active">STUDENT DIRECTORY</a>
+        </nav>
+    </div>
+
+
+    <!-- 4. DATA REFERENCE (Rule #2 sa screenshot) -->
+    <!-- I-link mo muna dito kung saan nanggagaling yung variable/data ng mga student -->
+    <script src="class_list/student_database.js"></script> <!-- Palitan mo ito ng tamang file path ng data mo -->
+
+    <!-- 5. ANG MAIN CODE MO PARA SA PAGE NA ITO -->
+    <script src="class_list/script_class_list.js"></script>
+</body>
+</html>
