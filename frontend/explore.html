@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saistematic | Home</title>
+    <title>Saistematic | Explore</title>
     <link rel="icon" type="image/png" href="../assets/logos/logo_ver_2_title.png">
-    <meta name="description" content="Landing Page for BSCpE 2-6 Saistematic">
+    <meta name="description" content="Search and Explore the BSCpE 2-6 Saistematic OJT Website">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,110 +17,55 @@
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght,MONO@0,300..800,1;1,300..800,1&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Montserrat:wght@600&display=swap" rel="stylesheet">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles/style_index.css">
+    <link rel="stylesheet" href="styles/style_explore.css">
+    
 </head>
 <body>
 
     <!-- ========== NAVBAR ========== -->
     <header class="navbar" id="navbar">
-        <nav class="nav-links-left" id="nav-left">
+        <div class="nav-links-left" id="nav-left">
+            <a href="index.html">HOME</a>
             <a href="directory.html">STUDENT DIRECTORY</a>
-            <a href="explore.html">EXPLORE</a>
             <a href="about_us.html">ABOUT</a>
-        </nav>
-        <div class="navbar-logo">
-            <img src="../assets/logos/logo_ver_1_header.png" alt="Saistematic BSCpE 2-6 Logo">
         </div>
-        <nav class="nav-links-right" id="nav-right">
-            <a href="index.html" class="active">HOME</a>
-        </nav>
+
+        <div class="navbar-logo">
+            <img src="../assets/logos/logo_ver_1_header.png" alt="Sistematic Logo">
+        </div>
+
+        <div class="nav-links-right" id="nav-right">
+            <a href="explore.html" class="active">EXPLORE</a>
+        </div>
+
         <!-- Mobile hamburger menu button -->
         <button class="hamburger-btn" id="hamburger-btn" type="button" aria-label="Toggle navigation menu">
             <img src="../assets/icons/hamburger_menu.svg" alt="Menu Icon">
         </button>
     </header>
 
-    <!-- ========== MAIN DIRECTORY ========== -->
-    <main class="hero">      
-        <div class="hero-title-group">
-            <img class="star-bg" src="../assets/backgrounds/star_whole.png" alt="Star Orbit">
-            
-            <h2 class="comp-text">COMPUTER</h2>
-
-            <div>
-                <img class="hero-center-logo" src="../assets/logos/logo_ver_2_title.png" alt="Saistematic Logo">
-            </div>
-
-            <h1 class="engr-text">ENGINEERING</h1>
+    <main>
+        <div class="cosmic-ring-container">
+            <div class="cosmic-ring"></div>
+            <div class="star-spark top-right"></div>
+            <div class="star-spark bottom-center"></div>
         </div>
 
-        <p class="hero-desc">
-            A collective showcase of our journey in BSCPE On-The-Job Training 1.
-            <br>
-            Click below to access the class directory and explore our OJT portfolios.</p>
-        
-        <a href="#class-directory" class="get-started-btn" rel="noopener noreferrer">
-            <img src="../assets/icons/get_started_button.png" alt="Get Started">
-        </a>
+        <section class="hero-section">
+            <h1>Navigating something?</h1>
+
+            <p class="hero-desc">Type a name to find your classmate's OJT portfolio</p>
+            
+            <form action="directory.html" method="GET" class="search-container">
+                <div class="search-input-wrapper">
+                    <img src="../assets/icons/search_icon.png" alt="Search Icon" class="search-bar-icon">
+                    <input type="text" name="search" id="student-search" placeholder="Search student name..." required>
+                    <div id="search-suggestions" class="search-suggestions"></div>
+                </div>
+                <button type="submit">SEARCH</button>
+            </form>
+        </section>
     </main>
-
-    <!-- ========== SECOND FRAME ========== -->
-    <section id="class-directory" class="cd-section">
-        <!-- Header Content -->
-        <div class="cd-header-content">
-            <h2 class="cd-title">CLASS DIRECTORY</h2>
-            <p class="cd-description">Step into the technical journey of BSCPE 2-6. Explore individual portfolios detailing our OJT 1 experiences, from essential internship requirements to the hands-on challenges and project-based milestones that shaped our engineering skills.
-        </div>
-
-        <!-- Carousel Section -->
-        <div class="cd-carousel-container">
-            <!-- Left Side Cards (8) -->
-            <div class="cd-card cd-side-card" data-letter="S"></div>
-            <div class="cd-card cd-side-card" data-letter="T"></div>
-            <div class="cd-card cd-side-card" data-letter="U"></div>
-            <div class="cd-card cd-side-card" data-letter="V"></div>
-            <div class="cd-card cd-side-card" data-letter="W"></div>
-            <div class="cd-card cd-side-card" data-letter="X"></div>
-            <div class="cd-card cd-side-card" data-letter="Y"></div>
-            <div class="cd-card cd-side-card" data-letter="Z"></div>
-            
-            <!-- Center Active Card -->
-            <div class="cd-card cd-active-card"></div>
-            
-            <!-- Right Side Cards (8) -->
-            <div class="cd-card cd-side-card" data-letter="A"></div>
-            <div class="cd-card cd-side-card" data-letter="B"></div>
-            <div class="cd-card cd-side-card" data-letter="C"></div>
-            <div class="cd-card cd-side-card" data-letter="D"></div>
-            <div class="cd-card cd-side-card" data-letter="E"></div>
-            <div class="cd-card cd-side-card" data-letter="F"></div>
-            <div class="cd-card cd-side-card" data-letter="G"></div>
-            <div class="cd-card cd-side-card" data-letter="H"></div>
-        </div>
-
-        <!-- Controls -->
-        <div class="cd-controls">
-            <button class="cd-nav-btn cd-prev-btn">&lt;</button>
-            <span class="cd-class-label">Class</span>
-            <button class="cd-nav-btn cd-next-btn">&gt;</button>
-        </div>
-    </section>
-
-    <!-- ========== LAST FRAME ========== -->
-    <section class="explore-section">
-        <div class="explore-container">
-            <div class="explore-left">
-                <img src="../assets/logos/logo_ver_2_cropped.png" alt="Saistematic Logo" class="explore-logo">
-            </div>
-            
-            <div class="explore-right">
-                <h2 class="explore-title">Saistematic</h2>
-                <p class="explore-desc">BSCPE 2-6 • PUP Manila Batch 2025–2026
-                    <br> A collaborative website built by 2nd-year Computer Engineering students as part of our OJT. Explore our portfolios, projects, and the skills we’ve developed along the way.</p>
-                <a href="explore.html" class="explore-btn" rel="noopener noreferrer">EXPLORE</a>
-            </div>
-        </div>
-    </section>
 
     <!-- ========== FOOTER ========== -->
     <footer class="footer">
@@ -179,13 +124,14 @@
             <button class="close-drawer-btn" id="close-drawer-btn" type="button" aria-label="Close menu">&times;</button>
         </div>
         <nav class="mobile-drawer-links">
-            <a href="index.html" class="active">HOME</a>
+            <a href="index.html">HOME</a>
             <a href="about_us.html">ABOUT</a>
-            <a href="explore.html">EXPLORE</a>
+            <a href="explore.html" class="active">EXPLORE</a>
             <a href="directory.html">STUDENT DIRECTORY</a>
         </nav>
     </div>
 
-    <script src="scripts/script_index.js"></script>
+    <!-- Link the Javascript -->
+    <script src="scripts/script_explore.js"></script>
 </body>
 </html>
