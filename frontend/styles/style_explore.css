@@ -302,8 +302,8 @@ main {
 /* Position the search icon inside the left area of the capsule input */
 .search-bar-icon {
     position: absolute;
-    right: 15px;          
-    width: 40px;  
+    left: 15px;          
+    width: 45px;  
     height: 40px;
     pointer-events: none; 
     opacity: 1;
