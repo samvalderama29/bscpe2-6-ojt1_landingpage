@@ -399,7 +399,7 @@ body {
 }
 
 /* ---------- Responsive: Tablet ---------- */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .navbar {
         height: 100px;
         padding: 0 30px;
@@ -415,6 +415,20 @@ body {
 
     .navbar-logo img {
         max-height: 80px;
+    }
+
+    .nav-links-left,
+    .nav-links-right {
+        display: none !important;
+    }
+
+    .navbar-logo {
+        position: static;
+        transform: none;
+    }
+
+    .hamburger-btn {
+        display: block;
     }
 
     .directory-page {
@@ -943,7 +957,7 @@ body {
 }
 
 /* ---------- Responsive: Tablet ---------- */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .class-list-page {
         padding: 60px 20px 80px;
     }

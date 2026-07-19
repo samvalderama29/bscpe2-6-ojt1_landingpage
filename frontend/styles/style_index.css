@@ -804,7 +804,7 @@ h2 {
 }
 
 /* ---------- Responsive: Tablet ---------- */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     body {
         padding-top: 100px;
     }

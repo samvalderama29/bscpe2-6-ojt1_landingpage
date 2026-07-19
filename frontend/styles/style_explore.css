@@ -612,7 +612,7 @@ main {
     color: #1947bd; 
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .nav-links-left, 
     .nav-links-right {
         display: none !important; 
@@ -626,7 +626,7 @@ main {
    6. RESPONSIVE MEDIA QUERIES (Mobile & Tablet Optimization)
    ========================================================================== */
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     body {
         padding-top: 100px; 
     }
