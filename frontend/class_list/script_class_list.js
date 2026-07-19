@@ -1,87 +1,84 @@
-// =============================================
-// STATE & DATA
-// =============================================
-let students = []; // Data will be populated via fetch()
-const studentsByLetter = {};
+/**
+ * Class List — script_class_list.js
+ * Renders the FEMALE / MALE student name lists and handles mobile nav drawer.
+ * Depends on student_database.js being loaded first (provides femaleNames, maleNames).
+ */
 
-const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-let currentIndex = 0; 
-let isAnimating = false; 
-
-// =============================================
-// DOM REFERENCES
-// =============================================
-const currentLetterEl = document.getElementById("current-letter");
-
-const hamburgerBtn = document.getElementById("hamburger-btn");
-const mobileDrawer = document.getElementById("mobile-drawer");
-const mobileDrawerOverlay = document.getElementById("mobile-drawer-overlay");
-const closeDrawerBtn = document.getElementById("close-drawer-btn");
-
-// =============================================
-// HELPERS
-// =============================================
-function wrapIndex(index, length) {
-    if (length <= 0) return 0;
-    return ((index % length) + length) % length;
-}
-
-function getCurrentLetter() {
-    const student = students[currentIndex];
-    return student ? student.name.charAt(0).toUpperCase() : "A";
-}
-
-function groupStudentsByLetter() {
-    for (let key in studentsByLetter) delete studentsByLetter[key];
-    
-    students.forEach(student => {
-        const firstLetter = student.name.charAt(0).toUpperCase();
-        if (!studentsByLetter[firstLetter]) {
-            studentsByLetter[firstLetter] = [];
-        }
-        studentsByLetter[firstLetter].push(student);
-    });
-}
-
-// =============================================
-// RENDERING
-// =============================================
-function renderStudentList() {
-    const container = document.getElementById("student-list-container");
-    container.innerHTML = ""; 
-
-    allStudents.forEach(student => {
-        const studentCard = document.createElement("div");
-        studentCard.classList.add("student-card");
-        
-        // Dito natin ilalagay ang structure ng card
-        studentCard.innerHTML = `
-            <h3>${student.name}</h3>
-            <p>${student.gender}</p>
-        `;
-        container.appendChild(studentCard);
-    });
-}
-
-// Kick off the script
-// Dahil naka-link na ang student_database.js sa HTML, 
-// automatic na accessible na ang 'allStudents' variable dito.
 document.addEventListener('DOMContentLoaded', () => {
-    renderStudentList();
+    // =============================================
+    // RENDER CLASS LIST
+    // =============================================
+    const container = document.getElementById('class-list-content');
+
+    if (container && typeof femaleNames !== 'undefined' && typeof maleNames !== 'undefined') {
+        // FEMALE section
+        const femaleSection = document.createElement('div');
+        femaleSection.className = 'class-list-section';
+
+        const femaleHeading = document.createElement('p');
+        femaleHeading.className = 'section-heading';
+        femaleHeading.textContent = 'FEMALE';
+        femaleSection.appendChild(femaleHeading);
+
+        femaleNames.forEach(name => {
+            const p = document.createElement('p');
+            p.className = 'student-name';
+            p.textContent = name;
+            femaleSection.appendChild(p);
+        });
+
+        container.appendChild(femaleSection);
+
+        // Spacer between sections
+        const spacer = document.createElement('div');
+        spacer.className = 'section-spacer';
+        container.appendChild(spacer);
+
+        // MALE section
+        const maleSection = document.createElement('div');
+        maleSection.className = 'class-list-section';
+
+        const maleHeading = document.createElement('p');
+        maleHeading.className = 'section-heading';
+        maleHeading.textContent = 'MALE';
+        maleSection.appendChild(maleHeading);
+
+        maleNames.forEach(name => {
+            const p = document.createElement('p');
+            p.className = 'student-name';
+            p.textContent = name;
+            maleSection.appendChild(p);
+        });
+
+        container.appendChild(maleSection);
+    }
+
+    // =============================================
+    // MOBILE NAV DRAWER
+    // =============================================
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    const mobileDrawerOverlay = document.getElementById('mobile-drawer-overlay');
+    const closeDrawerBtn = document.getElementById('close-drawer-btn');
+
+    if (hamburgerBtn && mobileDrawer && mobileDrawerOverlay && closeDrawerBtn) {
+        hamburgerBtn.addEventListener('click', () => {
+            mobileDrawer.classList.add('active');
+            mobileDrawerOverlay.classList.add('active');
+        });
+
+        const closeMobileDrawer = () => {
+            mobileDrawer.classList.remove('active');
+            mobileDrawerOverlay.classList.remove('active');
+        };
+
+        closeDrawerBtn.addEventListener('click', closeMobileDrawer);
+        mobileDrawerOverlay.addEventListener('click', closeMobileDrawer);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileDrawer.classList.contains('active')) {
+                closeMobileDrawer();
+            }
+        });
+    }
 });
-
-// I-update ang initialization para tumawag sa render function
-async function loadDataAndInitialize() {
-    // Kung ang student_database.js ay naka-set bilang variable, 
-    // siguraduhin na 'students' variable ay updated dito.
-    
-    // Halimbawa:
-    // students = window.allStudents; 
-    
-    groupStudentsByLetter();
-    renderStudentList(); // Tawagin ang function para ipakita sa page
-}
-
-
-// Kick off the script
-loadDataAndInitialize();

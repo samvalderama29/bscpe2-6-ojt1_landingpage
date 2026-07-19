@@ -365,6 +365,17 @@ async function loadDataAndInitialize() {
 
         // Group letters and render
         groupStudentsByLetter();
+
+        // Handle Letter Query (from index page carousel click)
+        const letterQuery = urlParams.get('letter');
+        if (letterQuery && !searchQuery) {
+            const targetLetter = letterQuery.toUpperCase();
+            const firstIdx = students.findIndex(s => s.name.charAt(0).toUpperCase() === targetLetter);
+            if (firstIdx !== -1) {
+                currentIndex = firstIdx;
+            }
+        }
+
         initCarousel();
 
     } catch (error) {
