@@ -927,18 +927,31 @@ body {
     .navbar {
         height: 100px;
         padding: 0 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .top-vignette {
         height: 80px;
     }
 
-    .navbar a {
-        font-size: 16px;
+    .nav-links-left,
+    .nav-links-right {
+        display: none !important;
+    }
+
+    .navbar-logo {
+        position: static;
+        transform: none;
     }
 
     .navbar-logo img {
         max-height: 80px;
+    }
+
+    .hamburger-btn {
+        display: block;
     }
 
     .directory-page {
@@ -1019,33 +1032,14 @@ body {
     .navbar {
         height: 80px;
         padding: 0 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
     }
 
     .top-vignette {
         height: 60px;
     }
 
-    .nav-links-left,
-    .nav-links-right {
-        display: none !important;
-        /* Hide desktop nav menu links */
-    }
-
-    .navbar-logo {
-        position: static;
-        transform: none;
-    }
-
     .navbar-logo img {
         max-height: 50px;
-    }
-
-    .hamburger-btn {
-        display: block;
-        /* Show hamburger menu icon */
     }
 
     .directory-page {
