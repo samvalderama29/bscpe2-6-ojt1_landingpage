@@ -826,6 +826,7 @@ body {
         max-width: 100%;
         margin: 0 auto;
         line-height: 1.6;
+        font-size: 15px;
     }
 
     .footer-partner {
