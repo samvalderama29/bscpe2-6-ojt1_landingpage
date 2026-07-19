@@ -36,3 +36,87 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+document.addEventListener("DOMContentLoaded", async () => {
+    const searchInput = document.getElementById("student-search");
+    const suggestionsBox = document.getElementById("search-suggestions");
+
+    if (!searchInput || !suggestionsBox) return;
+
+    try {
+        const response = await fetch("students.json");
+        const students = await response.json();
+
+        searchInput.addEventListener("input", () => {
+            const query = searchInput.value.trim().toLowerCase();
+
+            suggestionsBox.innerHTML = "";
+
+            if (!query) {
+                suggestionsBox.style.display = "none";
+                return;
+            }
+
+            const surnameMatches = students.filter(student => {
+                const surname = student.name
+                    .split(",")[0]
+                    .trim()
+                    .toLowerCase();
+
+                return surname.startsWith(query);
+            });
+
+            const firstNameMatches = students.filter(student => {
+                const surname = student.name
+                    .split(",")[0]
+                    .trim()
+                    .toLowerCase();
+
+                if (surname.startsWith(query)) return false;
+
+                const remainingNames = student.name
+                    .split(",")
+                    .slice(1)
+                    .join(" ")
+                    .toLowerCase()
+                    .trim();
+
+                return remainingNames
+                    .split(/\s+/)
+                    .some(part => part.startsWith(query));
+            });
+
+            const matches = surnameMatches.slice(0, 5);
+
+            if (matches.length === 0) {
+                suggestionsBox.style.display = "none";
+                return;
+            }
+
+            matches.forEach(student => {
+                const item = document.createElement("div");
+
+                item.className = "search-suggestion-item";
+                item.textContent = student.name;
+
+                item.addEventListener("click", () => {
+                    window.location.href = student.portfolio;
+                });
+
+                suggestionsBox.appendChild(item);
+            });
+
+            suggestionsBox.style.display = "block";
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!suggestionsBox.contains(event.target) &&
+                event.target !== searchInput) {
+                suggestionsBox.style.display = "none";
+            }
+        });
+
+    } catch (error) {
+        console.error("Error loading students.json:", error);
+    }
+});

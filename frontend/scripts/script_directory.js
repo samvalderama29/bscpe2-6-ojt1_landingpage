@@ -335,6 +335,8 @@ async function loadDataAndInitialize() {
     try {
         // Fetch external data file
         const response = await fetch('students.json');
+        console.log("Fetch response:", response);
+        
         const data = await response.json();
         
         // Populate global students array
