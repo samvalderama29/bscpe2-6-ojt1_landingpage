@@ -612,7 +612,7 @@ main {
     color: #1947bd; 
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .nav-links-left, 
     .nav-links-right {
         display: none !important; 
@@ -626,7 +626,7 @@ main {
    6. RESPONSIVE MEDIA QUERIES (Mobile & Tablet Optimization)
    ========================================================================== */
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     body {
         padding-top: 100px; 
     }
@@ -683,13 +683,30 @@ main {
         margin: -10px auto 32px auto;
     }
 
-    .footer-container,
-    .footer-bottom-container {
-        padding: 0 30px;
+    /* -- footer adjustments -- */
+    .footer-container {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 0 40px;
     }
 
     .footer-nav {
         gap: 40px;
+    }
+
+    .footer-desc {
+        max-width: 220px;
+        font-size: 13px;
+    }
+
+    .footer-bottom-container {
+        padding: 0 40px;
+    }
+    
+    .partner-btn {
+        padding: 12px 24px;
+        font-size: 15px;
     }
 }
 
@@ -702,6 +719,28 @@ main {
     .search-container {
         max-width: 620px; 
         gap: 24px;
+    }
+
+    /* -- footer adjustments -- */
+    .footer-container {
+        padding: 0 40px;
+        flex-direction: column;
+        gap: 40px;
+        align-items: flex-start; 
+    }
+
+    .footer-nav {
+        gap: 40px;
+        width: 100%;
+        justify-content: space-between;
+        display: flex;
+    }
+
+    .footer-partner {
+        width: 100%;  
+        display: flex; 
+        justify-content: center; 
+        margin-top: 0; 
     }
 }
 
@@ -786,57 +825,16 @@ main {
         border-radius: 50px; 
     }
 
-    /* Footer Adaptive Alignment Mapping */
-    .footer-container {
-        padding: 0 20px;
+    /* -- footer adjustments -- */
+    .footer-bottom-container {
         flex-direction: column;
-        align-items: center;
-        gap: 30px;
+        gap: 20px;
+        padding: 0 40px;
+        text-align: center;
     }
 
     .footer-nav {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 35px;
-    }
-
-    .footer-col {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-col h4 {
-        margin-bottom: 12px;
-    }
-
-    .footer-brand {
-        justify-content: center;
-    }
-
-    .footer-partner {
-        margin-top: 0;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    .partner-btn {
-        width: 100%;
-        max-width: 280px;
-        text-align: center;
-    }
-
-    .footer-bottom-container {
-        padding: 0 20px;
-        flex-direction: column;
-        gap: 16px;
-        text-align: center;
-    }
-
-    .footer-bottom {
-        margin-top: 40px;
+        flex-wrap: wrap;
     }
 }
 
@@ -870,10 +868,82 @@ main {
         margin: -10px auto 20px auto;
         line-height: 1.4;
     }
-    
-    .footer-nav {
+}
+
+/* ---- DEVICE: SMALL MOBILE ---- */
+@media (max-width: 576px) {
+    /* -- footer adjustments -- */
+    .footer-container {
+        padding: 0 20px;
         flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .footer-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+        width: 100%;
+    }
+
+    .footer-brand {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .footer-logo {
+        margin-left: 0;
+        height: 30px;
+        width: auto;
+        display: block;
+        transform: none;
+    }
+
+    .footer-brand-title {
+        margin: 0 !important;
+        padding: 0;
+        line-height: 1;
+        display: block;
+        transform: translateY(-1px);
+        font-size: 18px;
+        font-weight: 700;
+    }
+    
+    .footer-desc {
+        max-width: 100%;
+        margin: 0 auto;
+        line-height: 1.6;
+        font-size: 15px;
+    }
+
+    .footer-partner {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .footer-bottom-container {
+        padding: 0 20px;
+        flex-direction: column;
+        align-items: center;
         gap: 20px;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .partner-btn {
+        width: auto;
     }
 }
 

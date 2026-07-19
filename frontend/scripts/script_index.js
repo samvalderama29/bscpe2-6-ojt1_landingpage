@@ -133,5 +133,30 @@ document.addEventListener('DOMContentLoaded', () => {
             currentIndex = (currentIndex - 1 + letters.length) % letters.length;
             updateCards();
         });
+
+        // =============================================
+        // CARD CLICK NAVIGATION
+        // =============================================
+        function navigateByLetter(letter) {
+            if (letter === 'Class') {
+                window.location.href = 'class_list/class_list.html';
+            } else if (letter && letter.length === 1 && letter >= 'A' && letter <= 'Z') {
+                window.location.href = 'directory.html?letter=' + letter;
+            }
+        }
+
+        // Center card click
+        activeCard.addEventListener('click', () => {
+            const letter = activeCard.getAttribute('data-letter');
+            navigateByLetter(letter);
+        });
+
+        // Side card clicks
+        sideCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const letter = card.getAttribute('data-letter');
+                navigateByLetter(letter);
+            });
+        });
     }
 });
