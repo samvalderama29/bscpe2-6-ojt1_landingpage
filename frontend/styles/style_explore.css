@@ -618,104 +618,172 @@ main {
    6. RESPONSIVE MEDIA QUERIES (Mobile & Tablet Optimization)
    ========================================================================== */
 
-/* Tablet View */
+/* ==========================================================================
+   6. RESPONSIVE MEDIA QUERIES (Mobile & Tablet Optimization)
+   ========================================================================== */
+
 @media (max-width: 1024px) {
     body {
-        padding-top: 100px;
+        padding-top: 100px; 
     }
+
     .navbar {
         height: 100px;
         padding: 0 30px;
     }
+
+    .navbar a {
+        font-size: 16px;
+    }
+
+    .navbar-logo img {
+        max-height: 80px;
+    }
+
     .nav-links-left,
     .nav-links-right {
-        display: none; /*Hides normal links to replace with Hamburger menu*/
+        display: none !important; 
     }
-    .navbar-logo {
-        position: static;
-        transform: none;
-    }
-    .navbar-logo img {
-        max-height: 70px;
-    }
+
     .hamburger-btn {
-        display: block; /* Shows the mobile hamburger button*/
+        display: block;
+    }
+
+    main {
+        min-height: calc(100vh - 100px);
+        padding: 40px 20px;
+    }
+
+    .footer-container,
+    .footer-bottom-container {
+        padding: 0 30px;
+    }
+
+    .footer-nav {
+        gap: 40px;
     }
 }
 
-/* Screen size for Medium at Small Tablets (iPad / Responsive Scale down) */
+/*Responsive: iPad Air (max-width: 820px)*/
 @media (max-width: 820px) {
     .hero-section h1 {
         font-size: 2.8rem; 
     }
-    .footer-container {
-        padding: 0 40px;
-        flex-direction: column;
-        gap: 40px;
-    }
-    .footer-nav {
-        gap: 40px;
-        width: 100%;
-        justify-content: space-between;
-    }
 }
 
-/* Phone / Mobile View */
+/*Responsive: Mobile (max-width: 768px)*/
 @media (max-width: 768px) {
+    body {
+        padding-top: 80px;
+    }
+
+    .navbar {
+        height: 80px;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navbar-logo {
+        position: static;
+        transform: none;
+    }
+
+    .navbar-logo img {
+        max-height: 50px;
+    }
+
+    /* Main Area Configuration for Explore Content */
+    main {
+        min-height: calc(100vh - 80px);
+        padding: 30px 15px;
+    }
+
     .hero-section h1 {
         font-size: 2.2rem;
         margin-bottom: 25px;
+        white-space: normal; 
+        width: 100%;
     }
-    
-    /* Responsive stacking for search bar */
+
+    /* Stacking handling for Search bar interface */
     .search-container {
         flex-direction: column;
-        gap: 12px;
-        padding: 0 15px;
+        gap: 16px;
+        padding: 0;
     }
-    
+
+    .search-input-wrapper {
+        width: 100%;
+    }
+
     .search-container input[type="text"] {
-        text-align: center;
-        padding: 14px 20px;
+        padding: 16px 60px 16px 24px;
+        font-size: 1.1rem;
     }
 
     .search-container button {
         width: 100%; 
+        padding: 14px 0;
+        border-radius: 50px; 
+    }
+
+    /* Footer Adaptive Alignment Mapping */
+    .footer-container {
+        padding: 0 20px;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .footer-nav {
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-partner {
+        margin-top: 0;
     }
 
     .footer-bottom-container {
+        padding: 0 20px;
         flex-direction: column;
-        gap: 20px;
-        padding: 0 40px;
+        gap: 16px;
         text-align: center;
+    }
+
+    .footer-bottom {
+        margin-top: 40px;
     }
 }
 
-/* Small Phone View */
-@media (max-width: 576px) {
+/*Small Mobile (max-width: 480px)*/
+@media (max-width: 480px) {
     body {
-        padding-top: 80px;
+        padding-top: 64px;
     }
+
     .navbar {
-        height: 80px;
-        padding: 0 20px;
+        height: 64px;
+        padding: 0 12px;
     }
+
     .navbar-logo img {
-        max-height: 50px;
+        max-height: 44px;
     }
+
+    main {
+        min-height: calc(100vh - 64px);
+        padding: 20px 10px;
+    }
+
     .hero-section h1 {
         font-size: 1.8rem;
     }
+
     .footer-nav {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
-    }
-    .footer-container {
-        padding: 0 20px;
-    }
-    .partner-btn {
-        width: 100%;
-        text-align: center;
+        flex-direction: column;
+        gap: 20px;
     }
 }
