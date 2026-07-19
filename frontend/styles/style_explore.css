@@ -283,6 +283,41 @@ main {
     filter: brightness(1.08);
 }
 
+/* Wrapper to hold both the icon and the text input together */
+.search-input-wrapper {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+/* Position the search icon inside the left area of the capsule input */
+.search-bar-icon {
+    position: absolute;
+    right: 15px;          
+    width: 40px;  
+    height: 40px;
+    pointer-events: none; 
+    opacity: 1;
+    z-index: 10; 
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));     
+}
+
+
+.search-container input[type="text"] {
+    flex: 1;
+    width: 100%;
+    padding: 20px 32px 20px 60px;        
+    border-radius: 50px;        
+    border: 1px solid rgba(22, 56, 66, 0.2);
+    background-color: rgba(255, 255, 255, 0.95);
+    font-size: 1.25rem;
+    outline: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    color: #1a3053;
+}
+
 /* ==========================================================================
    4. FOOTER SECTION (Uniform across pages)
    ========================================================================== */
